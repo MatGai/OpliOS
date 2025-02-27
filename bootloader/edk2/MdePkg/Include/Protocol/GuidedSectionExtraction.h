@@ -5,13 +5,7 @@
   the section stream contained therein.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference: PI
   Version 1.00.
@@ -33,7 +27,6 @@
 //
 
 typedef struct _EFI_GUIDED_SECTION_EXTRACTION_PROTOCOL EFI_GUIDED_SECTION_EXTRACTION_PROTOCOL;
-
 
 /**
   The ExtractSection() function processes the input section and
@@ -123,8 +116,7 @@ EFI_STATUS
   OUT       VOID                                    **OutputBuffer,
   OUT       UINTN                                   *OutputSize,
   OUT       UINT32                                  *AuthenticationStatus
-);
-
+  );
 
 ///
 /// Typically, protocol interface structures are identified by associating them with a GUID. Each
@@ -134,8 +126,7 @@ EFI_STATUS
 /// Extraction Protocol is used to correlate it with the GUIDed section type that it is intended to process.
 ///
 struct _EFI_GUIDED_SECTION_EXTRACTION_PROTOCOL {
-  EFI_EXTRACT_GUIDED_SECTION  ExtractSection;
+  EFI_EXTRACT_GUIDED_SECTION    ExtractSection;
 };
-
 
 #endif

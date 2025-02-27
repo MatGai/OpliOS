@@ -5,13 +5,7 @@
   This protocol provides the parent dispatch service for a given SMI source generator.
 
   Copyright (c) 2009 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -21,7 +15,7 @@
 #include <Protocol/MmSwDispatch.h>
 #include <Pi/PiSmmCis.h>
 
-#define EFI_SMM_SW_DISPATCH2_PROTOCOL_GUID EFI_MM_SW_DISPATCH_PROTOCOL_GUID
+#define EFI_SMM_SW_DISPATCH2_PROTOCOL_GUID  EFI_MM_SW_DISPATCH_PROTOCOL_GUID
 
 ///
 /// A particular chipset may not support all possible software SMI input values.
@@ -29,7 +23,7 @@
 /// child registration for each SwSmiInputValue.
 ///
 typedef struct {
-  UINTN SwSmiInputValue;
+  UINTN    SwSmiInputValue;
 } EFI_SMM_SW_REGISTER_CONTEXT;
 
 ///
@@ -42,18 +36,18 @@ typedef struct {
   ///
   /// The 0-based index of the CPU which generated the software SMI.
   ///
-  UINTN SwSmiCpuIndex;
+  UINTN    SwSmiCpuIndex;
   ///
   /// This value corresponds directly to the CommandPort parameter used in the call to Trigger().
   ///
-  UINT8 CommandPort;
+  UINT8    CommandPort;
   ///
   /// This value corresponds directly to the DataPort parameter used in the call to Trigger().
   ///
-  UINT8 DataPort;
+  UINT8    DataPort;
 } EFI_SMM_SW_CONTEXT;
 
-typedef struct _EFI_SMM_SW_DISPATCH2_PROTOCOL  EFI_SMM_SW_DISPATCH2_PROTOCOL;
+typedef struct _EFI_SMM_SW_DISPATCH2_PROTOCOL EFI_SMM_SW_DISPATCH2_PROTOCOL;
 
 /**
   Register a child SMI source dispatch function for the specified software SMI.
@@ -110,7 +104,7 @@ EFI_STATUS
 (EFIAPI *EFI_SMM_SW_UNREGISTER2)(
   IN CONST EFI_SMM_SW_DISPATCH2_PROTOCOL  *This,
   IN       EFI_HANDLE                     DispatchHandle
-);
+  );
 
 ///
 /// Interface structure for the SMM Software SMI Dispatch Protocol.
@@ -120,15 +114,15 @@ EFI_STATUS
 /// interrupt in the EFI_SMM_SW_REGISTER_CONTEXT is denoted by MaximumSwiValue.
 ///
 struct _EFI_SMM_SW_DISPATCH2_PROTOCOL {
-  EFI_SMM_SW_REGISTER2    Register;
-  EFI_SMM_SW_UNREGISTER2  UnRegister;
+  EFI_SMM_SW_REGISTER2      Register;
+  EFI_SMM_SW_UNREGISTER2    UnRegister;
   ///
   /// A read-only field that describes the maximum value that can be used in the
   /// EFI_SMM_SW_DISPATCH2_PROTOCOL.Register() service.
   ///
-  UINTN                  MaximumSwiValue;
+  UINTN                     MaximumSwiValue;
 };
 
-extern EFI_GUID gEfiSmmSwDispatch2ProtocolGuid;
+extern EFI_GUID  gEfiSmmSwDispatch2ProtocolGuid;
 
 #endif

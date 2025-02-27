@@ -4,13 +4,7 @@
   When the DXE core is done it calls the BDS via this protocol.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -26,7 +20,7 @@
 ///
 /// Declare forward reference for the BDS Architectural Protocol
 ///
-typedef struct _EFI_BDS_ARCH_PROTOCOL   EFI_BDS_ARCH_PROTOCOL;
+typedef struct _EFI_BDS_ARCH_PROTOCOL EFI_BDS_ARCH_PROTOCOL;
 
 /**
   This function uses policy data from the platform to determine what operating
@@ -64,9 +58,9 @@ VOID
 /// the boot device can be used to load and invoke an OS or a system utility.
 ///
 struct _EFI_BDS_ARCH_PROTOCOL {
-  EFI_BDS_ENTRY Entry;
+  EFI_BDS_ENTRY    Entry;
 };
 
-extern EFI_GUID gEfiBdsArchProtocolGuid;
+extern EFI_GUID  gEfiBdsArchProtocolGuid;
 
 #endif

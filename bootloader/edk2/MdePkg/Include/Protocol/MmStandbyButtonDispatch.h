@@ -5,13 +5,7 @@
   This protocol provides the parent dispatch service for the standby button MMI source generator.
 
   Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This protocol is from PI Version 1.5.
@@ -45,7 +39,7 @@ typedef struct {
   /// Describes whether the child handler should be invoked upon the entry to the button
   /// activation or upon exit.
   ///
-  EFI_STANDBY_BUTTON_PHASE  Phase;
+  EFI_STANDBY_BUTTON_PHASE    Phase;
 } EFI_MM_STANDBY_BUTTON_REGISTER_CONTEXT;
 
 typedef struct _EFI_MM_STANDBY_BUTTON_DISPATCH_PROTOCOL EFI_MM_STANDBY_BUTTON_DISPATCH_PROTOCOL;
@@ -109,11 +103,10 @@ EFI_STATUS
 /// button MMI source generator.
 ///
 struct _EFI_MM_STANDBY_BUTTON_DISPATCH_PROTOCOL {
-  EFI_MM_STANDBY_BUTTON_REGISTER    Register;
-  EFI_MM_STANDBY_BUTTON_UNREGISTER  UnRegister;
+  EFI_MM_STANDBY_BUTTON_REGISTER      Register;
+  EFI_MM_STANDBY_BUTTON_UNREGISTER    UnRegister;
 };
 
-extern EFI_GUID gEfiMmStandbyButtonDispatchProtocolGuid;
+extern EFI_GUID  gEfiMmStandbyButtonDispatchProtocolGuid;
 
 #endif
-

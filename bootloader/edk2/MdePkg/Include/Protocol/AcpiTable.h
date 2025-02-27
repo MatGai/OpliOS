@@ -3,13 +3,7 @@
   table from a platform.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol was introduced in UEFI Specification 2.3.
@@ -21,7 +15,6 @@
 
 #define EFI_ACPI_TABLE_PROTOCOL_GUID \
   { 0xffe06bdd, 0x6107, 0x46a6, { 0x7b, 0xb2, 0x5a, 0x9c, 0x7e, 0xc5, 0x27, 0x5c }}
-
 
 typedef struct _EFI_ACPI_TABLE_PROTOCOL EFI_ACPI_TABLE_PROTOCOL;
 
@@ -81,8 +74,7 @@ EFI_STATUS
   IN   VOID                          *AcpiTableBuffer,
   IN   UINTN                         AcpiTableBufferSize,
   OUT  UINTN                         *TableKey
-);
-
+  );
 
 /**
 
@@ -113,18 +105,17 @@ EFI_STATUS
 (EFIAPI *EFI_ACPI_TABLE_UNINSTALL_ACPI_TABLE)(
   IN  EFI_ACPI_TABLE_PROTOCOL       *This,
   IN  UINTN                         TableKey
-);
+  );
 
 ///
 /// The EFI_ACPI_TABLE_PROTOCOL provides the ability for a component
 /// to install and uninstall ACPI tables from a platform.
 ///
 struct _EFI_ACPI_TABLE_PROTOCOL {
-  EFI_ACPI_TABLE_INSTALL_ACPI_TABLE   InstallAcpiTable;
-  EFI_ACPI_TABLE_UNINSTALL_ACPI_TABLE UninstallAcpiTable;
+  EFI_ACPI_TABLE_INSTALL_ACPI_TABLE      InstallAcpiTable;
+  EFI_ACPI_TABLE_UNINSTALL_ACPI_TABLE    UninstallAcpiTable;
 };
 
-extern EFI_GUID gEfiAcpiTableProtocolGuid;
+extern EFI_GUID  gEfiAcpiTableProtocolGuid;
 
 #endif
-

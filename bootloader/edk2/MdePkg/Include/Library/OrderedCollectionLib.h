@@ -6,13 +6,7 @@
 
   Copyright (C) 2014, Red Hat, Inc.
 
-  This program and the accompanying materials are licensed and made available
-  under the terms and conditions of the BSD License that accompanies this
-  distribution. The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php.
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS, WITHOUT
-  WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
 #ifndef __ORDERED_COLLECTION_LIB__
@@ -88,7 +82,6 @@ INTN
   IN CONST VOID *UserStruct
   );
 
-
 //
 // Some functions below are read-only, while others are read-write. If any
 // write operation is expected to run concurrently with any other operation on
@@ -110,9 +103,8 @@ INTN
 VOID *
 EFIAPI
 OrderedCollectionUserStruct (
-  IN CONST ORDERED_COLLECTION_ENTRY *Entry
+  IN CONST ORDERED_COLLECTION_ENTRY  *Entry
   );
-
 
 /**
   Allocate and initialize the ORDERED_COLLECTION structure.
@@ -134,10 +126,9 @@ OrderedCollectionUserStruct (
 ORDERED_COLLECTION *
 EFIAPI
 OrderedCollectionInit (
-  IN ORDERED_COLLECTION_USER_COMPARE UserStructCompare,
-  IN ORDERED_COLLECTION_KEY_COMPARE  KeyCompare
+  IN ORDERED_COLLECTION_USER_COMPARE  UserStructCompare,
+  IN ORDERED_COLLECTION_KEY_COMPARE   KeyCompare
   );
-
 
 /**
   Check whether the collection is empty (has no entries).
@@ -153,9 +144,8 @@ OrderedCollectionInit (
 BOOLEAN
 EFIAPI
 OrderedCollectionIsEmpty (
-  IN CONST ORDERED_COLLECTION *Collection
+  IN CONST ORDERED_COLLECTION  *Collection
   );
-
 
 /**
   Uninitialize and release an empty ORDERED_COLLECTION structure.
@@ -170,9 +160,8 @@ OrderedCollectionIsEmpty (
 VOID
 EFIAPI
 OrderedCollectionUninit (
-  IN ORDERED_COLLECTION *Collection
+  IN ORDERED_COLLECTION  *Collection
   );
-
 
 /**
   Look up the collection entry that links the user structure that matches the
@@ -194,10 +183,9 @@ OrderedCollectionUninit (
 ORDERED_COLLECTION_ENTRY *
 EFIAPI
 OrderedCollectionFind (
-  IN CONST ORDERED_COLLECTION *Collection,
-  IN CONST VOID               *StandaloneKey
+  IN CONST ORDERED_COLLECTION  *Collection,
+  IN CONST VOID                *StandaloneKey
   );
-
 
 /**
   Find the collection entry of the minimum user structure stored in the
@@ -217,9 +205,8 @@ OrderedCollectionFind (
 ORDERED_COLLECTION_ENTRY *
 EFIAPI
 OrderedCollectionMin (
-  IN CONST ORDERED_COLLECTION *Collection
+  IN CONST ORDERED_COLLECTION  *Collection
   );
-
 
 /**
   Find the collection entry of the maximum user structure stored in the
@@ -240,9 +227,8 @@ OrderedCollectionMin (
 ORDERED_COLLECTION_ENTRY *
 EFIAPI
 OrderedCollectionMax (
-  IN CONST ORDERED_COLLECTION *Collection
+  IN CONST ORDERED_COLLECTION  *Collection
   );
-
 
 /**
   Get the collection entry of the least user structure that is greater than the
@@ -261,9 +247,8 @@ OrderedCollectionMax (
 ORDERED_COLLECTION_ENTRY *
 EFIAPI
 OrderedCollectionNext (
-  IN CONST ORDERED_COLLECTION_ENTRY *Entry
+  IN CONST ORDERED_COLLECTION_ENTRY  *Entry
   );
-
 
 /**
   Get the collection entry of the greatest user structure that is less than the
@@ -282,9 +267,8 @@ OrderedCollectionNext (
 ORDERED_COLLECTION_ENTRY *
 EFIAPI
 OrderedCollectionPrev (
-  IN CONST ORDERED_COLLECTION_ENTRY *Entry
+  IN CONST ORDERED_COLLECTION_ENTRY  *Entry
   );
-
 
 /**
   Insert (link) a user structure into the collection, allocating a new
@@ -350,11 +334,10 @@ OrderedCollectionPrev (
 RETURN_STATUS
 EFIAPI
 OrderedCollectionInsert (
-  IN OUT ORDERED_COLLECTION       *Collection,
-  OUT    ORDERED_COLLECTION_ENTRY **Entry      OPTIONAL,
-  IN     VOID                     *UserStruct
+  IN OUT ORDERED_COLLECTION        *Collection,
+  OUT    ORDERED_COLLECTION_ENTRY  **Entry      OPTIONAL,
+  IN     VOID                      *UserStruct
   );
-
 
 /**
   Delete an entry from the collection, unlinking the associated user structure.
@@ -417,9 +400,9 @@ OrderedCollectionInsert (
 VOID
 EFIAPI
 OrderedCollectionDelete (
-  IN OUT ORDERED_COLLECTION       *Collection,
-  IN     ORDERED_COLLECTION_ENTRY *Entry,
-  OUT    VOID                     **UserStruct OPTIONAL
+  IN OUT ORDERED_COLLECTION        *Collection,
+  IN     ORDERED_COLLECTION_ENTRY  *Entry,
+  OUT    VOID                      **UserStruct OPTIONAL
   );
 
 #endif

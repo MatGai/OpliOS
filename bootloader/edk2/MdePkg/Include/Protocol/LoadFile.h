@@ -8,13 +8,7 @@
   UEFI 2.0 can boot from any device that produces a LoadFile protocol.
 
 Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials are licensed and made available under
-the terms and conditions of the BSD License that accompanies this distribution.
-The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php.
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -29,14 +23,14 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 ///
 /// Protocol Guid defined by EFI1.1.
 ///
-#define LOAD_FILE_PROTOCOL EFI_LOAD_FILE_PROTOCOL_GUID
+#define LOAD_FILE_PROTOCOL  EFI_LOAD_FILE_PROTOCOL_GUID
 
 typedef struct _EFI_LOAD_FILE_PROTOCOL EFI_LOAD_FILE_PROTOCOL;
 
 ///
 /// Backward-compatible with EFI1.1
 ///
-typedef EFI_LOAD_FILE_PROTOCOL  EFI_LOAD_FILE_INTERFACE;
+typedef EFI_LOAD_FILE_PROTOCOL EFI_LOAD_FILE_INTERFACE;
 
 /**
   Causes the driver to load a specified file.
@@ -80,9 +74,9 @@ EFI_STATUS
 /// The EFI_LOAD_FILE_PROTOCOL is a simple protocol used to obtain files from arbitrary devices.
 ///
 struct _EFI_LOAD_FILE_PROTOCOL {
-  EFI_LOAD_FILE LoadFile;
+  EFI_LOAD_FILE    LoadFile;
 };
 
-extern EFI_GUID gEfiLoadFileProtocolGuid;
+extern EFI_GUID  gEfiLoadFileProtocolGuid;
 
 #endif

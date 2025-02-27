@@ -74,7 +74,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <TargetExt>.efi</TargetExt>
     <IncludePath>$(ProjectDir)edk2\CryptoPkg\Include;$(ProjectDir)edk2\ShellPkg\Include;$(ProjectDir)edk2\MdePkg\Include\X64;$(ProjectDir)edk2\MdePkg\Include;$(ProjectDir)edk2\StdLib\Include;$(ProjectDir)</IncludePath>
-    <LibraryPath>$(ProjectDir)edk2</LibraryPath>
+    <LibraryPath>$(ProjectDir)edk2\</LibraryPath>
     <SourcePath>$(ProjectDir)</SourcePath>
     <LinkIncremental>false</LinkIncremental>
     <GenerateManifest>false</GenerateManifest>

@@ -3,13 +3,7 @@
   message comprehension.
 
   Copyright (c) 2015, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution. The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol is introduced in UEFI Specification 2.5
@@ -27,7 +21,6 @@
   }
 
 typedef struct _EFI_HTTP_UTILITIES_PROTOCOL EFI_HTTP_UTILITIES_PROTOCOL;
-
 
 /**
   Create HTTP header based on a combination of seed header, fields
@@ -63,14 +56,14 @@ typedef struct _EFI_HTTP_UTILITIES_PROTOCOL EFI_HTTP_UTILITIES_PROTOCOL;
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_HTTP_UTILS_BUILD) (
+(EFIAPI *EFI_HTTP_UTILS_BUILD)(
   IN  EFI_HTTP_UTILITIES_PROTOCOL  *This,
   IN  UINTN                        SeedMessageSize,
-  IN  VOID                         *SeedMessage,   OPTIONAL
+  IN  VOID                         *SeedMessage    OPTIONAL,
   IN  UINTN                        DeleteCount,
-  IN  CHAR8                        *DeleteList[],  OPTIONAL
+  IN  CHAR8                        *DeleteList[]   OPTIONAL,
   IN  UINTN                        AppendCount,
-  IN  EFI_HTTP_HEADER              *AppendList[],  OPTIONAL
+  IN  EFI_HTTP_HEADER              *AppendList[]   OPTIONAL,
   OUT UINTN                        *NewMessageSize,
   OUT VOID                         **NewMessage
   );
@@ -98,14 +91,13 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_HTTP_UTILS_PARSE) (
+(EFIAPI *EFI_HTTP_UTILS_PARSE)(
   IN  EFI_HTTP_UTILITIES_PROTOCOL  *This,
   IN  CHAR8                        *HttpMessage,
   IN  UINTN                        HttpMessageSize,
   OUT EFI_HTTP_HEADER              **HeaderFields,
   OUT UINTN                        *FieldCount
   );
-
 
 ///
 /// EFI_HTTP_UTILITIES_PROTOCOL
@@ -115,10 +107,10 @@ EFI_STATUS
 /// infrastructure.
 ///
 struct _EFI_HTTP_UTILITIES_PROTOCOL {
-  EFI_HTTP_UTILS_BUILD          Build;
-  EFI_HTTP_UTILS_PARSE          Parse;
+  EFI_HTTP_UTILS_BUILD    Build;
+  EFI_HTTP_UTILS_PARSE    Parse;
 };
 
-extern EFI_GUID gEfiHttpUtilitiesProtocolGuid;
+extern EFI_GUID  gEfiHttpUtilitiesProtocolGuid;
 
 #endif

@@ -5,13 +5,7 @@
   This protocol provides a parent dispatch service for IO trap SMI sources.
 
   Copyright (c) 2009 - 2017, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This protocol is from PI Version 1.1.
@@ -43,11 +37,10 @@ typedef EFI_MM_IO_TRAP_CONTEXT EFI_SMM_IO_TRAP_CONTEXT;
 
 typedef EFI_MM_IO_TRAP_DISPATCH_PROTOCOL EFI_SMM_IO_TRAP_DISPATCH2_PROTOCOL;
 
-typedef EFI_MM_IO_TRAP_DISPATCH_REGISTER   EFI_SMM_IO_TRAP_DISPATCH2_REGISTER;
+typedef EFI_MM_IO_TRAP_DISPATCH_REGISTER EFI_SMM_IO_TRAP_DISPATCH2_REGISTER;
 
 typedef EFI_MM_IO_TRAP_DISPATCH_UNREGISTER EFI_SMM_IO_TRAP_DISPATCH2_UNREGISTER;
 
-extern EFI_GUID gEfiSmmIoTrapDispatch2ProtocolGuid;
+extern EFI_GUID  gEfiSmmIoTrapDispatch2ProtocolGuid;
 
 #endif
-

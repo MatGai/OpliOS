@@ -5,13 +5,7 @@
   non-blocking / asynchronous byte-oriented disk operation.
 
   Copyright (c) 2013 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -36,12 +30,12 @@ typedef struct {
   // The caller must be prepared to handle the case where the callback associated with Event occurs
   // before the original asynchronous I/O request call returns.
   //
-  EFI_EVENT  Event;
+  EFI_EVENT     Event;
 
   //
   // Defines whether or not the signaled event encountered an error.
   //
-  EFI_STATUS TransactionStatus;
+  EFI_STATUS    TransactionStatus;
 } EFI_DISK_IO2_TOKEN;
 
 /**
@@ -55,7 +49,7 @@ typedef struct {
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_DISK_CANCEL_EX) (
+(EFIAPI *EFI_DISK_CANCEL_EX)(
   IN EFI_DISK_IO2_PROTOCOL *This
   );
 
@@ -83,7 +77,7 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_DISK_READ_EX) (
+(EFIAPI *EFI_DISK_READ_EX)(
   IN EFI_DISK_IO2_PROTOCOL        *This,
   IN UINT32                       MediaId,
   IN UINT64                       Offset,
@@ -116,7 +110,7 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_DISK_WRITE_EX) (
+(EFIAPI *EFI_DISK_WRITE_EX)(
   IN EFI_DISK_IO2_PROTOCOL        *This,
   IN UINT32                       MediaId,
   IN UINT64                       Offset,
@@ -144,12 +138,12 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_DISK_FLUSH_EX) (
+(EFIAPI *EFI_DISK_FLUSH_EX)(
   IN EFI_DISK_IO2_PROTOCOL        *This,
   IN OUT EFI_DISK_IO2_TOKEN       *Token
   );
 
-#define EFI_DISK_IO2_PROTOCOL_REVISION 0x00020000
+#define EFI_DISK_IO2_PROTOCOL_REVISION  0x00020000
 
 ///
 /// This protocol is used to abstract Block I/O interfaces.
@@ -160,13 +154,13 @@ struct _EFI_DISK_IO2_PROTOCOL {
   /// revisions must be backwards compatible. If a future version is not
   /// backwards compatible, it is not the same GUID.
   ///
-  UINT64             Revision;
-  EFI_DISK_CANCEL_EX Cancel;
-  EFI_DISK_READ_EX   ReadDiskEx;
-  EFI_DISK_WRITE_EX  WriteDiskEx;
-  EFI_DISK_FLUSH_EX  FlushDiskEx;
+  UINT64                Revision;
+  EFI_DISK_CANCEL_EX    Cancel;
+  EFI_DISK_READ_EX      ReadDiskEx;
+  EFI_DISK_WRITE_EX     WriteDiskEx;
+  EFI_DISK_FLUSH_EX     FlushDiskEx;
 };
 
-extern EFI_GUID gEfiDiskIo2ProtocolGuid;
+extern EFI_GUID  gEfiDiskIo2ProtocolGuid;
 
 #endif

@@ -24,19 +24,12 @@
   accesses when PCI Segments other than Segment #0 must be accessed.
 
 Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials
-are licensed and made available under the terms and conditions of the BSD License
-which accompanies this distribution.  The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
 #ifndef __PCI_SEGMENT_LIB__
 #define __PCI_SEGMENT_LIB__
-
 
 /**
   Macro that converts PCI Segment, PCI Bus, PCI Device, PCI Function,
@@ -55,7 +48,7 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
   @return The address that is compatible with the PCI Segment Library functions.
 
 **/
-#define PCI_SEGMENT_LIB_ADDRESS(Segment,Bus,Device,Function,Register) \
+#define PCI_SEGMENT_LIB_ADDRESS(Segment, Bus, Device, Function, Register) \
   ((Segment != 0) ? \
     ( ((Register) & 0xfff)                 | \
       (((Function) & 0x07) << 12)          | \
@@ -110,7 +103,7 @@ PciSegmentRegisterForRuntimeAccess (
 UINT8
 EFIAPI
 PciSegmentRead8 (
-  IN UINT64                    Address
+  IN UINT64  Address
   );
 
 /**
@@ -130,8 +123,8 @@ PciSegmentRead8 (
 UINT8
 EFIAPI
 PciSegmentWrite8 (
-  IN UINT64                    Address,
-  IN UINT8                     Value
+  IN UINT64  Address,
+  IN UINT8   Value
   );
 
 /**
@@ -154,8 +147,8 @@ PciSegmentWrite8 (
 UINT8
 EFIAPI
 PciSegmentOr8 (
-  IN UINT64                    Address,
-  IN UINT8                     OrData
+  IN UINT64  Address,
+  IN UINT8   OrData
   );
 
 /**
@@ -177,8 +170,8 @@ PciSegmentOr8 (
 UINT8
 EFIAPI
 PciSegmentAnd8 (
-  IN UINT64                    Address,
-  IN UINT8                     AndData
+  IN UINT64  Address,
+  IN UINT8   AndData
   );
 
 /**
@@ -204,9 +197,9 @@ PciSegmentAnd8 (
 UINT8
 EFIAPI
 PciSegmentAndThenOr8 (
-  IN UINT64                    Address,
-  IN UINT8                     AndData,
-  IN UINT8                     OrData
+  IN UINT64  Address,
+  IN UINT8   AndData,
+  IN UINT8   OrData
   );
 
 /**
@@ -233,9 +226,9 @@ PciSegmentAndThenOr8 (
 UINT8
 EFIAPI
 PciSegmentBitFieldRead8 (
-  IN UINT64                    Address,
-  IN UINTN                     StartBit,
-  IN UINTN                     EndBit
+  IN UINT64  Address,
+  IN UINTN   StartBit,
+  IN UINTN   EndBit
   );
 
 /**
@@ -265,10 +258,10 @@ PciSegmentBitFieldRead8 (
 UINT8
 EFIAPI
 PciSegmentBitFieldWrite8 (
-  IN UINT64                    Address,
-  IN UINTN                     StartBit,
-  IN UINTN                     EndBit,
-  IN UINT8                     Value
+  IN UINT64  Address,
+  IN UINTN   StartBit,
+  IN UINTN   EndBit,
+  IN UINT8   Value
   );
 
 /**
@@ -301,10 +294,10 @@ PciSegmentBitFieldWrite8 (
 UINT8
 EFIAPI
 PciSegmentBitFieldOr8 (
-  IN UINT64                    Address,
-  IN UINTN                     StartBit,
-  IN UINTN                     EndBit,
-  IN UINT8                     OrData
+  IN UINT64  Address,
+  IN UINTN   StartBit,
+  IN UINTN   EndBit,
+  IN UINT8   OrData
   );
 
 /**
@@ -337,10 +330,10 @@ PciSegmentBitFieldOr8 (
 UINT8
 EFIAPI
 PciSegmentBitFieldAnd8 (
-  IN UINT64                    Address,
-  IN UINTN                     StartBit,
-  IN UINTN                     EndBit,
-  IN UINT8                     AndData
+  IN UINT64  Address,
+  IN UINTN   StartBit,
+  IN UINTN   EndBit,
+  IN UINT8   AndData
   );
 
 /**
@@ -376,11 +369,11 @@ PciSegmentBitFieldAnd8 (
 UINT8
 EFIAPI
 PciSegmentBitFieldAndThenOr8 (
-  IN UINT64                    Address,
-  IN UINTN                     StartBit,
-  IN UINTN                     EndBit,
-  IN UINT8                     AndData,
-  IN UINT8                     OrData
+  IN UINT64  Address,
+  IN UINTN   StartBit,
+  IN UINTN   EndBit,
+  IN UINT8   AndData,
+  IN UINT8   OrData
   );
 
 /**
@@ -400,7 +393,7 @@ PciSegmentBitFieldAndThenOr8 (
 UINT16
 EFIAPI
 PciSegmentRead16 (
-  IN UINT64                    Address
+  IN UINT64  Address
   );
 
 /**
@@ -421,8 +414,8 @@ PciSegmentRead16 (
 UINT16
 EFIAPI
 PciSegmentWrite16 (
-  IN UINT64                    Address,
-  IN UINT16                    Value
+  IN UINT64  Address,
+  IN UINT16  Value
   );
 
 /**
@@ -448,8 +441,8 @@ PciSegmentWrite16 (
 UINT16
 EFIAPI
 PciSegmentOr16 (
-  IN UINT64                    Address,
-  IN UINT16                    OrData
+  IN UINT64  Address,
+  IN UINT16  OrData
   );
 
 /**
@@ -473,8 +466,8 @@ PciSegmentOr16 (
 UINT16
 EFIAPI
 PciSegmentAnd16 (
-  IN UINT64                    Address,
-  IN UINT16                    AndData
+  IN UINT64  Address,
+  IN UINT16  AndData
   );
 
 /**
@@ -501,9 +494,9 @@ PciSegmentAnd16 (
 UINT16
 EFIAPI
 PciSegmentAndThenOr16 (
-  IN UINT64                    Address,
-  IN UINT16                    AndData,
-  IN UINT16                    OrData
+  IN UINT64  Address,
+  IN UINT16  AndData,
+  IN UINT16  OrData
   );
 
 /**
@@ -531,9 +524,9 @@ PciSegmentAndThenOr16 (
 UINT16
 EFIAPI
 PciSegmentBitFieldRead16 (
-  IN UINT64                    Address,
-  IN UINTN                     StartBit,
-  IN UINTN                     EndBit
+  IN UINT64  Address,
+  IN UINTN   StartBit,
+  IN UINTN   EndBit
   );
 
 /**
@@ -564,10 +557,10 @@ PciSegmentBitFieldRead16 (
 UINT16
 EFIAPI
 PciSegmentBitFieldWrite16 (
-  IN UINT64                    Address,
-  IN UINTN                     StartBit,
-  IN UINTN                     EndBit,
-  IN UINT16                    Value
+  IN UINT64  Address,
+  IN UINTN   StartBit,
+  IN UINTN   EndBit,
+  IN UINT16  Value
   );
 
 /**
@@ -601,10 +594,10 @@ PciSegmentBitFieldWrite16 (
 UINT16
 EFIAPI
 PciSegmentBitFieldOr16 (
-  IN UINT64                    Address,
-  IN UINTN                     StartBit,
-  IN UINTN                     EndBit,
-  IN UINT16                    OrData
+  IN UINT64  Address,
+  IN UINTN   StartBit,
+  IN UINTN   EndBit,
+  IN UINT16  OrData
   );
 
 /**
@@ -638,10 +631,10 @@ PciSegmentBitFieldOr16 (
 UINT16
 EFIAPI
 PciSegmentBitFieldAnd16 (
-  IN UINT64                    Address,
-  IN UINTN                     StartBit,
-  IN UINTN                     EndBit,
-  IN UINT16                    AndData
+  IN UINT64  Address,
+  IN UINTN   StartBit,
+  IN UINTN   EndBit,
+  IN UINT16  AndData
   );
 
 /**
@@ -678,11 +671,11 @@ PciSegmentBitFieldAnd16 (
 UINT16
 EFIAPI
 PciSegmentBitFieldAndThenOr16 (
-  IN UINT64                    Address,
-  IN UINTN                     StartBit,
-  IN UINTN                     EndBit,
-  IN UINT16                    AndData,
-  IN UINT16                    OrData
+  IN UINT64  Address,
+  IN UINTN   StartBit,
+  IN UINTN   EndBit,
+  IN UINT16  AndData,
+  IN UINT16  OrData
   );
 
 /**
@@ -702,7 +695,7 @@ PciSegmentBitFieldAndThenOr16 (
 UINT32
 EFIAPI
 PciSegmentRead32 (
-  IN UINT64                    Address
+  IN UINT64  Address
   );
 
 /**
@@ -723,8 +716,8 @@ PciSegmentRead32 (
 UINT32
 EFIAPI
 PciSegmentWrite32 (
-  IN UINT64                    Address,
-  IN UINT32                    Value
+  IN UINT64  Address,
+  IN UINT32  Value
   );
 
 /**
@@ -748,8 +741,8 @@ PciSegmentWrite32 (
 UINT32
 EFIAPI
 PciSegmentOr32 (
-  IN UINT64                    Address,
-  IN UINT32                    OrData
+  IN UINT64  Address,
+  IN UINT32  OrData
   );
 
 /**
@@ -773,8 +766,8 @@ PciSegmentOr32 (
 UINT32
 EFIAPI
 PciSegmentAnd32 (
-  IN UINT64                    Address,
-  IN UINT32                    AndData
+  IN UINT64  Address,
+  IN UINT32  AndData
   );
 
 /**
@@ -801,9 +794,9 @@ PciSegmentAnd32 (
 UINT32
 EFIAPI
 PciSegmentAndThenOr32 (
-  IN UINT64                    Address,
-  IN UINT32                    AndData,
-  IN UINT32                    OrData
+  IN UINT64  Address,
+  IN UINT32  AndData,
+  IN UINT32  OrData
   );
 
 /**
@@ -831,9 +824,9 @@ PciSegmentAndThenOr32 (
 UINT32
 EFIAPI
 PciSegmentBitFieldRead32 (
-  IN UINT64                    Address,
-  IN UINTN                     StartBit,
-  IN UINTN                     EndBit
+  IN UINT64  Address,
+  IN UINTN   StartBit,
+  IN UINTN   EndBit
   );
 
 /**
@@ -864,10 +857,10 @@ PciSegmentBitFieldRead32 (
 UINT32
 EFIAPI
 PciSegmentBitFieldWrite32 (
-  IN UINT64                    Address,
-  IN UINTN                     StartBit,
-  IN UINTN                     EndBit,
-  IN UINT32                    Value
+  IN UINT64  Address,
+  IN UINTN   StartBit,
+  IN UINTN   EndBit,
+  IN UINT32  Value
   );
 
 /**
@@ -900,10 +893,10 @@ PciSegmentBitFieldWrite32 (
 UINT32
 EFIAPI
 PciSegmentBitFieldOr32 (
-  IN UINT64                    Address,
-  IN UINTN                     StartBit,
-  IN UINTN                     EndBit,
-  IN UINT32                    OrData
+  IN UINT64  Address,
+  IN UINTN   StartBit,
+  IN UINTN   EndBit,
+  IN UINT32  OrData
   );
 
 /**
@@ -936,10 +929,10 @@ PciSegmentBitFieldOr32 (
 UINT32
 EFIAPI
 PciSegmentBitFieldAnd32 (
-  IN UINT64                    Address,
-  IN UINTN                     StartBit,
-  IN UINTN                     EndBit,
-  IN UINT32                    AndData
+  IN UINT64  Address,
+  IN UINTN   StartBit,
+  IN UINTN   EndBit,
+  IN UINT32  AndData
   );
 
 /**
@@ -976,11 +969,11 @@ PciSegmentBitFieldAnd32 (
 UINT32
 EFIAPI
 PciSegmentBitFieldAndThenOr32 (
-  IN UINT64                    Address,
-  IN UINTN                     StartBit,
-  IN UINTN                     EndBit,
-  IN UINT32                    AndData,
-  IN UINT32                    OrData
+  IN UINT64  Address,
+  IN UINTN   StartBit,
+  IN UINTN   EndBit,
+  IN UINT32  AndData,
+  IN UINT32  OrData
   );
 
 /**
@@ -990,7 +983,7 @@ PciSegmentBitFieldAndThenOr32 (
   Size into the buffer specified by Buffer. This function only allows the PCI
   configuration registers from a single PCI function to be read. Size is
   returned. When possible 32-bit PCI configuration read cycles are used to read
-  from StartAdress to StartAddress + Size. Due to alignment restrictions, 8-bit
+  from StartAddress to StartAddress + Size. Due to alignment restrictions, 8-bit
   and 16-bit PCI configuration read cycles may be used at the beginning and the
   end of the range.
 
@@ -1009,9 +1002,9 @@ PciSegmentBitFieldAndThenOr32 (
 UINTN
 EFIAPI
 PciSegmentReadBuffer (
-  IN  UINT64                   StartAddress,
-  IN  UINTN                    Size,
-  OUT VOID                     *Buffer
+  IN  UINT64  StartAddress,
+  IN  UINTN   Size,
+  OUT VOID    *Buffer
   );
 
 /**
@@ -1022,7 +1015,7 @@ PciSegmentReadBuffer (
   Size from the buffer specified by Buffer. This function only allows the PCI
   configuration registers from a single PCI function to be written. Size is
   returned. When possible 32-bit PCI configuration write cycles are used to
-  write from StartAdress to StartAddress + Size. Due to alignment restrictions,
+  write from StartAddress to StartAddress + Size. Due to alignment restrictions,
   8-bit and 16-bit PCI configuration write cycles may be used at the beginning
   and the end of the range.
 
@@ -1041,9 +1034,9 @@ PciSegmentReadBuffer (
 UINTN
 EFIAPI
 PciSegmentWriteBuffer (
-  IN UINT64                    StartAddress,
-  IN UINTN                     Size,
-  IN VOID                      *Buffer
+  IN UINT64  StartAddress,
+  IN UINTN   Size,
+  IN VOID    *Buffer
   );
 
 #endif

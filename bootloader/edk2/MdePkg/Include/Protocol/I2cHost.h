@@ -5,13 +5,7 @@
   to all of the devices on the I2C bus.
 
   Copyright (c) 2013 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This protocol is from PI Version 1.3.
@@ -42,7 +36,6 @@
 /// the EFI_I2C_MASTER_PROTOCOL.
 ///
 typedef struct _EFI_I2C_HOST_PROTOCOL EFI_I2C_HOST_PROTOCOL;
-
 
 /**
   Queue an I2C transaction for execution on the I2C controller.
@@ -119,7 +112,7 @@ typedef struct _EFI_I2C_HOST_PROTOCOL EFI_I2C_HOST_PROTOCOL;
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_I2C_HOST_PROTOCOL_QUEUE_REQUEST) (
+(EFIAPI *EFI_I2C_HOST_PROTOCOL_QUEUE_REQUEST)(
   IN CONST EFI_I2C_HOST_PROTOCOL *This,
   IN UINTN                       I2cBusConfiguration,
   IN UINTN                       SlaveAddress,
@@ -135,18 +128,18 @@ struct _EFI_I2C_HOST_PROTOCOL {
   ///
   /// Queue an I2C transaction for execution on the I2C bus
   ///
-  EFI_I2C_HOST_PROTOCOL_QUEUE_REQUEST     QueueRequest;
+  EFI_I2C_HOST_PROTOCOL_QUEUE_REQUEST      QueueRequest;
 
   ///
   /// Pointer to an EFI_I2C_CONTROLLER_CAPABILITIES data structure
   /// containing the capabilities of the I2C host controller.
   ///
-  CONST EFI_I2C_CONTROLLER_CAPABILITIES   *I2cControllerCapabilities;
+  CONST EFI_I2C_CONTROLLER_CAPABILITIES    *I2cControllerCapabilities;
 };
 
 ///
 /// Reference to variable defined in the .DEC file
 ///
-extern EFI_GUID gEfiI2cHostProtocolGuid;
+extern EFI_GUID  gEfiI2cHostProtocolGuid;
 
-#endif  //  __I2C_HOST_H__
+#endif //  __I2C_HOST_H__

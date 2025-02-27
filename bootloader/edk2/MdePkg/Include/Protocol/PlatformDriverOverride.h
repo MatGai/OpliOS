@@ -2,13 +2,7 @@
   Platform Driver Override protocol as defined in the UEFI 2.1 specification.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -23,7 +17,7 @@
     0x6b30c738, 0xa391, 0x11d4, {0x9a, 0x3b, 0x00, 0x90, 0x27, 0x3f, 0xc1, 0x4d } \
   }
 
-typedef struct _EFI_PLATFORM_DRIVER_OVERRIDE_PROTOCOL  EFI_PLATFORM_DRIVER_OVERRIDE_PROTOCOL;
+typedef struct _EFI_PLATFORM_DRIVER_OVERRIDE_PROTOCOL EFI_PLATFORM_DRIVER_OVERRIDE_PROTOCOL;
 
 //
 // Prototypes for the Platform Driver Override Protocol
@@ -130,11 +124,11 @@ EFI_STATUS
 /// order from highest precedence to lowest precedence.
 ///
 struct _EFI_PLATFORM_DRIVER_OVERRIDE_PROTOCOL {
-  EFI_PLATFORM_DRIVER_OVERRIDE_GET_DRIVER       GetDriver;
-  EFI_PLATFORM_DRIVER_OVERRIDE_GET_DRIVER_PATH  GetDriverPath;
-  EFI_PLATFORM_DRIVER_OVERRIDE_DRIVER_LOADED    DriverLoaded;
+  EFI_PLATFORM_DRIVER_OVERRIDE_GET_DRIVER         GetDriver;
+  EFI_PLATFORM_DRIVER_OVERRIDE_GET_DRIVER_PATH    GetDriverPath;
+  EFI_PLATFORM_DRIVER_OVERRIDE_DRIVER_LOADED      DriverLoaded;
 };
 
-extern EFI_GUID gEfiPlatformDriverOverrideProtocolGuid;
+extern EFI_GUID  gEfiPlatformDriverOverrideProtocolGuid;
 
 #endif

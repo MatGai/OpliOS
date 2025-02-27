@@ -5,13 +5,7 @@
   to extract the section stream contained therein.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This PPI is introduced in PI Version 1.0.
@@ -34,9 +28,7 @@
 // that it is intended to process.
 //
 
-
-typedef struct _EFI_PEI_GUIDED_SECTION_EXTRACTION_PPI   EFI_PEI_GUIDED_SECTION_EXTRACTION_PPI;
-
+typedef struct _EFI_PEI_GUIDED_SECTION_EXTRACTION_PPI EFI_PEI_GUIDED_SECTION_EXTRACTION_PPI;
 
 /**
   Processes the input section and returns the data contained therein
@@ -85,7 +77,7 @@ EFI_STATUS
   OUT VOID                                         **OutputBuffer,
   OUT UINTN                                        *OutputSize,
   OUT UINT32                                       *AuthenticationStatus
-);
+  );
 
 ///
 /// If a GUID-defined section is encountered when doing section extraction,
@@ -95,10 +87,7 @@ EFI_STATUS
 /// therein.
 ///
 struct _EFI_PEI_GUIDED_SECTION_EXTRACTION_PPI {
-  EFI_PEI_EXTRACT_GUIDED_SECTION ExtractSection;
+  EFI_PEI_EXTRACT_GUIDED_SECTION    ExtractSection;
 };
 
-
-
 #endif
-

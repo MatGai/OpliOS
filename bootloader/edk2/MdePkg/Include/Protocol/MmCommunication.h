@@ -5,13 +5,7 @@
   handlers inside of MM.
 
   Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -28,15 +22,15 @@ typedef struct {
   ///
   /// Allows for disambiguation of the message format.
   ///
-  EFI_GUID  HeaderGuid;
+  EFI_GUID    HeaderGuid;
   ///
   /// Describes the size of Data (in bytes) and does not include the size of the header.
   ///
-  UINTN     MessageLength;
+  UINTN       MessageLength;
   ///
   /// Designates an array of bytes that is MessageLength in size.
   ///
-  UINT8     Data[1];
+  UINT8       Data[1];
 } EFI_MM_COMMUNICATE_HEADER;
 
 #pragma pack()
@@ -46,7 +40,7 @@ typedef struct {
     0xc68ed8e2, 0x9dc6, 0x4cbd, { 0x9d, 0x94, 0xdb, 0x65, 0xac, 0xc5, 0xc3, 0x32 } \
   }
 
-typedef struct _EFI_MM_COMMUNICATION_PROTOCOL  EFI_MM_COMMUNICATION_PROTOCOL;
+typedef struct _EFI_MM_COMMUNICATION_PROTOCOL EFI_MM_COMMUNICATION_PROTOCOL;
 
 /**
   Communicates with a registered handler.
@@ -84,10 +78,9 @@ EFI_STATUS
 /// between DXE drivers and a registered MMI handler.
 ///
 struct _EFI_MM_COMMUNICATION_PROTOCOL {
-  EFI_MM_COMMUNICATE  Communicate;
+  EFI_MM_COMMUNICATE    Communicate;
 };
 
-extern EFI_GUID gEfiMmCommunicationProtocolGuid;
+extern EFI_GUID  gEfiMmCommunicationProtocolGuid;
 
 #endif
-

@@ -3,13 +3,7 @@
   or is waiting to receive a packet.
 
 Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials are licensed and made available under
-the terms and conditions of the BSD License that accompanies this distribution.
-The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php.
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol is introduced in EFI Specification 1.10
@@ -30,7 +24,7 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 ///
 /// UEFI Revision Number Definition.
 ///
-#define EFI_PXE_BASE_CODE_CALLBACK_PROTOCOL_REVISION 0x00010000
+#define EFI_PXE_BASE_CODE_CALLBACK_PROTOCOL_REVISION  0x00010000
 
 ///
 /// EFI 1.1 Revision Number defintion.
@@ -41,12 +35,12 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 ///
 /// UEFI Protocol name.
 ///
-typedef struct _EFI_PXE_BASE_CODE_CALLBACK_PROTOCOL  EFI_PXE_BASE_CODE_CALLBACK_PROTOCOL;
+typedef struct _EFI_PXE_BASE_CODE_CALLBACK_PROTOCOL EFI_PXE_BASE_CODE_CALLBACK_PROTOCOL;
 
 ///
 /// EFI1.1 Protocol name.
 ///
-typedef EFI_PXE_BASE_CODE_CALLBACK_PROTOCOL   EFI_PXE_BASE_CODE_CALLBACK;
+typedef EFI_PXE_BASE_CODE_CALLBACK_PROTOCOL EFI_PXE_BASE_CODE_CALLBACK;
 
 ///
 /// Event type list for PXE Base Code Protocol function.
@@ -120,11 +114,10 @@ struct _EFI_PXE_BASE_CODE_CALLBACK_PROTOCOL {
   ///  be backwards compatible. If a future version is not backwards compatible
   ///  it is not the same GUID.
   ///
-  UINT64            Revision;
-  EFI_PXE_CALLBACK  Callback;
+  UINT64              Revision;
+  EFI_PXE_CALLBACK    Callback;
 };
 
-extern EFI_GUID gEfiPxeBaseCodeCallbackProtocolGuid;
+extern EFI_GUID  gEfiPxeBaseCodeCallbackProtocolGuid;
 
 #endif
-

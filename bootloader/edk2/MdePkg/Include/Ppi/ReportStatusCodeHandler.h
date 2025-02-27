@@ -2,13 +2,7 @@
   This PPI provides registering and unregistering services to status code consumers.
 
   Copyright (c) 2007 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -29,7 +23,7 @@ EFI_STATUS
   IN        UINT32                  Instance,
   IN CONST  EFI_GUID                *CallerId,
   IN CONST  EFI_STATUS_CODE_DATA    *Data
-);
+  );
 
 /**
   Register the callback function for ReportStatusCode() notification.
@@ -51,7 +45,7 @@ typedef
 EFI_STATUS
 (EFIAPI *EFI_PEI_RSC_HANDLER_REGISTER)(
   IN EFI_PEI_RSC_HANDLER_CALLBACK Callback
-);
+  );
 
 /**
   Remove a previously registered callback function from the notification list.
@@ -70,13 +64,13 @@ typedef
 EFI_STATUS
 (EFIAPI *EFI_PEI_RSC_HANDLER_UNREGISTER)(
   IN EFI_PEI_RSC_HANDLER_CALLBACK Callback
-);
+  );
 
 typedef struct _EFI_PEI_RSC_HANDLER_PPI {
-  EFI_PEI_RSC_HANDLER_REGISTER Register;
-  EFI_PEI_RSC_HANDLER_UNREGISTER Unregister;
+  EFI_PEI_RSC_HANDLER_REGISTER      Register;
+  EFI_PEI_RSC_HANDLER_UNREGISTER    Unregister;
 } EFI_PEI_RSC_HANDLER_PPI;
 
-extern EFI_GUID gEfiPeiRscHandlerPpiGuid;
+extern EFI_GUID  gEfiPeiRscHandlerPpiGuid;
 
 #endif // __REPORT_STATUS_CODE_HANDLER_PPI_H__

@@ -4,13 +4,7 @@
   This protocol is mandatory if the system includes PCI devices.
 
 Copyright (c) 2007 - 2018, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials are licensed and made available under
-the terms and conditions of the BSD License that accompanies this distribution.
-The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php.
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol is defined in UEFI Platform Initialization Specification 1.2
@@ -53,7 +47,7 @@ typedef struct _EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL EFI_PCI_HOST_BR
 /// the PCI bus driver needs to include requests for 64 bit
 /// memory address in the corresponding 32 bit memory pool.
 ///
-#define EFI_PCI_HOST_BRIDGE_MEM64_DECODE   2
+#define EFI_PCI_HOST_BRIDGE_MEM64_DECODE  2
 
 ///
 /// A UINT64 value that contains the status of a PCI resource requested
@@ -67,7 +61,7 @@ typedef UINT64 EFI_RESOURCE_ALLOCATION_STATUS;
 /// Configuration parameter returned by GetProposedResources() to identify
 /// a PCI resources request that can be satisfied.
 ///
-#define EFI_RESOURCE_SATISFIED      0x0000000000000000ULL
+#define EFI_RESOURCE_SATISFIED  0x0000000000000000ULL
 
 ///
 /// The request of this resource type could not be fulfilled for its
@@ -381,38 +375,38 @@ struct _EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL {
   /// The notification from the PCI bus enumerator that it is about to enter
   /// a certain phase during the enumeration process.
   ///
-  EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL_NOTIFY_PHASE           NotifyPhase;
+  EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL_NOTIFY_PHASE              NotifyPhase;
 
   ///
   /// Retrieves the device handle for the next PCI root bridge that is produced by the
   /// host bridge to which this instance of the EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL is attached.
   ///
-  EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL_GET_NEXT_ROOT_BRIDGE   GetNextRootBridge;
+  EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL_GET_NEXT_ROOT_BRIDGE      GetNextRootBridge;
 
   ///
   /// Retrieves the allocation-related attributes of a PCI root bridge.
   ///
-  EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL_GET_ATTRIBUTES         GetAllocAttributes;
+  EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL_GET_ATTRIBUTES            GetAllocAttributes;
 
   ///
   /// Sets up a PCI root bridge for bus enumeration.
   ///
-  EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL_START_BUS_ENUMERATION  StartBusEnumeration;
+  EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL_START_BUS_ENUMERATION     StartBusEnumeration;
 
   ///
   /// Sets up the PCI root bridge so that it decodes a specific range of bus numbers.
   ///
-  EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL_SET_BUS_NUMBERS        SetBusNumbers;
+  EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL_SET_BUS_NUMBERS           SetBusNumbers;
 
   ///
   /// Submits the resource requirements for the specified PCI root bridge.
   ///
-  EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL_SUBMIT_RESOURCES       SubmitResources;
+  EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL_SUBMIT_RESOURCES          SubmitResources;
 
   ///
   /// Returns the proposed resource assignment for the specified PCI root bridges.
   ///
-  EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL_GET_PROPOSED_RESOURCES GetProposedResources;
+  EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL_GET_PROPOSED_RESOURCES    GetProposedResources;
 
   ///
   /// Provides hooks from the PCI bus driver to every PCI controller
@@ -420,9 +414,9 @@ struct _EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL {
   /// allow the host bridge driver to preinitialize individual PCI controllers
   /// before enumeration.
   ///
-  EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL_PREPROCESS_CONTROLLER  PreprocessController;
+  EFI_PCI_HOST_BRIDGE_RESOURCE_ALLOCATION_PROTOCOL_PREPROCESS_CONTROLLER     PreprocessController;
 };
 
-extern EFI_GUID gEfiPciHostBridgeResourceAllocationProtocolGuid;
+extern EFI_GUID  gEfiPciHostBridgeResourceAllocationProtocolGuid;
 
 #endif

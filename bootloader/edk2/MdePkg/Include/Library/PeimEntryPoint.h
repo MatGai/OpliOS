@@ -2,13 +2,7 @@
   Module entry point library for PEIM.
 
 Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials
-are licensed and made available under the terms and conditions of the BSD License
-which accompanies this distribution.  The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -18,8 +12,7 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 ///
 /// Declare the EFI/UEFI Specification Revision to which this driver is implemented
 ///
-extern CONST UINT32       _gPeimRevision;
-
+extern CONST UINT32  _gPeimRevision;
 
 /**
   The entry point of PE/COFF Image for a PEIM.
@@ -37,10 +30,9 @@ extern CONST UINT32       _gPeimRevision;
 EFI_STATUS
 EFIAPI
 _ModuleEntryPoint (
-  IN EFI_PEI_FILE_HANDLE       FileHandle,
-  IN CONST EFI_PEI_SERVICES    **PeiServices
+  IN EFI_PEI_FILE_HANDLE     FileHandle,
+  IN CONST EFI_PEI_SERVICES  **PeiServices
   );
-
 
 /**
   Required by the EBC compiler and identical in functionality to _ModuleEntryPoint().
@@ -57,8 +49,8 @@ _ModuleEntryPoint (
 EFI_STATUS
 EFIAPI
 EfiMain (
-  IN EFI_PEI_FILE_HANDLE       FileHandle,
-  IN CONST EFI_PEI_SERVICES    **PeiServices
+  IN EFI_PEI_FILE_HANDLE     FileHandle,
+  IN CONST EFI_PEI_SERVICES  **PeiServices
   );
 
 /**
@@ -80,8 +72,8 @@ EfiMain (
 VOID
 EFIAPI
 ProcessLibraryConstructorList (
-  IN EFI_PEI_FILE_HANDLE       FileHandle,
-  IN CONST EFI_PEI_SERVICES    **PeiServices
+  IN EFI_PEI_FILE_HANDLE     FileHandle,
+  IN CONST EFI_PEI_SERVICES  **PeiServices
   );
 
 /**
@@ -102,8 +94,8 @@ ProcessLibraryConstructorList (
 EFI_STATUS
 EFIAPI
 ProcessModuleEntryPointList (
-  IN EFI_PEI_FILE_HANDLE       FileHandle,
-  IN CONST EFI_PEI_SERVICES    **PeiServices
+  IN EFI_PEI_FILE_HANDLE     FileHandle,
+  IN CONST EFI_PEI_SERVICES  **PeiServices
   );
 
 #endif

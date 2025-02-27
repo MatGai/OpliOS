@@ -15,13 +15,7 @@
   runtime calls be minimized by the caller.
 
   Copyright (c) 2009 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This PPI is defined in UEFI Platform Initialization Specification 1.2 Volume 5:
@@ -37,10 +31,8 @@
 #define EFI_S3_SMM_SAVE_STATE_PROTOCOL_GUID \
     {0x320afe62, 0xe593, 0x49cb, { 0xa9, 0xf1, 0xd4, 0xc2, 0xf4, 0xaf, 0x1, 0x4c }}
 
-
 typedef EFI_S3_SAVE_STATE_PROTOCOL EFI_S3_SMM_SAVE_STATE_PROTOCOL;
 
-extern EFI_GUID gEfiS3SmmSaveStateProtocolGuid;
+extern EFI_GUID  gEfiS3SmmSaveStateProtocolGuid;
 
 #endif // __S3_SMM_SAVE_STATE_H__
-

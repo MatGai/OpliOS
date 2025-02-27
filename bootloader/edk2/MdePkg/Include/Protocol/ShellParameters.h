@@ -2,13 +2,7 @@
   EFI Shell protocol as defined in the UEFI Shell 2.0 specification.
 
   Copyright (c) 2006 - 2016, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -29,32 +23,32 @@ typedef struct _EFI_SHELL_PARAMETERS_PROTOCOL {
   /// path of the executable. Any quotation marks that were used to preserve
   /// whitespace have been removed.
   ///
-  CHAR16 **Argv;
+  CHAR16               **Argv;
 
   ///
   /// The number of elements in the Argv array.
   ///
-  UINTN Argc;
+  UINTN                Argc;
 
   ///
   /// The file handle for the standard input for this executable. This may be different
   /// from the ConInHandle in EFI_SYSTEM_TABLE.
   ///
-  SHELL_FILE_HANDLE StdIn;
+  SHELL_FILE_HANDLE    StdIn;
 
   ///
   /// The file handle for the standard output for this executable. This may be different
   /// from the ConOutHandle in EFI_SYSTEM_TABLE.
   ///
-  SHELL_FILE_HANDLE StdOut;
+  SHELL_FILE_HANDLE    StdOut;
 
   ///
   /// The file handle for the standard error output for this executable. This may be
   /// different from the StdErrHandle in EFI_SYSTEM_TABLE.
   ///
-  SHELL_FILE_HANDLE StdErr;
+  SHELL_FILE_HANDLE    StdErr;
 } EFI_SHELL_PARAMETERS_PROTOCOL;
 
-extern EFI_GUID gEfiShellParametersProtocolGuid;
+extern EFI_GUID  gEfiShellParametersProtocolGuid;
 
 #endif

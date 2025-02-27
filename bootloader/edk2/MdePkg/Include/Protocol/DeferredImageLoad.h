@@ -7,13 +7,7 @@
   changes. There can be more than one instance of this protocol installed.
 
   Copyright (c) 2009 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -28,7 +22,7 @@
     0x15853d7c, 0x3ddf, 0x43e0, { 0xa1, 0xcb, 0xeb, 0xf8, 0x5b, 0x8f, 0x87, 0x2c } \
   };
 
-typedef struct _EFI_DEFERRED_IMAGE_LOAD_PROTOCOL  EFI_DEFERRED_IMAGE_LOAD_PROTOCOL;
+typedef struct _EFI_DEFERRED_IMAGE_LOAD_PROTOCOL EFI_DEFERRED_IMAGE_LOAD_PROTOCOL;
 
 /**
   Returns information about a deferred image.
@@ -72,9 +66,9 @@ EFI_STATUS
 /// This protocol returns information about a deferred image.
 ///
 struct _EFI_DEFERRED_IMAGE_LOAD_PROTOCOL {
-  EFI_DEFERRED_IMAGE_INFO  GetImageInfo;
+  EFI_DEFERRED_IMAGE_INFO    GetImageInfo;
 };
 
-extern EFI_GUID gEfiDeferredImageLoadProtocolGuid;
+extern EFI_GUID  gEfiDeferredImageLoadProtocolGuid;
 
 #endif

@@ -5,13 +5,7 @@
   whether the driver is being invoked inside MMRAM or outside of MMRAM.
 
   Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -25,7 +19,7 @@
     0xf4ccbfb7, 0xf6e0, 0x47fd, {0x9d, 0xd4, 0x10, 0xa8, 0xf1, 0x50, 0xc1, 0x91 }  \
   }
 
-typedef struct _EFI_MM_BASE_PROTOCOL  EFI_MM_BASE_PROTOCOL;
+typedef struct _EFI_MM_BASE_PROTOCOL EFI_MM_BASE_PROTOCOL;
 
 /**
   Service to indicate whether the driver is currently executing in the MM Initialization phase.
@@ -77,11 +71,10 @@ EFI_STATUS
 /// services and determine whether the driver is being invoked inside MMRAM or outside of MMRAM.
 ///
 struct _EFI_MM_BASE_PROTOCOL {
-  EFI_MM_INSIDE_OUT         InMm;
-  EFI_MM_GET_MMST_LOCATION  GetMmstLocation;
+  EFI_MM_INSIDE_OUT           InMm;
+  EFI_MM_GET_MMST_LOCATION    GetMmstLocation;
 };
 
-extern EFI_GUID gEfiMmBaseProtocolGuid;
+extern EFI_GUID  gEfiMmBaseProtocolGuid;
 
 #endif
-

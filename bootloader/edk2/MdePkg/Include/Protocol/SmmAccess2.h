@@ -12,13 +12,7 @@
     perturbed by either boot service or runtime agents
 
   Copyright (c) 2009 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -27,9 +21,9 @@
 
 #include <Protocol/MmAccess.h>
 
-#define EFI_SMM_ACCESS2_PROTOCOL_GUID       EFI_MM_ACCESS_PROTOCOL_GUID
+#define EFI_SMM_ACCESS2_PROTOCOL_GUID  EFI_MM_ACCESS_PROTOCOL_GUID
 
-typedef EFI_MM_ACCESS_PROTOCOL  EFI_SMM_ACCESS2_PROTOCOL;
+typedef EFI_MM_ACCESS_PROTOCOL EFI_SMM_ACCESS2_PROTOCOL;
 
 typedef EFI_MM_OPEN EFI_SMM_OPEN2;
 
@@ -38,7 +32,6 @@ typedef EFI_MM_CLOSE EFI_SMM_CLOSE2;
 typedef EFI_MM_LOCK EFI_SMM_LOCK2;
 
 typedef EFI_MM_CAPABILITIES EFI_SMM_CAPABILITIES2;
-extern EFI_GUID gEfiSmmAccess2ProtocolGuid;
+extern EFI_GUID  gEfiSmmAccess2ProtocolGuid;
 
 #endif
-

@@ -3,13 +3,7 @@
   on the I2C bus using the current state of any switches or multiplexers in the I2C bus.
 
   Copyright (c) 2013 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This PPI is introduced in PI Version 1.3.
@@ -41,7 +35,7 @@ typedef struct _EFI_PEI_I2C_MASTER_PPI EFI_PEI_I2C_MASTER_PPI;
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_PEI_I2C_MASTER_PPI_SET_BUS_FREQUENCY) (
+(EFIAPI *EFI_PEI_I2C_MASTER_PPI_SET_BUS_FREQUENCY)(
   IN EFI_PEI_I2C_MASTER_PPI   *This,
   IN UINTN                    *BusClockHertz
   );
@@ -57,7 +51,7 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_PEI_I2C_MASTER_PPI_RESET) (
+(EFIAPI *EFI_PEI_I2C_MASTER_PPI_RESET)(
   IN CONST EFI_PEI_I2C_MASTER_PPI  *This
   );
 
@@ -85,7 +79,7 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_PEI_I2C_MASTER_PPI_START_REQUEST) (
+(EFIAPI *EFI_PEI_I2C_MASTER_PPI_START_REQUEST)(
   IN CONST EFI_PEI_I2C_MASTER_PPI     *This,
   IN UINTN                            SlaveAddress,
   IN EFI_I2C_REQUEST_PACKET           *RequestPacket
@@ -96,13 +90,13 @@ EFI_STATUS
 /// using the current state of any switches or multiplexers in the I2C bus.
 ///
 struct _EFI_PEI_I2C_MASTER_PPI {
-  EFI_PEI_I2C_MASTER_PPI_SET_BUS_FREQUENCY   SetBusFrequency;
-  EFI_PEI_I2C_MASTER_PPI_RESET               Reset;
-  EFI_PEI_I2C_MASTER_PPI_START_REQUEST       StartRequest;
-  CONST EFI_I2C_CONTROLLER_CAPABILITIES      *I2cControllerCapabilities;
-  EFI_GUID                                   Identifier;
+  EFI_PEI_I2C_MASTER_PPI_SET_BUS_FREQUENCY    SetBusFrequency;
+  EFI_PEI_I2C_MASTER_PPI_RESET                Reset;
+  EFI_PEI_I2C_MASTER_PPI_START_REQUEST        StartRequest;
+  CONST EFI_I2C_CONTROLLER_CAPABILITIES       *I2cControllerCapabilities;
+  EFI_GUID                                    Identifier;
 };
 
-extern EFI_GUID gEfiPeiI2cMasterPpiGuid;
+extern EFI_GUID  gEfiPeiI2cMasterPpiGuid;
 
 #endif

@@ -5,13 +5,7 @@
   This service abstracts platform-specific information for many CPU's.
 
 Copyright (c) 2015 - 2016, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials are licensed and made available under
-the terms and conditions of the BSD License that accompanies this distribution.
-The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php.
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This PPI is introduced from PI Version 1.4.
@@ -34,8 +28,8 @@ typedef struct _EFI_SEC_PLATFORM_INFORMATION2_PPI EFI_SEC_PLATFORM_INFORMATION2_
 /// EFI_SEC_PLATFORM_INFORMATION_CPU.
 ///
 typedef struct {
-  UINT32                               CpuLocation;
-  EFI_SEC_PLATFORM_INFORMATION_RECORD  InfoRecord;
+  UINT32                                 CpuLocation;
+  EFI_SEC_PLATFORM_INFORMATION_RECORD    InfoRecord;
 } EFI_SEC_PLATFORM_INFORMATION_CPU;
 
 ///
@@ -45,8 +39,8 @@ typedef struct {
   ///
   /// The CPU location would be the local APIC ID
   ///
-  UINT32                               NumberOfCpus;
-  EFI_SEC_PLATFORM_INFORMATION_CPU     CpuInstance[1];
+  UINT32                              NumberOfCpus;
+  EFI_SEC_PLATFORM_INFORMATION_CPU    CpuInstance[1];
 } EFI_SEC_PLATFORM_INFORMATION_RECORD2;
 
 /**
@@ -69,7 +63,7 @@ EFI_STATUS
   IN CONST  EFI_PEI_SERVICES                     **PeiServices,
   IN OUT    UINT64                               *StructureSize,
   OUT       EFI_SEC_PLATFORM_INFORMATION_RECORD2 *PlatformInformationRecord2
-);
+  );
 
 ///
 /// This service abstracts platform-specific information for many CPU's.
@@ -77,9 +71,9 @@ EFI_STATUS
 /// implementations that synchronize some, if not all CPU's in the SEC phase.
 ///
 struct _EFI_SEC_PLATFORM_INFORMATION2_PPI {
-  EFI_SEC_PLATFORM_INFORMATION2  PlatformInformation2;
+  EFI_SEC_PLATFORM_INFORMATION2    PlatformInformation2;
 };
 
-extern EFI_GUID gEfiSecPlatformInformation2PpiGuid;
+extern EFI_GUID  gEfiSecPlatformInformation2PpiGuid;
 
 #endif

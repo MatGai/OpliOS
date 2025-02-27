@@ -5,13 +5,7 @@
   This protocol is optional.
 
 Copyright (c) 2007 - 2018, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials are licensed and made available under
-the terms and conditions of the BSD License that accompanies this distribution.
-The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php.
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol is defined in UEFI Platform Initialization Specification 1.2
@@ -116,13 +110,13 @@ typedef struct _EFI_PCI_PLATFORM_PROTOCOL EFI_PCI_PLATFORM_PROTOCOL;
 ///       be treated like EFI_RESERVE_ISA_IO_NO_ALIAS |
 ///       EFI_RESERVE_VGA_IO_ALIAS.
 ///
-typedef UINT32  EFI_PCI_PLATFORM_POLICY;
+typedef UINT32 EFI_PCI_PLATFORM_POLICY;
 
 ///
 /// Does not set aside either ISA or VGA I/O resources during PCI
 /// enumeration.
 ///
-#define     EFI_RESERVE_NONE_IO_ALIAS        0x0000
+#define     EFI_RESERVE_NONE_IO_ALIAS  0x0000
 
 ///
 /// Sets aside ISA I/O range and all aliases:
@@ -131,22 +125,22 @@ typedef UINT32  EFI_PCI_PLATFORM_POLICY;
 ///   - n900..nBFF
 ///   - nD00..nFFF.
 ///
-#define     EFI_RESERVE_ISA_IO_ALIAS         0x0001
+#define     EFI_RESERVE_ISA_IO_ALIAS  0x0001
 
 ///
 /// Sets aside ISA I/O range 0x100-0x3FF.
 ///
-#define     EFI_RESERVE_ISA_IO_NO_ALIAS      0x0002
+#define     EFI_RESERVE_ISA_IO_NO_ALIAS  0x0002
 
 ///
 /// Sets aside VGA I/O ranges and all aliases.
 ///
-#define     EFI_RESERVE_VGA_IO_ALIAS         0x0004
+#define     EFI_RESERVE_VGA_IO_ALIAS  0x0004
 
 ///
 /// Sets aside VGA I/O ranges
 ///
-#define     EFI_RESERVE_VGA_IO_NO_ALIAS      0x0008
+#define     EFI_RESERVE_VGA_IO_NO_ALIAS  0x0008
 
 ///
 /// EFI_PCI_EXECUTION_PHASE is used to call a platform protocol and execute
@@ -323,22 +317,22 @@ struct _EFI_PCI_PLATFORM_PROTOCOL {
   /// The notification from the PCI bus enumerator to the platform that it is about to
   /// enter a certain phase during the enumeration process.
   ///
-  EFI_PCI_PLATFORM_PHASE_NOTIFY          PlatformNotify;
+  EFI_PCI_PLATFORM_PHASE_NOTIFY             PlatformNotify;
   ///
   /// The notification from the PCI bus enumerator to the platform for each PCI
   /// controller at several predefined points during PCI controller initialization.
   ///
-  EFI_PCI_PLATFORM_PREPROCESS_CONTROLLER PlatformPrepController;
+  EFI_PCI_PLATFORM_PREPROCESS_CONTROLLER    PlatformPrepController;
   ///
   /// Retrieves the platform policy regarding enumeration.
   ///
-  EFI_PCI_PLATFORM_GET_PLATFORM_POLICY   GetPlatformPolicy;
+  EFI_PCI_PLATFORM_GET_PLATFORM_POLICY      GetPlatformPolicy;
   ///
   /// Gets the PCI device's option ROM from a platform-specific location.
   ///
-  EFI_PCI_PLATFORM_GET_PCI_ROM           GetPciRom;
+  EFI_PCI_PLATFORM_GET_PCI_ROM              GetPciRom;
 };
 
-extern EFI_GUID   gEfiPciPlatformProtocolGuid;
+extern EFI_GUID  gEfiPciPlatformProtocolGuid;
 
 #endif

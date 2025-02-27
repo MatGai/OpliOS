@@ -4,13 +4,7 @@
   Used to provide system watchdog timer services
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
 #ifndef __ARCH_PROTOCOL_WATCHDOG_TIMER_H__
@@ -25,7 +19,7 @@
 ///
 /// Declare forward reference for the Timer Architectural Protocol
 ///
-typedef struct _EFI_WATCHDOG_TIMER_ARCH_PROTOCOL  EFI_WATCHDOG_TIMER_ARCH_PROTOCOL;
+typedef struct _EFI_WATCHDOG_TIMER_ARCH_PROTOCOL EFI_WATCHDOG_TIMER_ARCH_PROTOCOL;
 
 /**
   A function of this type is called when the watchdog timer fires if a
@@ -120,7 +114,6 @@ EFI_STATUS
   OUT UINT64                            *TimerPeriod
   );
 
-
 ///
 /// This protocol provides the services required to implement the Boot Service
 /// SetWatchdogTimer().  It provides a service to set the amount of time to wait
@@ -133,12 +126,11 @@ EFI_STATUS
 /// reset by calling the Runtime Service ResetSystem().
 ///
 struct _EFI_WATCHDOG_TIMER_ARCH_PROTOCOL {
-  EFI_WATCHDOG_TIMER_REGISTER_HANDLER  RegisterHandler;
-  EFI_WATCHDOG_TIMER_SET_TIMER_PERIOD  SetTimerPeriod;
-  EFI_WATCHDOG_TIMER_GET_TIMER_PERIOD  GetTimerPeriod;
+  EFI_WATCHDOG_TIMER_REGISTER_HANDLER    RegisterHandler;
+  EFI_WATCHDOG_TIMER_SET_TIMER_PERIOD    SetTimerPeriod;
+  EFI_WATCHDOG_TIMER_GET_TIMER_PERIOD    GetTimerPeriod;
 };
 
-extern EFI_GUID gEfiWatchdogTimerArchProtocolGuid;
+extern EFI_GUID  gEfiWatchdogTimerArchProtocolGuid;
 
 #endif
-

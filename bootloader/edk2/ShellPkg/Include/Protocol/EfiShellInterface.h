@@ -11,13 +11,7 @@
   entry point the data is freed by the invoking shell.
 
   Copyright (c) 2006 - 2010, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -46,7 +40,7 @@ typedef enum {
 /// Attributes for an argument.
 ///
 typedef struct _EFI_SHELL_ARG_INFO {
-  UINT32  Attributes;
+  UINT32    Attributes;
 } EFI_SHELL_ARG_INFO;
 
 ///
@@ -56,39 +50,39 @@ typedef struct {
   ///
   /// Handle back to original image handle & image information.
   ///
-  EFI_HANDLE                ImageHandle;
-  EFI_LOADED_IMAGE_PROTOCOL *Info;
+  EFI_HANDLE                   ImageHandle;
+  EFI_LOADED_IMAGE_PROTOCOL    *Info;
 
   ///
   /// Parsed arg list converted more C-like format.
   ///
-  CHAR16                    **Argv;
-  UINTN                     Argc;
+  CHAR16                       **Argv;
+  UINTN                        Argc;
 
   ///
   /// Storage for file redirection args after parsing.
   ///
-  CHAR16                    **RedirArgv;
-  UINTN                     RedirArgc;
+  CHAR16                       **RedirArgv;
+  UINTN                        RedirArgc;
 
   ///
   /// A file style handle for console io.
   ///
-  EFI_FILE_PROTOCOL         *StdIn;
-  EFI_FILE_PROTOCOL         *StdOut;
-  EFI_FILE_PROTOCOL         *StdErr;
+  EFI_FILE_PROTOCOL            *StdIn;
+  EFI_FILE_PROTOCOL            *StdOut;
+  EFI_FILE_PROTOCOL            *StdErr;
 
   ///
   /// List of attributes for each argument.
   ///
-  EFI_SHELL_ARG_INFO        *ArgInfo;
+  EFI_SHELL_ARG_INFO           *ArgInfo;
 
   ///
   /// Whether we are echoing.
   ///
-  BOOLEAN                   EchoOn;
+  BOOLEAN                      EchoOn;
 } EFI_SHELL_INTERFACE;
 
-extern EFI_GUID gEfiShellInterfaceGuid;
+extern EFI_GUID  gEfiShellInterfaceGuid;
 
 #endif

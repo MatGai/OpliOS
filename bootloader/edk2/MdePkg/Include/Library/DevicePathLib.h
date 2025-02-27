@@ -5,20 +5,14 @@
   EFI_DEVICE_PATH_PROTOCOL structures.
 
 Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials are licensed and made available under
-the terms and conditions of the BSD License that accompanies this distribution.
-The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php.
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
 #ifndef __DEVICE_PATH_LIB_H__
 #define __DEVICE_PATH_LIB_H__
 
-#define END_DEVICE_PATH_LENGTH               (sizeof (EFI_DEVICE_PATH_PROTOCOL))
+#define END_DEVICE_PATH_LENGTH  (sizeof (EFI_DEVICE_PATH_PROTOCOL))
 
 /**
   Determine whether a given device path is valid.
@@ -39,8 +33,8 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 BOOLEAN
 EFIAPI
 IsDevicePathValid (
-  IN CONST EFI_DEVICE_PATH_PROTOCOL *DevicePath,
-  IN       UINTN                    MaxSize
+  IN CONST EFI_DEVICE_PATH_PROTOCOL  *DevicePath,
+  IN       UINTN                     MaxSize
   );
 
 /**
@@ -298,7 +292,7 @@ DuplicateDevicePath (
 EFI_DEVICE_PATH_PROTOCOL *
 EFIAPI
 AppendDevicePath (
-  IN CONST EFI_DEVICE_PATH_PROTOCOL  *FirstDevicePath,  OPTIONAL
+  IN CONST EFI_DEVICE_PATH_PROTOCOL  *FirstDevicePath   OPTIONAL,
   IN CONST EFI_DEVICE_PATH_PROTOCOL  *SecondDevicePath  OPTIONAL
   );
 
@@ -330,7 +324,7 @@ AppendDevicePath (
 EFI_DEVICE_PATH_PROTOCOL *
 EFIAPI
 AppendDevicePathNode (
-  IN CONST EFI_DEVICE_PATH_PROTOCOL  *DevicePath,     OPTIONAL
+  IN CONST EFI_DEVICE_PATH_PROTOCOL  *DevicePath      OPTIONAL,
   IN CONST EFI_DEVICE_PATH_PROTOCOL  *DevicePathNode  OPTIONAL
   );
 
@@ -358,7 +352,7 @@ AppendDevicePathNode (
 EFI_DEVICE_PATH_PROTOCOL *
 EFIAPI
 AppendDevicePathInstance (
-  IN CONST EFI_DEVICE_PATH_PROTOCOL  *DevicePath,        OPTIONAL
+  IN CONST EFI_DEVICE_PATH_PROTOCOL  *DevicePath         OPTIONAL,
   IN CONST EFI_DEVICE_PATH_PROTOCOL  *DevicePathInstance OPTIONAL
   );
 
@@ -390,8 +384,8 @@ AppendDevicePathInstance (
 EFI_DEVICE_PATH_PROTOCOL *
 EFIAPI
 GetNextDevicePathInstance (
-  IN OUT EFI_DEVICE_PATH_PROTOCOL    **DevicePath,
-  OUT UINTN                          *Size
+  IN OUT EFI_DEVICE_PATH_PROTOCOL  **DevicePath,
+  OUT UINTN                        *Size
   );
 
 /**
@@ -415,9 +409,9 @@ GetNextDevicePathInstance (
 EFI_DEVICE_PATH_PROTOCOL *
 EFIAPI
 CreateDeviceNode (
-  IN UINT8                           NodeType,
-  IN UINT8                           NodeSubType,
-  IN UINT16                          NodeLength
+  IN UINT8   NodeType,
+  IN UINT8   NodeSubType,
+  IN UINT16  NodeLength
   );
 
 /**
@@ -453,7 +447,7 @@ IsDevicePathMultiInstance (
 EFI_DEVICE_PATH_PROTOCOL *
 EFIAPI
 DevicePathFromHandle (
-  IN EFI_HANDLE                      Handle
+  IN EFI_HANDLE  Handle
   );
 
 /**
@@ -480,8 +474,8 @@ DevicePathFromHandle (
 EFI_DEVICE_PATH_PROTOCOL *
 EFIAPI
 FileDevicePath (
-  IN EFI_HANDLE                      Device,     OPTIONAL
-  IN CONST CHAR16                    *FileName
+  IN EFI_HANDLE    Device      OPTIONAL,
+  IN CONST CHAR16  *FileName
   );
 
 /**
@@ -502,9 +496,9 @@ FileDevicePath (
 CHAR16 *
 EFIAPI
 ConvertDevicePathToText (
-  IN CONST EFI_DEVICE_PATH_PROTOCOL   *DevicePath,
-  IN BOOLEAN                          DisplayOnly,
-  IN BOOLEAN                          AllowShortcuts
+  IN CONST EFI_DEVICE_PATH_PROTOCOL  *DevicePath,
+  IN BOOLEAN                         DisplayOnly,
+  IN BOOLEAN                         AllowShortcuts
   );
 
 /**
@@ -544,7 +538,7 @@ ConvertDeviceNodeToText (
 EFI_DEVICE_PATH_PROTOCOL *
 EFIAPI
 ConvertTextToDeviceNode (
-  IN CONST CHAR16 *TextDeviceNode
+  IN CONST CHAR16  *TextDeviceNode
   );
 
 /**
@@ -561,7 +555,7 @@ ConvertTextToDeviceNode (
 EFI_DEVICE_PATH_PROTOCOL *
 EFIAPI
 ConvertTextToDevicePath (
-  IN CONST CHAR16 *TextDevicePath
+  IN CONST CHAR16  *TextDevicePath
   );
 
 #endif

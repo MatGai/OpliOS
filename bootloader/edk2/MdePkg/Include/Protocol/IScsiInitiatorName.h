@@ -3,13 +3,7 @@
   It provides the ability to get and set the iSCSI Initiator Name.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -47,8 +41,6 @@ EFI_STATUS
   OUT VOID                             *Buffer
   );
 
-
-
 /**
   Sets the iSCSI Initiator Name.
 
@@ -77,11 +69,10 @@ typedef EFI_STATUS
 /// iSCSI Initiator Name Protocol for setting and obtaining the iSCSI Initiator Name.
 ///
 struct _EFI_ISCSI_INITIATOR_NAME_PROTOCOL {
-  EFI_ISCSI_INITIATOR_NAME_GET         Get;
-  EFI_ISCSI_INITIATOR_NAME_SET         Set;
+  EFI_ISCSI_INITIATOR_NAME_GET    Get;
+  EFI_ISCSI_INITIATOR_NAME_SET    Set;
 };
 
-extern EFI_GUID gEfiIScsiInitiatorNameProtocolGuid;
+extern EFI_GUID  gEfiIScsiInitiatorNameProtocolGuid;
 
 #endif
-

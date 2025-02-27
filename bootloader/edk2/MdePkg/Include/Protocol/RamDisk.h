@@ -2,13 +2,7 @@
   This file defines the EFI RAM Disk Protocol.
 
   Copyright (c) 2016, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol is introduced in UEFI Specification 2.6
@@ -27,7 +21,7 @@
 //
 // Forward reference for pure ANSI compatability
 //
-typedef struct _EFI_RAM_DISK_PROTOCOL  EFI_RAM_DISK_PROTOCOL;
+typedef struct _EFI_RAM_DISK_PROTOCOL EFI_RAM_DISK_PROTOCOL;
 
 /**
   Register a RAM disk with specified address, size and type.
@@ -61,7 +55,7 @@ typedef struct _EFI_RAM_DISK_PROTOCOL  EFI_RAM_DISK_PROTOCOL;
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_RAM_DISK_REGISTER_RAMDISK) (
+(EFIAPI *EFI_RAM_DISK_REGISTER_RAMDISK)(
   IN UINT64                       RamDiskBase,
   IN UINT64                       RamDiskSize,
   IN EFI_GUID                     *RamDiskType,
@@ -86,7 +80,7 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_RAM_DISK_UNREGISTER_RAMDISK) (
+(EFIAPI *EFI_RAM_DISK_UNREGISTER_RAMDISK)(
   IN  EFI_DEVICE_PATH_PROTOCOL    *DevicePath
   );
 
@@ -94,13 +88,13 @@ EFI_STATUS
 /// RAM Disk Protocol structure.
 ///
 struct _EFI_RAM_DISK_PROTOCOL {
-  EFI_RAM_DISK_REGISTER_RAMDISK        Register;
-  EFI_RAM_DISK_UNREGISTER_RAMDISK      Unregister;
+  EFI_RAM_DISK_REGISTER_RAMDISK      Register;
+  EFI_RAM_DISK_UNREGISTER_RAMDISK    Unregister;
 };
 
 ///
 /// RAM Disk Protocol GUID variable.
 ///
-extern EFI_GUID gEfiRamDiskProtocolGuid;
+extern EFI_GUID  gEfiRamDiskProtocolGuid;
 
 #endif

@@ -3,13 +3,7 @@
   Only available to SMM module types.
 
 Copyright (c) 2009 - 2018, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials
-are licensed and made available under the terms and conditions of the BSD License
-which accompanies this distribution.  The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -21,7 +15,7 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 ///
 /// Cache pointer to the SMM Services Table
 ///
-extern EFI_SMM_SYSTEM_TABLE2   *gSmst;
+extern EFI_SMM_SYSTEM_TABLE2  *gSmst;
 
 /**
   This function allows the caller to determine if the driver is executing in

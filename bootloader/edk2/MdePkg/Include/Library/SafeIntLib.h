@@ -5,26 +5,10 @@
   Copyright (c) 2017, Microsoft Corporation
 
   All rights reserved.
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions are met:
-  1. Redistributions of source code must retain the above copyright notice,
-  this list of conditions and the following disclaimer.
-  2. Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-  and/or other materials provided with the distribution.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-  BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-  OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
+
 #ifndef __INT_SAFE_LIB_H__
 #define __INT_SAFE_LIB_H__
 
@@ -57,14 +41,14 @@
 #define SafeIntnToChar16    SafeIntnToUint16
 #define SafeUintnToChar16   SafeUintnToUint16
 
-#define SafeChar16ToInt8    SafeUint16ToInt8
-#define SafeChar16ToUint8   SafeUint16ToUint8
-#define SafeChar16ToChar8   SafeUint16ToChar8
-#define SafeChar16ToInt16   SafeUint16ToInt16
+#define SafeChar16ToInt8   SafeUint16ToInt8
+#define SafeChar16ToUint8  SafeUint16ToUint8
+#define SafeChar16ToChar8  SafeUint16ToChar8
+#define SafeChar16ToInt16  SafeUint16ToInt16
 
-#define SafeChar16Mult      SafeUint16Mult
-#define SafeChar16Sub       SafeUint16Sub
-#define SafeChar16Add       SafeUint16Add
+#define SafeChar16Mult  SafeUint16Mult
+#define SafeChar16Sub   SafeUint16Sub
+#define SafeChar16Add   SafeUint16Add
 
 //
 // Conversion functions
@@ -374,8 +358,8 @@ SafeInt16ToChar8 (
 RETURN_STATUS
 EFIAPI
 SafeInt16ToUint8 (
-  IN INT16 Operand,
-  OUT UINT8 *Result
+  IN INT16   Operand,
+  OUT UINT8  *Result
   );
 
 /**
@@ -563,8 +547,8 @@ SafeUint16ToChar8 (
 RETURN_STATUS
 EFIAPI
 SafeUint16ToUint8 (
-  IN UINT16 Operand,
-  OUT UINT8 *Result
+  IN UINT16  Operand,
+  OUT UINT8  *Result
   );
 
 /**
@@ -671,8 +655,8 @@ SafeInt32ToChar8 (
 RETURN_STATUS
 EFIAPI
 SafeInt32ToUint8 (
-  IN INT32 Operand,
-  OUT UINT8 *Result
+  IN INT32   Operand,
+  OUT UINT8  *Result
   );
 
 /**
@@ -728,7 +712,6 @@ SafeInt32ToUint16 (
   IN  INT32   Operand,
   OUT UINT16  *Result
   );
-
 
 /**
   INT32 -> UINT32 conversion
@@ -888,8 +871,8 @@ SafeUint32ToChar8 (
 RETURN_STATUS
 EFIAPI
 SafeUint32ToUint8 (
-  IN UINT32 Operand,
-  OUT UINT8 *Result
+  IN UINT32  Operand,
+  OUT UINT8  *Result
   );
 
 /**
@@ -1077,8 +1060,8 @@ SafeIntnToChar8 (
 RETURN_STATUS
 EFIAPI
 SafeIntnToUint8 (
-  IN INTN Operand,
-  OUT UINT8 *Result
+  IN INTN    Operand,
+  OUT UINT8  *Result
   );
 
 /**
@@ -1320,8 +1303,8 @@ SafeUintnToChar8 (
 RETURN_STATUS
 EFIAPI
 SafeUintnToUint8 (
-  IN UINTN Operand,
-  OUT UINT8 *Result
+  IN UINTN   Operand,
+  OUT UINT8  *Result
   );
 
 /**

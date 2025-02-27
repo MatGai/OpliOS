@@ -2,13 +2,7 @@
   This protocol provides registering and unregistering services to status code consumers while in DXE MM.
 
   Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol was introduced in PI Specification 1.1.
@@ -31,7 +25,7 @@ EFI_STATUS
   IN UINT32                 Instance,
   IN EFI_GUID               *CallerId,
   IN EFI_STATUS_CODE_DATA   *Data
-);
+  );
 
 /**
   Register the callback function for ReportStatusCode() notification.
@@ -52,7 +46,7 @@ typedef
 EFI_STATUS
 (EFIAPI *EFI_MM_RSC_HANDLER_REGISTER)(
   IN EFI_MM_RSC_HANDLER_CALLBACK Callback
-);
+  );
 
 /**
   Remove a previously registered callback function from the notification list.
@@ -72,13 +66,13 @@ typedef
 EFI_STATUS
 (EFIAPI *EFI_MM_RSC_HANDLER_UNREGISTER)(
   IN EFI_MM_RSC_HANDLER_CALLBACK Callback
-);
+  );
 
 typedef struct _EFI_MM_RSC_HANDLER_PROTOCOL {
   EFI_MM_RSC_HANDLER_REGISTER      Register;
   EFI_MM_RSC_HANDLER_UNREGISTER    Unregister;
 } EFI_MM_RSC_HANDLER_PROTOCOL;
 
-extern EFI_GUID gEfiMmRscHandlerProtocolGuid;
+extern EFI_GUID  gEfiMmRscHandlerProtocolGuid;
 
 #endif

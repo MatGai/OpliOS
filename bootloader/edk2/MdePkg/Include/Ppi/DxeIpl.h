@@ -3,13 +3,7 @@
   When the PEI core is done it calls the DXE IPL PPI to load the DXE Foundation.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This PPI is introduced in PI Version 1.0.
@@ -64,9 +58,9 @@ EFI_STATUS
 /// The DXE IPL PPI may use PEI services to locate and load the DXE Foundation.
 ///
 struct _EFI_DXE_IPL_PPI {
-  EFI_DXE_IPL_ENTRY Entry;
+  EFI_DXE_IPL_ENTRY    Entry;
 };
 
-extern EFI_GUID gEfiDxeIplPpiGuid;
+extern EFI_GUID  gEfiDxeIplPpiGuid;
 
 #endif

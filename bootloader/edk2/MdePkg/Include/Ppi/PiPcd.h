@@ -12,13 +12,7 @@
   firmware component to monitor specific settings and be alerted when a setting is changed.
 
   Copyright (c) 2009 - 2013, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   PI Version 1.2 Vol 3.
@@ -27,12 +21,12 @@
 #ifndef __PI_PCD_PPI_H__
 #define __PI_PCD_PPI_H__
 
-extern EFI_GUID gEfiPeiPcdPpiGuid;
+extern EFI_GUID  gEfiPeiPcdPpiGuid;
 
 #define EFI_PEI_PCD_PPI_GUID \
   { 0x1f34d25, 0x4de2, 0x23ad, { 0x3f, 0xf3, 0x36, 0x35, 0x3f, 0xf3, 0x23, 0xf1 } }
 
-#define EFI_PCD_INVALID_TOKEN_NUMBER ((UINTN) 0)
+#define EFI_PCD_INVALID_TOKEN_NUMBER  ((UINTN) 0)
 
 /**
   SetSku() sets the SKU Id to be used for subsequent calls to set or get PCD values. SetSku() is
@@ -53,7 +47,7 @@ typedef
 VOID
 (EFIAPI *EFI_PEI_PCD_PPI_SET_SKU)(
   IN UINTN SkuId
-);
+  );
 
 /**
   Retrieves the current byte-sized value for a PCD token number. If the TokenNumber is invalid,
@@ -69,7 +63,7 @@ UINT8
 (EFIAPI *EFI_PEI_PCD_PPI_GET_8)(
   IN CONST  EFI_GUID  *Guid,
   IN        UINTN     TokenNumber
-);
+  );
 
 /**
   Retrieves the current word-sized value for a PCD token number. If the TokenNumber is invalid,
@@ -85,7 +79,7 @@ UINT16
 (EFIAPI *EFI_PEI_PCD_PPI_GET_16)(
   IN CONST  EFI_GUID  *Guid,
   IN        UINTN     TokenNumber
-);
+  );
 
 /**
   Retrieves the current 32-bit value for a PCD token number. If the TokenNumber is invalid, the
@@ -101,7 +95,7 @@ UINT32
 (EFIAPI *EFI_PEI_PCD_PPI_GET_32)(
   IN CONST  EFI_GUID  *Guid,
   IN        UINTN     TokenNumber
-);
+  );
 
 /**
   Retrieves the current 64-bit value for a PCD token number. If the TokenNumber is invalid, the
@@ -117,7 +111,7 @@ UINT64
 (EFIAPI *EFI_PEI_PCD_PPI_GET_64)(
   IN CONST  EFI_GUID  *Guid,
   IN        UINTN     TokenNumber
-);
+  );
 
 /**
   Retrieves the current pointer to the value for a PCD token number. There should not be any
@@ -132,7 +126,7 @@ VOID *
 (EFIAPI *EFI_PEI_PCD_PPI_GET_POINTER)(
   IN CONST  EFI_GUID  *Guid,
   IN        UINTN     TokenNumber
-);
+  );
 
 /**
   Retrieves the current Boolean-sized value for a PCD token number. If the TokenNumber is
@@ -148,7 +142,7 @@ BOOLEAN
 (EFIAPI *EFI_PEI_PCD_PPI_GET_BOOLEAN)(
   IN CONST  EFI_GUID  *Guid,
   IN        UINTN     TokenNumber
-);
+  );
 
 /**
   Retrieves the current size of a particular PCD token. If the TokenNumber is invalid, the results are
@@ -164,7 +158,7 @@ UINTN
 (EFIAPI *EFI_PEI_PCD_PPI_GET_SIZE)(
   IN CONST  EFI_GUID  *Guid,
   IN        UINTN     TokenNumber
-);
+  );
 
 /**
   Sets an 8-bit value for a given PCD token.
@@ -188,7 +182,7 @@ EFI_STATUS
   IN CONST  EFI_GUID  *Guid,
   IN        UINTN     TokenNumber,
   IN        UINT8     Value
-);
+  );
 
 /**
   Sets an 16-bit value for a given PCD token.
@@ -212,7 +206,7 @@ EFI_STATUS
   IN CONST  EFI_GUID  *Guid,
   IN        UINTN     TokenNumber,
   IN        UINT16    Value
-);
+  );
 
 /**
   Sets an 32-bit value for a given PCD token.
@@ -236,7 +230,7 @@ EFI_STATUS
   IN CONST  EFI_GUID  *Guid,
   IN        UINTN     TokenNumber,
   IN        UINT32    Value
-);
+  );
 
 /**
   Sets an 64-bit value for a given PCD token.
@@ -260,7 +254,7 @@ EFI_STATUS
   IN CONST  EFI_GUID  *Guid,
   IN        UINTN     TokenNumber,
   IN        UINT64    Value
-);
+  );
 
 /**
   Sets a value of the specified size for a given PCD token.
@@ -288,7 +282,7 @@ EFI_STATUS
   IN        UINTN     TokenNumber,
   IN OUT    UINTN     *SizeOfValue,
   IN        VOID      *Buffer
-);
+  );
 
 /**
   Sets a Boolean value for a given PCD token.
@@ -312,7 +306,7 @@ EFI_STATUS
   IN CONST  EFI_GUID  *Guid,
   IN        UINTN     TokenNumber,
   IN        BOOLEAN   Value
-);
+  );
 
 typedef
 VOID
@@ -321,7 +315,7 @@ VOID
   IN     UINTN    CallBackToken,
   IN OUT VOID     *TokenData,
   IN     UINTN    TokenDatSize
-);
+  );
 
 /**
   Specifies a function to be called anytime the value of a designated token is changed.
@@ -342,7 +336,7 @@ EFI_STATUS
   IN CONST  EFI_GUID                  *Guid   OPTIONAL,
   IN        UINTN                     CallBackToken,
   IN        EFI_PEI_PCD_PPI_CALLBACK  CallBackFunction
-);
+  );
 
 /**
   Cancels a previously set callback function for a particular PCD token number.
@@ -364,7 +358,7 @@ EFI_STATUS
   IN CONST  EFI_GUID                  *Guid   OPTIONAL,
   IN        UINTN                     CallBackToken,
   IN        EFI_PEI_PCD_PPI_CALLBACK  CallBackFunction
-);
+  );
 
 /**
   Retrieves the next valid PCD token for a given namespace.
@@ -385,7 +379,7 @@ EFI_STATUS
 (EFIAPI *EFI_PEI_PCD_PPI_GET_NEXT_TOKEN)(
   IN CONST  EFI_GUID      *Guid     OPTIONAL,
   IN        UINTN         *TokenNumber
-);
+  );
 
 /**
   Retrieves the next valid PCD token namespace for a given namespace.
@@ -406,27 +400,27 @@ typedef
 EFI_STATUS
 (EFIAPI *EFI_PEI_PCD_PPI_GET_NEXT_TOKEN_SPACE)(
   IN OUT CONST EFI_GUID     **Guid
-);
+  );
 
 typedef struct {
-  EFI_PEI_PCD_PPI_SET_SKU               SetSku;
-  EFI_PEI_PCD_PPI_GET_8                 Get8;
-  EFI_PEI_PCD_PPI_GET_16                Get16;
-  EFI_PEI_PCD_PPI_GET_32                Get32;
-  EFI_PEI_PCD_PPI_GET_64                Get64;
-  EFI_PEI_PCD_PPI_GET_POINTER           GetPtr;
-  EFI_PEI_PCD_PPI_GET_BOOLEAN           GetBool;
-  EFI_PEI_PCD_PPI_GET_SIZE              GetSize;
-  EFI_PEI_PCD_PPI_SET_8                 Set8;
-  EFI_PEI_PCD_PPI_SET_16                Set16;
-  EFI_PEI_PCD_PPI_SET_32                Set32;
-  EFI_PEI_PCD_PPI_SET_64                Set64;
-  EFI_PEI_PCD_PPI_SET_POINTER           SetPtr;
-  EFI_PEI_PCD_PPI_SET_BOOLEAN           SetBool;
-  EFI_PEI_PCD_PPI_CALLBACK_ON_SET       CallbackOnSet;
-  EFI_PEI_PCD_PPI_CANCEL_CALLBACK       CancelCallback;
-  EFI_PEI_PCD_PPI_GET_NEXT_TOKEN        GetNextToken;
-  EFI_PEI_PCD_PPI_GET_NEXT_TOKEN_SPACE  GetNextTokenSpace;
+  EFI_PEI_PCD_PPI_SET_SKU                 SetSku;
+  EFI_PEI_PCD_PPI_GET_8                   Get8;
+  EFI_PEI_PCD_PPI_GET_16                  Get16;
+  EFI_PEI_PCD_PPI_GET_32                  Get32;
+  EFI_PEI_PCD_PPI_GET_64                  Get64;
+  EFI_PEI_PCD_PPI_GET_POINTER             GetPtr;
+  EFI_PEI_PCD_PPI_GET_BOOLEAN             GetBool;
+  EFI_PEI_PCD_PPI_GET_SIZE                GetSize;
+  EFI_PEI_PCD_PPI_SET_8                   Set8;
+  EFI_PEI_PCD_PPI_SET_16                  Set16;
+  EFI_PEI_PCD_PPI_SET_32                  Set32;
+  EFI_PEI_PCD_PPI_SET_64                  Set64;
+  EFI_PEI_PCD_PPI_SET_POINTER             SetPtr;
+  EFI_PEI_PCD_PPI_SET_BOOLEAN             SetBool;
+  EFI_PEI_PCD_PPI_CALLBACK_ON_SET         CallbackOnSet;
+  EFI_PEI_PCD_PPI_CANCEL_CALLBACK         CancelCallback;
+  EFI_PEI_PCD_PPI_GET_NEXT_TOKEN          GetNextToken;
+  EFI_PEI_PCD_PPI_GET_NEXT_TOKEN_SPACE    GetNextTokenSpace;
 } EFI_PEI_PCD_PPI;
 
 #endif

@@ -6,13 +6,7 @@
   handles that support a given set of protocols.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -87,8 +81,8 @@ EFI_STATUS
 /// protocol and calling DestroyChild() when it is finished with that protocol.
 ///
 struct _EFI_SERVICE_BINDING_PROTOCOL {
-  EFI_SERVICE_BINDING_CREATE_CHILD         CreateChild;
-  EFI_SERVICE_BINDING_DESTROY_CHILD        DestroyChild;
+  EFI_SERVICE_BINDING_CREATE_CHILD     CreateChild;
+  EFI_SERVICE_BINDING_DESTROY_CHILD    DestroyChild;
 };
 
 #endif

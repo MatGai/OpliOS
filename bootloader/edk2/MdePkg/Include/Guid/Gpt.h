@@ -5,13 +5,7 @@
   usage of the legacy Master Boot Record (MBR) partitioning scheme.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   GUIDs defined in UEFI 2.1 spec.
@@ -36,8 +30,8 @@
     0x024dee41, 0x33e7, 0x11d3, {0x9d, 0x69, 0x00, 0x08, 0xc7, 0x81, 0xf3, 0x9f } \
   }
 
-extern EFI_GUID gEfiPartTypeUnusedGuid;
-extern EFI_GUID gEfiPartTypeSystemPartGuid;
-extern EFI_GUID gEfiPartTypeLegacyMbrGuid;
+extern EFI_GUID  gEfiPartTypeUnusedGuid;
+extern EFI_GUID  gEfiPartTypeSystemPartGuid;
+extern EFI_GUID  gEfiPartTypeLegacyMbrGuid;
 
 #endif

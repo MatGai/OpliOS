@@ -7,13 +7,7 @@
      point will be invoked by the SMM processor entry code.
 
   Copyright (c) 2009 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -23,7 +17,7 @@
 #include <Protocol/MmConfiguration.h>
 #include <Pi/PiSmmCis.h>
 
-#define EFI_SMM_CONFIGURATION_PROTOCOL_GUID EFI_MM_CONFIGURATION_PROTOCOL_GUID
+#define EFI_SMM_CONFIGURATION_PROTOCOL_GUID  EFI_MM_CONFIGURATION_PROTOCOL_GUID
 
 ///
 /// Structure describing a SMRAM region which cannot be used for the SMRAM heap.
@@ -41,7 +35,7 @@ typedef struct _EFI_SMM_RESERVED_SMRAM_REGION {
   UINT64                  SmramReservedSize;
 } EFI_SMM_RESERVED_SMRAM_REGION;
 
-typedef struct _EFI_SMM_CONFIGURATION_PROTOCOL  EFI_SMM_CONFIGURATION_PROTOCOL;
+typedef struct _EFI_SMM_CONFIGURATION_PROTOCOL EFI_SMM_CONFIGURATION_PROTOCOL;
 
 /**
   Register the SMM Foundation entry point.
@@ -74,11 +68,10 @@ struct _EFI_SMM_CONFIGURATION_PROTOCOL {
   ///
   /// A pointer to an array SMRAM ranges used by the initial SMM entry code.
   ///
-  EFI_SMM_RESERVED_SMRAM_REGION  *SmramReservedRegions;
-  EFI_SMM_REGISTER_SMM_ENTRY     RegisterSmmEntry;
+  EFI_SMM_RESERVED_SMRAM_REGION    *SmramReservedRegions;
+  EFI_SMM_REGISTER_SMM_ENTRY       RegisterSmmEntry;
 };
 
-extern EFI_GUID gEfiSmmConfigurationProtocolGuid;
+extern EFI_GUID  gEfiSmmConfigurationProtocolGuid;
 
 #endif
-

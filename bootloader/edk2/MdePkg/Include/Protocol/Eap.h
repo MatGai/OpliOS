@@ -6,13 +6,7 @@
   not been verified by one implementation yet.
 
   Copyright (c) 2009 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol is introduced in UEFI Specification 2.2
@@ -21,7 +15,6 @@
 
 #ifndef __EFI_EAP_PROTOCOL_H__
 #define __EFI_EAP_PROTOCOL_H__
-
 
 #define EFI_EAP_PROTOCOL_GUID \
   { \
@@ -34,21 +27,21 @@ typedef struct _EFI_EAP_PROTOCOL EFI_EAP_PROTOCOL;
 /// Type for the identification number assigned to the Port by the
 /// System in which the Port resides.
 ///
-typedef VOID *  EFI_PORT_HANDLE;
+typedef VOID *EFI_PORT_HANDLE;
 
 ///
 /// EAP Authentication Method Type (RFC 3748)
 ///@{
-#define EFI_EAP_TYPE_TLS 13 ///< REQUIRED - RFC 5216
+#define EFI_EAP_TYPE_TLS  13///< REQUIRED - RFC 5216
 ///@}
 
 //
 // EAP_TYPE MD5, OTP and TOEKN_CARD has been removed from UEFI2.3.1B.
 // Definitions are kept for backward compatibility.
 //
-#define EFI_EAP_TYPE_MD5                4
-#define EFI_EAP_TYPE_OTP                5
-#define EFI_EAP_TYPE_TOKEN_CARD         6
+#define EFI_EAP_TYPE_MD5         4
+#define EFI_EAP_TYPE_OTP         5
+#define EFI_EAP_TYPE_TOKEN_CARD  6
 
 /**
   One user provided EAP authentication method.
@@ -152,11 +145,10 @@ EFI_STATUS
 /// Port means a NIC. For the details of EAP protocol, please refer to RFC 2284.
 ///
 struct _EFI_EAP_PROTOCOL {
-  EFI_EAP_SET_DESIRED_AUTHENTICATION_METHOD   SetDesiredAuthMethod;
-  EFI_EAP_REGISTER_AUTHENTICATION_METHOD      RegisterAuthMethod;
+  EFI_EAP_SET_DESIRED_AUTHENTICATION_METHOD    SetDesiredAuthMethod;
+  EFI_EAP_REGISTER_AUTHENTICATION_METHOD       RegisterAuthMethod;
 };
 
-extern EFI_GUID gEfiEapProtocolGuid;
+extern EFI_GUID  gEfiEapProtocolGuid;
 
 #endif
-

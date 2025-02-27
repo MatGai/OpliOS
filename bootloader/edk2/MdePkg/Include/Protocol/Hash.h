@@ -6,13 +6,7 @@
   so that a multiple drivers can use the underlying hashing services.
 
 Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials are licensed and made available under
-the terms and conditions of the BSD License that accompanies this distribution.
-The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php.
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -81,20 +75,20 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 typedef struct _EFI_HASH_PROTOCOL EFI_HASH_PROTOCOL;
 
-typedef UINT8  EFI_MD5_HASH[16];
-typedef UINT8  EFI_SHA1_HASH[20];
-typedef UINT8  EFI_SHA224_HASH[28];
-typedef UINT8  EFI_SHA256_HASH[32];
-typedef UINT8  EFI_SHA384_HASH[48];
-typedef UINT8  EFI_SHA512_HASH[64];
+typedef UINT8 EFI_MD5_HASH[16];
+typedef UINT8 EFI_SHA1_HASH[20];
+typedef UINT8 EFI_SHA224_HASH[28];
+typedef UINT8 EFI_SHA256_HASH[32];
+typedef UINT8 EFI_SHA384_HASH[48];
+typedef UINT8 EFI_SHA512_HASH[64];
 
 typedef union {
-  EFI_MD5_HASH     *Md5Hash;
-  EFI_SHA1_HASH    *Sha1Hash;
-  EFI_SHA224_HASH  *Sha224Hash;
-  EFI_SHA256_HASH  *Sha256Hash;
-  EFI_SHA384_HASH  *Sha384Hash;
-  EFI_SHA512_HASH  *Sha512Hash;
+  EFI_MD5_HASH       *Md5Hash;
+  EFI_SHA1_HASH      *Sha1Hash;
+  EFI_SHA224_HASH    *Sha224Hash;
+  EFI_SHA256_HASH    *Sha256Hash;
+  EFI_SHA384_HASH    *Sha384Hash;
+  EFI_SHA512_HASH    *Sha512Hash;
 } EFI_HASH_OUTPUT;
 
 /**
@@ -157,19 +151,19 @@ EFI_STATUS
 /// using one or more hash algorithms.
 ///
 struct _EFI_HASH_PROTOCOL {
-  EFI_HASH_GET_HASH_SIZE          GetHashSize;
-  EFI_HASH_HASH                   Hash;
+  EFI_HASH_GET_HASH_SIZE    GetHashSize;
+  EFI_HASH_HASH             Hash;
 };
 
-extern EFI_GUID gEfiHashServiceBindingProtocolGuid;
-extern EFI_GUID gEfiHashProtocolGuid;
-extern EFI_GUID gEfiHashAlgorithmSha1Guid;
-extern EFI_GUID gEfiHashAlgorithmSha224Guid;
-extern EFI_GUID gEfiHashAlgorithmSha256Guid;
-extern EFI_GUID gEfiHashAlgorithmSha384Guid;
-extern EFI_GUID gEfiHashAlgorithmSha512Guid;
-extern EFI_GUID gEfiHashAlgorithmMD5Guid;
-extern EFI_GUID gEfiHashAlgorithmSha1NoPadGuid;
-extern EFI_GUID gEfiHashAlgorithmSha256NoPadGuid;
+extern EFI_GUID  gEfiHashServiceBindingProtocolGuid;
+extern EFI_GUID  gEfiHashProtocolGuid;
+extern EFI_GUID  gEfiHashAlgorithmSha1Guid;
+extern EFI_GUID  gEfiHashAlgorithmSha224Guid;
+extern EFI_GUID  gEfiHashAlgorithmSha256Guid;
+extern EFI_GUID  gEfiHashAlgorithmSha384Guid;
+extern EFI_GUID  gEfiHashAlgorithmSha512Guid;
+extern EFI_GUID  gEfiHashAlgorithmMD5Guid;
+extern EFI_GUID  gEfiHashAlgorithmSha1NoPadGuid;
+extern EFI_GUID  gEfiHashAlgorithmSha256NoPadGuid;
 
 #endif

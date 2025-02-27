@@ -15,13 +15,7 @@
   of the driver by platform agent, such as Platform BDS.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -34,7 +28,7 @@
 #define EFI_SECURITY_ARCH_PROTOCOL_GUID  \
   { 0xA46423E3, 0x4617, 0x49f1, {0xB9, 0xFF, 0xD1, 0xBF, 0xA9, 0x11, 0x58, 0x39 } }
 
-typedef struct _EFI_SECURITY_ARCH_PROTOCOL    EFI_SECURITY_ARCH_PROTOCOL;
+typedef struct _EFI_SECURITY_ARCH_PROTOCOL EFI_SECURITY_ARCH_PROTOCOL;
 
 /**
   The EFI_SECURITY_ARCH_PROTOCOL (SAP) is used to abstract platform-specific
@@ -95,9 +89,9 @@ EFI_STATUS
 /// attestation logging, and other exception operations.
 ///
 struct _EFI_SECURITY_ARCH_PROTOCOL {
-  EFI_SECURITY_FILE_AUTHENTICATION_STATE  FileAuthenticationState;
+  EFI_SECURITY_FILE_AUTHENTICATION_STATE    FileAuthenticationState;
 };
 
-extern EFI_GUID gEfiSecurityArchProtocolGuid;
+extern EFI_GUID  gEfiSecurityArchProtocolGuid;
 
 #endif

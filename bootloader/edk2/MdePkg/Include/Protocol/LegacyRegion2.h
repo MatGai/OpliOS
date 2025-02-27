@@ -3,13 +3,7 @@
   the region 0xC0000 to 0xFFFFF.
 
   Copyright (c) 2009 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol is defined in UEFI Platform Initialization Specification 1.2
@@ -19,7 +13,6 @@
 
 #ifndef __LEGACY_REGION2_H__
 #define __LEGACY_REGION2_H__
-
 
 #define EFI_LEGACY_REGION2_PROTOCOL_GUID \
 { \
@@ -55,13 +48,12 @@ typedef struct _EFI_LEGACY_REGION2_PROTOCOL EFI_LEGACY_REGION2_PROTOCOL;
 typedef
 EFI_STATUS
 (EFIAPI *EFI_LEGACY_REGION2_DECODE)(
- IN  EFI_LEGACY_REGION2_PROTOCOL  *This,
- IN  UINT32                       Start,
- IN  UINT32                       Length,
- OUT UINT32                       *Granularity,
- IN  BOOLEAN                      *On
- );
-
+  IN  EFI_LEGACY_REGION2_PROTOCOL  *This,
+  IN  UINT32                       Start,
+  IN  UINT32                       Length,
+  OUT UINT32                       *Granularity,
+  IN  BOOLEAN                      *On
+  );
 
 /**
   Modify the hardware to disallow memory writes in a region.
@@ -86,12 +78,11 @@ EFI_STATUS
 typedef
 EFI_STATUS
 (EFIAPI *EFI_LEGACY_REGION2_LOCK)(
- IN  EFI_LEGACY_REGION2_PROTOCOL   *This,
- IN  UINT32                        Start,
- IN  UINT32                        Length,
- OUT UINT32                        *Granularity
- );
-
+  IN  EFI_LEGACY_REGION2_PROTOCOL   *This,
+  IN  UINT32                        Start,
+  IN  UINT32                        Length,
+  OUT UINT32                        *Granularity
+  );
 
 /**
   Modify the hardware to disallow memory attribute changes in a region.
@@ -127,7 +118,6 @@ EFI_STATUS
   OUT UINT32                              *Granularity OPTIONAL
   );
 
-
 /**
   Modify the hardware to allow memory writes in a region.
 
@@ -151,12 +141,11 @@ EFI_STATUS
 typedef
 EFI_STATUS
 (EFIAPI *EFI_LEGACY_REGION2_UNLOCK)(
- IN  EFI_LEGACY_REGION2_PROTOCOL  *This,
- IN  UINT32                       Start,
- IN  UINT32                       Length,
- OUT UINT32                       *Granularity
- );
-
+  IN  EFI_LEGACY_REGION2_PROTOCOL  *This,
+  IN  UINT32                       Start,
+  IN  UINT32                       Length,
+  OUT UINT32                       *Granularity
+  );
 
 typedef enum {
   LegacyRegionDecoded,         ///< This region is currently set to allow reads.
@@ -168,29 +157,27 @@ typedef enum {
   LegacyRegionNotLocked        ///< This region's attributes are not locked.
 } EFI_LEGACY_REGION_ATTRIBUTE;
 
-
 typedef struct {
   ///
   /// The beginning of the physical address of this
   /// region.
   ///
-  UINT32                      Start;
+  UINT32                         Start;
   ///
   /// The number of bytes in this region.
   ///
-  UINT32                      Length;
+  UINT32                         Length;
   ///
   /// Attribute of the Legacy Region Descriptor that
   /// describes the capabilities for that memory region.
   ///
-  EFI_LEGACY_REGION_ATTRIBUTE Attribute;
+  EFI_LEGACY_REGION_ATTRIBUTE    Attribute;
   ///
   /// Describes the byte length programmability
   /// associated with the Start address and the specified
   /// Attribute setting.
-  UINT32                      Granularity;
+  UINT32                         Granularity;
 } EFI_LEGACY_REGION_DESCRIPTOR;
-
 
 /**
   Get region information for the attributes of the Legacy Region.
@@ -219,7 +206,6 @@ EFI_STATUS
   OUT EFI_LEGACY_REGION_DESCRIPTOR  **Descriptor
   );
 
-
 ///
 /// The EFI_LEGACY_REGION2_PROTOCOL is used to abstract the hardware control of the memory
 /// attributes of the Option ROM shadowing region, 0xC0000 to 0xFFFFF.
@@ -227,13 +213,13 @@ EFI_STATUS
 /// boot-lock. These protocols may be set in any combination.
 ///
 struct _EFI_LEGACY_REGION2_PROTOCOL {
-  EFI_LEGACY_REGION2_DECODE     Decode;
-  EFI_LEGACY_REGION2_LOCK       Lock;
-  EFI_LEGACY_REGION2_BOOT_LOCK  BootLock;
-  EFI_LEGACY_REGION2_UNLOCK     UnLock;
-  EFI_LEGACY_REGION_GET_INFO    GetInfo;
+  EFI_LEGACY_REGION2_DECODE       Decode;
+  EFI_LEGACY_REGION2_LOCK         Lock;
+  EFI_LEGACY_REGION2_BOOT_LOCK    BootLock;
+  EFI_LEGACY_REGION2_UNLOCK       UnLock;
+  EFI_LEGACY_REGION_GET_INFO      GetInfo;
 };
 
-extern EFI_GUID gEfiLegacyRegion2ProtocolGuid;
+extern EFI_GUID  gEfiLegacyRegion2ProtocolGuid;
 
 #endif

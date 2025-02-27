@@ -3,13 +3,7 @@
   This protocol provides service to convert device nodes and paths to text.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -40,7 +34,7 @@
 
 **/
 typedef
-CHAR16*
+CHAR16 *
 (EFIAPI *EFI_DEVICE_PATH_TO_TEXT_NODE)(
   IN CONST EFI_DEVICE_PATH_PROTOCOL   *DeviceNode,
   IN BOOLEAN                          DisplayOnly,
@@ -63,7 +57,7 @@ CHAR16*
 
 **/
 typedef
-CHAR16*
+CHAR16 *
 (EFIAPI *EFI_DEVICE_PATH_TO_TEXT_PATH)(
   IN CONST EFI_DEVICE_PATH_PROTOCOL   *DevicePath,
   IN BOOLEAN                          DisplayOnly,
@@ -74,12 +68,10 @@ CHAR16*
 /// This protocol converts device paths and device nodes to text.
 ///
 typedef struct {
-  EFI_DEVICE_PATH_TO_TEXT_NODE        ConvertDeviceNodeToText;
-  EFI_DEVICE_PATH_TO_TEXT_PATH        ConvertDevicePathToText;
+  EFI_DEVICE_PATH_TO_TEXT_NODE    ConvertDeviceNodeToText;
+  EFI_DEVICE_PATH_TO_TEXT_PATH    ConvertDevicePathToText;
 } EFI_DEVICE_PATH_TO_TEXT_PROTOCOL;
 
-extern EFI_GUID gEfiDevicePathToTextProtocolGuid;
+extern EFI_GUID  gEfiDevicePathToTextProtocolGuid;
 
 #endif
-
-

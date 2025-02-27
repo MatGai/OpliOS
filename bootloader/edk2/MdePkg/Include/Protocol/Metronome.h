@@ -4,13 +4,7 @@
   This code abstracts the DXE core to provide delay services.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -26,7 +20,7 @@
 ///
 /// Declare forward reference for the Metronome Architectural Protocol
 ///
-typedef struct _EFI_METRONOME_ARCH_PROTOCOL   EFI_METRONOME_ARCH_PROTOCOL;
+typedef struct _EFI_METRONOME_ARCH_PROTOCOL EFI_METRONOME_ARCH_PROTOCOL;
 
 /**
   The WaitForTick() function waits for the number of ticks specified by
@@ -53,8 +47,8 @@ typedef struct _EFI_METRONOME_ARCH_PROTOCOL   EFI_METRONOME_ARCH_PROTOCOL;
 typedef
 EFI_STATUS
 (EFIAPI *EFI_METRONOME_WAIT_FOR_TICK)(
-   IN EFI_METRONOME_ARCH_PROTOCOL   *This,
-   IN UINT32                        TickNumber
+  IN EFI_METRONOME_ARCH_PROTOCOL   *This,
+  IN UINT32                        TickNumber
   );
 
 ///
@@ -63,7 +57,7 @@ EFI_STATUS
 /// require calibrated delays.
 ///
 struct _EFI_METRONOME_ARCH_PROTOCOL {
-  EFI_METRONOME_WAIT_FOR_TICK  WaitForTick;
+  EFI_METRONOME_WAIT_FOR_TICK    WaitForTick;
 
   ///
   /// The period of platform's known time source in 100 nS units.
@@ -72,9 +66,9 @@ struct _EFI_METRONOME_ARCH_PROTOCOL {
   /// not be modified after the Metronome architectural protocol is
   /// installed.  All consumers must treat this as a read-only field.
   ///
-  UINT32                       TickPeriod;
+  UINT32    TickPeriod;
 };
 
-extern EFI_GUID gEfiMetronomeArchProtocolGuid;
+extern EFI_GUID  gEfiMetronomeArchProtocolGuid;
 
 #endif

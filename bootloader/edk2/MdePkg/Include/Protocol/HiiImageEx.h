@@ -3,13 +3,7 @@
 
 (C) Copyright 2016-2018 Hewlett Packard Enterprise Development LP<BR>
 
-This program and the accompanying materials are licensed and made available under
-the terms and conditions of the BSD License that accompanies this distribution.
-The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php.
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol was introduced in UEFI Specification 2.6.
@@ -241,14 +235,14 @@ EFI_STATUS
 /// Protocol which allows access to the images in the images database.
 ///
 struct _EFI_HII_IMAGE_EX_PROTOCOL {
-  EFI_HII_NEW_IMAGE_EX      NewImageEx;
-  EFI_HII_GET_IMAGE_EX      GetImageEx;
-  EFI_HII_SET_IMAGE_EX      SetImageEx;
-  EFI_HII_DRAW_IMAGE_EX     DrawImageEx;
-  EFI_HII_DRAW_IMAGE_ID_EX  DrawImageIdEx;
-  EFI_HII_GET_IMAGE_INFO    GetImageInfo;
+  EFI_HII_NEW_IMAGE_EX        NewImageEx;
+  EFI_HII_GET_IMAGE_EX        GetImageEx;
+  EFI_HII_SET_IMAGE_EX        SetImageEx;
+  EFI_HII_DRAW_IMAGE_EX       DrawImageEx;
+  EFI_HII_DRAW_IMAGE_ID_EX    DrawImageIdEx;
+  EFI_HII_GET_IMAGE_INFO      GetImageInfo;
 };
 
-extern EFI_GUID gEfiHiiImageExProtocolGuid;
+extern EFI_GUID  gEfiHiiImageExProtocolGuid;
 
 #endif

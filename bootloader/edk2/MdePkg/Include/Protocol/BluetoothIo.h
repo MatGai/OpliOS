@@ -5,13 +5,7 @@
   create and destroy child of the driver to communicate with other Bluetooth device by using Bluetooth IO protocol.
 
   Copyright (c) 2015 - 2017, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials are licensed and made available under
-  the terms and conditions of the BSD License that accompanies this distribution.
-  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php.
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol is introduced in UEFI Specification 2.5
@@ -42,31 +36,31 @@ typedef struct {
   ///
   /// The version of the structure
   ///
-  UINT32                      Version;
+  UINT32                       Version;
   ///
   /// 48bit Bluetooth device address.
   ///
-  BLUETOOTH_ADDRESS           BD_ADDR;
+  BLUETOOTH_ADDRESS            BD_ADDR;
   ///
   /// Bluetooth PageScanRepetitionMode. See Bluetooth specification for detail.
   ///
-  UINT8                       PageScanRepetitionMode;
+  UINT8                        PageScanRepetitionMode;
   ///
   /// Bluetooth ClassOfDevice. See Bluetooth specification for detail.
   ///
-  BLUETOOTH_CLASS_OF_DEVICE   ClassOfDevice;
+  BLUETOOTH_CLASS_OF_DEVICE    ClassOfDevice;
   ///
   /// Bluetooth CloseOffset. See Bluetooth specification for detail.
   ///
-  UINT16                      ClockOffset;
+  UINT16                       ClockOffset;
   ///
   /// Bluetooth RSSI. See Bluetooth specification for detail.
   ///
-  UINT8                       RSSI;
+  UINT8                        RSSI;
   ///
   /// Bluetooth ExtendedInquiryResponse. See Bluetooth specification for detail.
   ///
-  UINT8                       ExtendedInquiryResponse[240];
+  UINT8                        ExtendedInquiryResponse[240];
 } EFI_BLUETOOTH_DEVICE_INFO;
 
 /**
@@ -178,7 +172,7 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_BLUETOOTH_IO_ASYNC_FUNC_CALLBACK) (
+(EFIAPI *EFI_BLUETOOTH_IO_ASYNC_FUNC_CALLBACK)(
   IN UINT16                     ChannelID,
   IN VOID                       *Data,
   IN UINTN                      DataLength,
@@ -288,7 +282,7 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_BLUETOOTH_IO_CHANNEL_SERVICE_CALLBACK) (
+(EFIAPI *EFI_BLUETOOTH_IO_CHANNEL_SERVICE_CALLBACK)(
   IN VOID                         *Data,
   IN UINTN                        DataLength,
   IN VOID                         *Context
@@ -317,7 +311,7 @@ EFI_STATUS
   IN  EFI_BLUETOOTH_IO_PROTOCOL                   *This,
   IN  EFI_HANDLE                                  Handle,
   IN  EFI_BLUETOOTH_IO_CHANNEL_SERVICE_CALLBACK   Callback,
-  IN  VOID*                                       Context
+  IN  VOID *Context
   );
 
 /**
@@ -411,7 +405,7 @@ struct _EFI_BLUETOOTH_IO_PROTOCOL {
   EFI_BLUETOOTH_IO_L2CAP_REGISTER_SERVICE     L2CapRegisterService;
 };
 
-extern EFI_GUID gEfiBluetoothIoServiceBindingProtocolGuid;
-extern EFI_GUID gEfiBluetoothIoProtocolGuid;
+extern EFI_GUID  gEfiBluetoothIoServiceBindingProtocolGuid;
+extern EFI_GUID  gEfiBluetoothIoProtocolGuid;
 
 #endif

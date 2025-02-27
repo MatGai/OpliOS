@@ -29,13 +29,7 @@
   the hot-plug capability is not provided.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol is defined in UEFI Platform Initialization Specification 1.2
@@ -57,7 +51,7 @@
 ///
 /// Forward declaration for EFI_PCI_HOTPLUG_REQUEST_PROTOCOL
 ///
-typedef struct _EFI_PCI_HOTPLUG_REQUEST_PROTOCOL  EFI_PCI_HOTPLUG_REQUEST_PROTOCOL;
+typedef struct _EFI_PCI_HOTPLUG_REQUEST_PROTOCOL EFI_PCI_HOTPLUG_REQUEST_PROTOCOL;
 
 ///
 /// Enumeration of PCI hot plug operations
@@ -162,9 +156,9 @@ struct _EFI_PCI_HOTPLUG_REQUEST_PROTOCOL {
   /// to create or destroy handles for the PCI-like devices. See Section 0 for
   /// a detailed description.
   ///
-  EFI_PCI_HOTPLUG_REQUEST_NOTIFY  Notify;
+  EFI_PCI_HOTPLUG_REQUEST_NOTIFY    Notify;
 };
 
-extern EFI_GUID gEfiPciHotPlugRequestProtocolGuid;
+extern EFI_GUID  gEfiPciHotPlugRequestProtocolGuid;
 
 #endif

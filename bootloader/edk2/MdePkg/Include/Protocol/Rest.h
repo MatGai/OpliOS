@@ -2,13 +2,7 @@
   This file defines the EFI REST Protocol interface.
 
   Copyright (c) 2015, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution. The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol is introduced in UEFI Specification 2.5
@@ -49,7 +43,7 @@ typedef struct _EFI_REST_PROTOCOL EFI_REST_PROTOCOL;
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_REST_SEND_RECEIVE) (
+(EFIAPI *EFI_REST_SEND_RECEIVE)(
   IN  EFI_REST_PROTOCOL         *This,
   IN  EFI_HTTP_MESSAGE          *RequestMessage,
   OUT EFI_HTTP_MESSAGE          *ResponseMessage
@@ -72,7 +66,7 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_REST_GET_TIME) (
+(EFIAPI *EFI_REST_GET_TIME)(
   IN  EFI_REST_PROTOCOL         *This,
   OUT EFI_TIME                  *Time
   );
@@ -85,10 +79,10 @@ EFI_STATUS
 /// interfaces that abstract HTTP access to the resources.
 ///
 struct _EFI_REST_PROTOCOL {
-  EFI_REST_SEND_RECEIVE         SendReceive;
-  EFI_REST_GET_TIME             GetServiceTime;
+  EFI_REST_SEND_RECEIVE    SendReceive;
+  EFI_REST_GET_TIME        GetServiceTime;
 };
 
-extern EFI_GUID gEfiRestProtocolGuid;
+extern EFI_GUID  gEfiRestProtocolGuid;
 
 #endif

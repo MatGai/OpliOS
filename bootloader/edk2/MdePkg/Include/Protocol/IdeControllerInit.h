@@ -14,13 +14,7 @@
   A device handle for an IDE controller must contain an EFI_DEVICE_PATH_PROTOCOL.
 
 Copyright (c) 2007 - 2018, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials are licensed and made available under
-the terms and conditions of the BSD License that accompanies this distribution.
-The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php.
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol is defined in UEFI Platform Initialization Specification 1.2
@@ -44,7 +38,7 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 ///
 /// Forward declaration for EFI_IDE_CONTROLLER_INIT_PROTOCOL.
 ///
-typedef struct _EFI_IDE_CONTROLLER_INIT_PROTOCOL  EFI_IDE_CONTROLLER_INIT_PROTOCOL;
+typedef struct _EFI_IDE_CONTROLLER_INIT_PROTOCOL EFI_IDE_CONTROLLER_INIT_PROTOCOL;
 
 ///
 /// The phase of the IDE Controller enumeration.
@@ -125,8 +119,8 @@ typedef enum {
 /// EFI_ATA_MODE structure.
 ///
 typedef struct {
-  BOOLEAN      Valid;   ///< TRUE if Mode is valid.
-  UINT32       Mode;    ///< The actual ATA mode. This field is not a bit map.
+  BOOLEAN    Valid;     ///< TRUE if Mode is valid.
+  UINT32     Mode;      ///< The actual ATA mode. This field is not a bit map.
 } EFI_ATA_MODE;
 
 ///
@@ -142,11 +136,11 @@ typedef struct {
   /// can support new transport protocols beyond UDMA. Type EFI_ATA_EXT_TRANSFER_PROTOCOL
   /// is defined below.
   ///
-  EFI_ATA_EXT_TRANSFER_PROTOCOL  TransferProtocol;
+  EFI_ATA_EXT_TRANSFER_PROTOCOL    TransferProtocol;
   ///
   /// The mode for operating the transfer protocol that is identified by TransferProtocol.
   ///
-  UINT32                         Mode;
+  UINT32                           Mode;
 } EFI_ATA_EXTENDED_MODE;
 
 ///
@@ -160,7 +154,7 @@ typedef struct {
   /// of PIO mode 1 is governed by the ATA/ATAPI specification. Type EFI_ATA_MODE
   /// is defined below.
   ///
-  EFI_ATA_MODE           PioMode;
+  EFI_ATA_MODE    PioMode;
   ///
   /// This field specifies the single word DMA mode. Single word DMA modes are defined
   /// in the ATA/ATAPI specification, versions 1 and 2. Single word DMA support was
@@ -170,26 +164,26 @@ typedef struct {
   /// mode 1. The actual meaning of single word DMA mode 1 is governed by the ATA/
   /// ATAPI specification.
   ///
-  EFI_ATA_MODE           SingleWordDmaMode;
+  EFI_ATA_MODE             SingleWordDmaMode;
   ///
   /// This field specifies the multiword DMA mode. Various multiword DMA modes are
   /// defined in the ATA/ATAPI specification. A value of 1 in this field means multiword
   /// DMA mode 1. The actual meaning of multiword DMA mode 1 is governed by the
   /// ATA/ATAPI specification.
   ///
-  EFI_ATA_MODE           MultiWordDmaMode;
+  EFI_ATA_MODE             MultiWordDmaMode;
   ///
   /// This field specifies the ultra DMA (UDMA) mode. UDMA modes are defined in the
   /// ATA/ATAPI specification. A value of 1 in this field means UDMA mode 1. The
   /// actual meaning of UDMA mode 1 is governed by the ATA/ATAPI specification.
   ///
-  EFI_ATA_MODE           UdmaMode;
+  EFI_ATA_MODE             UdmaMode;
   ///
   /// The number of extended-mode bitmap entries. Extended modes describe transfer
   /// protocols beyond PIO, single word DMA, multiword DMA, and UDMA. This field
   /// can be zero and provides extensibility.
   ///
-  UINT32                 ExtModeCount;
+  UINT32                   ExtModeCount;
   ///
   /// ExtModeCount number of entries. Each entry represents a transfer protocol other
   /// than the ones defined above (i.e., PIO, single word DMA, multiword DMA, and
@@ -197,7 +191,7 @@ typedef struct {
   /// transfer protocol is defined to cover SATA transfers. Type
   /// EFI_ATA_EXTENDED_MODE is defined below.
   ///
-  EFI_ATA_EXTENDED_MODE  ExtMode[1];
+  EFI_ATA_EXTENDED_MODE    ExtMode[1];
 } EFI_ATA_COLLECTIVE_MODE;
 
 ///
@@ -228,12 +222,12 @@ typedef union {
   /// The data that is returned by an ATA device upon successful completion
   /// of the ATA IDENTIFY_DEVICE command.
   ///
-  EFI_ATA_IDENTIFY_DATA       AtaData;
+  EFI_ATA_IDENTIFY_DATA      AtaData;
   ///
   /// The data that is returned by an ATAPI device upon successful completion
   /// of the ATA IDENTIFY_PACKET_DEVICE command.
   ///
-  EFI_ATAPI_IDENTIFY_DATA     AtapiData;
+  EFI_ATAPI_IDENTIFY_DATA    AtapiData;
 } EFI_IDENTIFY_DATA;
 
 /**
@@ -557,9 +551,9 @@ struct _EFI_IDE_CONTROLLER_INIT_PROTOCOL {
   /// each of which can have up to one device. In the presence of a multiplier,
   /// each channel can have fifteen devices.
   ///
-  UINT8                                  ChannelCount;
+  UINT8    ChannelCount;
 };
 
-extern EFI_GUID gEfiIdeControllerInitProtocolGuid;
+extern EFI_GUID  gEfiIdeControllerInitProtocolGuid;
 
 #endif

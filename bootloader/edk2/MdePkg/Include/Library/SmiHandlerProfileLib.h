@@ -13,13 +13,7 @@
   be responsible to call the services to register information to SMM Core.
 
 Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials
-are licensed and made available under the terms and conditions of the BSD License
-which accompanies this distribution.  The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -51,11 +45,11 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 EFI_STATUS
 EFIAPI
 SmiHandlerProfileRegisterHandler (
-  IN EFI_GUID                       *HandlerGuid,
-  IN EFI_SMM_HANDLER_ENTRY_POINT2   Handler,
-  IN PHYSICAL_ADDRESS               CallerAddress,
-  IN VOID                           *Context, OPTIONAL
-  IN UINTN                          ContextSize OPTIONAL
+  IN EFI_GUID                      *HandlerGuid,
+  IN EFI_SMM_HANDLER_ENTRY_POINT2  Handler,
+  IN PHYSICAL_ADDRESS              CallerAddress,
+  IN VOID                          *Context  OPTIONAL,
+  IN UINTN                         ContextSize OPTIONAL
   );
 
 /**
@@ -78,10 +72,10 @@ SmiHandlerProfileRegisterHandler (
 EFI_STATUS
 EFIAPI
 SmiHandlerProfileUnregisterHandler (
-  IN EFI_GUID                       *HandlerGuid,
-  IN EFI_SMM_HANDLER_ENTRY_POINT2   Handler,
-  IN VOID                           *Context, OPTIONAL
-  IN UINTN                          ContextSize OPTIONAL
+  IN EFI_GUID                      *HandlerGuid,
+  IN EFI_SMM_HANDLER_ENTRY_POINT2  Handler,
+  IN VOID                          *Context  OPTIONAL,
+  IN UINTN                         ContextSize OPTIONAL
   );
 
 #endif

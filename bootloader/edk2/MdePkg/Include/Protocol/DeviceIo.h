@@ -5,13 +5,7 @@
   memory mapped IO, IO, PCI Config space, and DMA.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -33,7 +27,7 @@ typedef struct _EFI_DEVICE_IO_PROTOCOL EFI_DEVICE_IO_PROTOCOL;
 ///
 /// Protocol defined in EFI1.1.
 ///
-typedef EFI_DEVICE_IO_PROTOCOL  EFI_DEVICE_IO_INTERFACE;
+typedef EFI_DEVICE_IO_PROTOCOL EFI_DEVICE_IO_INTERFACE;
 
 ///
 /// Device IO Access Width
@@ -82,8 +76,8 @@ EFI_STATUS
   );
 
 typedef struct {
-  EFI_DEVICE_IO Read;
-  EFI_DEVICE_IO Write;
+  EFI_DEVICE_IO    Read;
+  EFI_DEVICE_IO    Write;
 } EFI_IO_ACCESS;
 
 /**
@@ -246,23 +240,23 @@ struct _EFI_DEVICE_IO_PROTOCOL {
   ///
   /// Allows reads and writes to memory mapped I/O space.
   ///
-  EFI_IO_ACCESS           Mem;
+  EFI_IO_ACCESS             Mem;
   ///
   /// Allows reads and writes to I/O space.
   ///
-  EFI_IO_ACCESS           Io;
+  EFI_IO_ACCESS             Io;
   ///
   /// Allows reads and writes to PCI configuration space.
   ///
-  EFI_IO_ACCESS           Pci;
-  EFI_IO_MAP              Map;
-  EFI_PCI_DEVICE_PATH     PciDevicePath;
-  EFI_IO_UNMAP            Unmap;
-  EFI_IO_ALLOCATE_BUFFER  AllocateBuffer;
-  EFI_IO_FLUSH            Flush;
-  EFI_IO_FREE_BUFFER      FreeBuffer;
+  EFI_IO_ACCESS             Pci;
+  EFI_IO_MAP                Map;
+  EFI_PCI_DEVICE_PATH       PciDevicePath;
+  EFI_IO_UNMAP              Unmap;
+  EFI_IO_ALLOCATE_BUFFER    AllocateBuffer;
+  EFI_IO_FLUSH              Flush;
+  EFI_IO_FREE_BUFFER        FreeBuffer;
 };
 
-extern EFI_GUID gEfiDeviceIoProtocolGuid;
+extern EFI_GUID  gEfiDeviceIoProtocolGuid;
 
 #endif

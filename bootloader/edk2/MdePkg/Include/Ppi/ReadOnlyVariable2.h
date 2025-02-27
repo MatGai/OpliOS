@@ -3,13 +3,7 @@
   This ppi permits read-only access to the UEFI variable store during the PEI phase.
 
 Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials are licensed and made available under
-the terms and conditions of the BSD License that accompanies this distribution.
-The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php.
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This PPI is introduced in PI Version 1.0.
@@ -22,8 +16,7 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 #define EFI_PEI_READ_ONLY_VARIABLE2_PPI_GUID \
   { 0x2ab86ef5, 0xecb5, 0x4134, { 0xb5, 0x56, 0x38, 0x54, 0xca, 0x1f, 0xe1, 0xb4 } }
 
-
-typedef struct _EFI_PEI_READ_ONLY_VARIABLE2_PPI  EFI_PEI_READ_ONLY_VARIABLE2_PPI;
+typedef struct _EFI_PEI_READ_ONLY_VARIABLE2_PPI EFI_PEI_READ_ONLY_VARIABLE2_PPI;
 
 /**
   This service retrieves a variable's value using its name and GUID.
@@ -62,7 +55,6 @@ EFI_STATUS
   IN OUT    UINTN                           *DataSize,
   OUT       VOID                            *Data OPTIONAL
   );
-
 
 /**
   Return the next variable name and GUID.
@@ -108,10 +100,10 @@ EFI_STATUS
 /// variable services.
 ///
 struct _EFI_PEI_READ_ONLY_VARIABLE2_PPI {
-  EFI_PEI_GET_VARIABLE2           GetVariable;
-  EFI_PEI_GET_NEXT_VARIABLE_NAME2 NextVariableName;
+  EFI_PEI_GET_VARIABLE2              GetVariable;
+  EFI_PEI_GET_NEXT_VARIABLE_NAME2    NextVariableName;
 };
 
-extern EFI_GUID gEfiPeiReadOnlyVariable2PpiGuid;
+extern EFI_GUID  gEfiPeiReadOnlyVariable2PpiGuid;
 
 #endif

@@ -5,19 +5,12 @@
   remote debug host.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
 #ifndef __DEBUG_PORT_H__
 #define __DEBUG_PORT_H__
-
 
 ///
 /// DebugPortIo protocol {EBA4E8D2-3858-41EC-A281-2647BA9660D0}
@@ -27,7 +20,7 @@
     0xEBA4E8D2, 0x3858, 0x41EC, {0xA2, 0x81, 0x26, 0x47, 0xBA, 0x96, 0x60, 0xD0 } \
   }
 
-extern EFI_GUID gEfiDebugPortProtocolGuid;
+extern EFI_GUID  gEfiDebugPortProtocolGuid;
 
 typedef struct _EFI_DEBUGPORT_PROTOCOL EFI_DEBUGPORT_PROTOCOL;
 
@@ -117,30 +110,30 @@ EFI_STATUS
 /// This protocol provides the communication link between the debug agent and the remote host.
 ///
 struct _EFI_DEBUGPORT_PROTOCOL {
-  EFI_DEBUGPORT_RESET Reset;
-  EFI_DEBUGPORT_WRITE Write;
-  EFI_DEBUGPORT_READ  Read;
-  EFI_DEBUGPORT_POLL  Poll;
+  EFI_DEBUGPORT_RESET    Reset;
+  EFI_DEBUGPORT_WRITE    Write;
+  EFI_DEBUGPORT_READ     Read;
+  EFI_DEBUGPORT_POLL     Poll;
 };
 
 //
 // DEBUGPORT variable definitions...
 //
-#define EFI_DEBUGPORT_VARIABLE_NAME L"DEBUGPORT"
-#define EFI_DEBUGPORT_VARIABLE_GUID EFI_DEBUGPORT_PROTOCOL_GUID
+#define EFI_DEBUGPORT_VARIABLE_NAME  L"DEBUGPORT"
+#define EFI_DEBUGPORT_VARIABLE_GUID  EFI_DEBUGPORT_PROTOCOL_GUID
 
 extern EFI_GUID  gEfiDebugPortVariableGuid;
 
 //
 // DebugPort device path definitions...
 //
-#define DEVICE_PATH_MESSAGING_DEBUGPORT EFI_DEBUGPORT_PROTOCOL_GUID
+#define DEVICE_PATH_MESSAGING_DEBUGPORT  EFI_DEBUGPORT_PROTOCOL_GUID
 
 extern EFI_GUID  gEfiDebugPortDevicePathGuid;
 
 typedef struct {
-  EFI_DEVICE_PATH_PROTOCOL  Header;
-  EFI_GUID                  Guid;
+  EFI_DEVICE_PATH_PROTOCOL    Header;
+  EFI_GUID                    Guid;
 } DEBUGPORT_DEVICE_PATH;
 
 #endif

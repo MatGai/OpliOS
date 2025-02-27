@@ -4,13 +4,7 @@
   This PPI provides a way for the SEC code to pass zero or more HOBs in a HOB list.
 
 Copyright (c) 2017 - 2018, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials are licensed and made available under
-the terms and conditions of the BSD License that accompanies this distribution.
-The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php.
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This PPI is introduced in PI Version 1.5.
@@ -48,18 +42,18 @@ typedef struct _EFI_SEC_HOB_DATA_PPI EFI_SEC_HOB_DATA_PPI;
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_SEC_HOB_DATA_GET) (
+(EFIAPI *EFI_SEC_HOB_DATA_GET)(
   IN CONST EFI_SEC_HOB_DATA_PPI *This,
   OUT EFI_HOB_GENERIC_HEADER    **HobList
-);
+  );
 
 ///
 /// This PPI provides a way for the SEC code to pass zero or more HOBs in a HOB list.
 ///
 struct _EFI_SEC_HOB_DATA_PPI {
-  EFI_SEC_HOB_DATA_GET          GetHobs;
+  EFI_SEC_HOB_DATA_GET    GetHobs;
 };
 
-extern EFI_GUID gEfiSecHobDataPpiGuid;
+extern EFI_GUID  gEfiSecHobDataPpiGuid;
 
 #endif

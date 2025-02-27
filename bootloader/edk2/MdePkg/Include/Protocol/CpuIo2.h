@@ -13,13 +13,7 @@
   protocol and can be used by runtime drivers after ExitBootServices().
 
   Copyright (c) 2007 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol is defined in UEFI Platform Initialization Specification 1.2
@@ -115,11 +109,11 @@ typedef struct {
   ///
   /// This service provides the various modalities of memory and I/O read.
   ///
-  EFI_CPU_IO_PROTOCOL_IO_MEM  Read;
+  EFI_CPU_IO_PROTOCOL_IO_MEM    Read;
   ///
   /// This service provides the various modalities of memory and I/O write.
   ///
-  EFI_CPU_IO_PROTOCOL_IO_MEM  Write;
+  EFI_CPU_IO_PROTOCOL_IO_MEM    Write;
 } EFI_CPU_IO_PROTOCOL_ACCESS;
 
 ///
@@ -130,13 +124,13 @@ struct _EFI_CPU_IO2_PROTOCOL {
   ///
   /// Enables a driver to access memory-mapped registers in the EFI system memory space.
   ///
-  EFI_CPU_IO_PROTOCOL_ACCESS  Mem;
+  EFI_CPU_IO_PROTOCOL_ACCESS    Mem;
   ///
   /// Enables a driver to access registers in the EFI CPU I/O space.
   ///
-  EFI_CPU_IO_PROTOCOL_ACCESS  Io;
+  EFI_CPU_IO_PROTOCOL_ACCESS    Io;
 };
 
-extern EFI_GUID gEfiCpuIo2ProtocolGuid;
+extern EFI_GUID  gEfiCpuIo2ProtocolGuid;
 
 #endif

@@ -5,13 +5,7 @@
   whether the driver is being invoked inside SMRAM or outside of SMRAM.
 
   Copyright (c) 2009 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -23,7 +17,7 @@
 
 #define EFI_SMM_BASE2_PROTOCOL_GUID  EFI_MM_BASE_PROTOCOL_GUID
 
-typedef struct _EFI_SMM_BASE2_PROTOCOL  EFI_SMM_BASE2_PROTOCOL;
+typedef struct _EFI_SMM_BASE2_PROTOCOL EFI_SMM_BASE2_PROTOCOL;
 
 /**
   Service to indicate whether the driver is currently executing in the SMM Initialization phase.
@@ -75,11 +69,10 @@ EFI_STATUS
 /// services and determine whether the driver is being invoked inside SMRAM or outside of SMRAM.
 ///
 struct _EFI_SMM_BASE2_PROTOCOL {
-  EFI_SMM_INSIDE_OUT2         InSmm;
-  EFI_SMM_GET_SMST_LOCATION2  GetSmstLocation;
+  EFI_SMM_INSIDE_OUT2           InSmm;
+  EFI_SMM_GET_SMST_LOCATION2    GetSmstLocation;
 };
 
-extern EFI_GUID gEfiSmmBase2ProtocolGuid;
+extern EFI_GUID  gEfiSmmBase2ProtocolGuid;
 
 #endif
-

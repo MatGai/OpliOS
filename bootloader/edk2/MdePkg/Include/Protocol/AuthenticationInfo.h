@@ -4,13 +4,7 @@
   associated with the physical or logical device.
 
 Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials are licensed and made available under
-the terms and conditions of the BSD License that accompanies this distribution.
-The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php.
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -39,41 +33,41 @@ typedef struct {
   ///
   /// Authentication Type GUID.
   ///
-  EFI_GUID         Guid;
+  EFI_GUID    Guid;
 
   ///
   /// Length of this structure in bytes.
   ///
-  UINT16           Length;
+  UINT16      Length;
 } AUTH_NODE_HEADER;
 
 typedef struct {
-  AUTH_NODE_HEADER Header;
+  AUTH_NODE_HEADER    Header;
 
   ///
   /// RADIUS Server IPv4 or IPv6 Address.
   ///
-  UINT8            RadiusIpAddr[16];         ///< IPv4 or IPv6 address.
+  UINT8               RadiusIpAddr[16];      ///< IPv4 or IPv6 address.
 
   ///
   /// Reserved for future use.
   ///
-  UINT16           Reserved;
+  UINT16              Reserved;
 
   ///
   /// Network Access Server IPv4 or IPv6 Address (OPTIONAL).
   ///
-  UINT8            NasIpAddr[16];            ///< IPv4 or IPv6 address.
+  UINT8               NasIpAddr[16];         ///< IPv4 or IPv6 address.
 
   ///
   /// Network Access Server Secret Length in bytes (OPTIONAL).
   ///
-  UINT16           NasSecretLength;
+  UINT16              NasSecretLength;
 
   ///
   /// Network Access Server Secret (OPTIONAL).
   ///
-  UINT8            NasSecret[1];
+  UINT8               NasSecret[1];
 
   ///
   /// CHAP Initiator Secret Length in bytes on offset NasSecret + NasSecretLength.
@@ -111,22 +105,22 @@ typedef struct {
 } CHAP_RADIUS_AUTH_NODE;
 
 typedef struct {
-  AUTH_NODE_HEADER Header;
+  AUTH_NODE_HEADER    Header;
 
   ///
   /// Reserved for future use.
   ///
-  UINT16           Reserved;
+  UINT16              Reserved;
 
   ///
   /// User Secret Length in bytes.
   ///
-  UINT16           UserSecretLength;
+  UINT16              UserSecretLength;
 
   ///
   /// User Secret.
   ///
-  UINT8            UserSecret[1];
+  UINT8               UserSecret[1];
 
   ///
   /// User Name Length in bytes on offset UserSecret + UserSecretLength.
@@ -226,12 +220,12 @@ EFI_STATUS
 /// information associated with the physical or logical device.
 ///
 struct _EFI_AUTHENTICATION_INFO_PROTOCOL {
-  EFI_AUTHENTICATION_INFO_PROTOCOL_GET Get;
-  EFI_AUTHENTICATION_INFO_PROTOCOL_SET Set;
+  EFI_AUTHENTICATION_INFO_PROTOCOL_GET    Get;
+  EFI_AUTHENTICATION_INFO_PROTOCOL_SET    Set;
 };
 
-extern EFI_GUID gEfiAuthenticationInfoProtocolGuid;
-extern EFI_GUID gEfiAuthenticationChapRadiusGuid;
-extern EFI_GUID gEfiAuthenticationChapLocalGuid;
+extern EFI_GUID  gEfiAuthenticationInfoProtocolGuid;
+extern EFI_GUID  gEfiAuthenticationChapRadiusGuid;
+extern EFI_GUID  gEfiAuthenticationChapLocalGuid;
 
 #endif

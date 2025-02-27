@@ -5,13 +5,7 @@
   the EDID information being used for the output device represented by the child handle.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -32,7 +26,7 @@ typedef struct {
   /// is available from the video output device. Otherwise, it must be a
   /// minimum of 128 bytes.
   ///
-  UINT32   SizeOfEdid;
+  UINT32    SizeOfEdid;
 
   ///
   /// A pointer to a read-only array of bytes that contains the EDID
@@ -45,6 +39,6 @@ typedef struct {
   UINT8    *Edid;
 } EFI_EDID_DISCOVERED_PROTOCOL;
 
-extern EFI_GUID gEfiEdidDiscoveredProtocolGuid;
+extern EFI_GUID  gEfiEdidDiscoveredProtocolGuid;
 
 #endif

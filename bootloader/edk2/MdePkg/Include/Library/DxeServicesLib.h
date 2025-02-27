@@ -4,13 +4,7 @@
 
 Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
 (C) Copyright 2015 Hewlett Packard Enterprise Development LP<BR>
-This program and the accompanying materials are licensed and made available under
-the terms and conditions of the BSD License that accompanies this distribution.
-The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php.
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -59,12 +53,12 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 EFI_STATUS
 EFIAPI
 GetSectionFromAnyFvByFileType  (
-  IN  EFI_FV_FILETYPE               FileType,
-  IN  UINTN                         FileInstance,
-  IN  EFI_SECTION_TYPE              SectionType,
-  IN  UINTN                         SectionInstance,
-  OUT VOID                          **Buffer,
-  OUT UINTN                         *Size
+  IN  EFI_FV_FILETYPE   FileType,
+  IN  UINTN             FileInstance,
+  IN  EFI_SECTION_TYPE  SectionType,
+  IN  UINTN             SectionInstance,
+  OUT VOID              **Buffer,
+  OUT UINTN             *Size
   );
 
 /**
@@ -113,11 +107,11 @@ GetSectionFromAnyFvByFileType  (
 EFI_STATUS
 EFIAPI
 GetSectionFromAnyFv  (
-  IN  CONST EFI_GUID                *NameGuid,
-  IN  EFI_SECTION_TYPE              SectionType,
-  IN  UINTN                         SectionInstance,
-  OUT VOID                          **Buffer,
-  OUT UINTN                         *Size
+  IN  CONST EFI_GUID    *NameGuid,
+  IN  EFI_SECTION_TYPE  SectionType,
+  IN  UINTN             SectionInstance,
+  OUT VOID              **Buffer,
+  OUT UINTN             *Size
   );
 
 /**
@@ -168,16 +162,15 @@ GetSectionFromAnyFv  (
 EFI_STATUS
 EFIAPI
 GetSectionFromFv (
-  IN  CONST EFI_GUID                *NameGuid,
-  IN  EFI_SECTION_TYPE              SectionType,
-  IN  UINTN                         SectionInstance,
-  OUT VOID                          **Buffer,
-  OUT UINTN                         *Size
+  IN  CONST EFI_GUID    *NameGuid,
+  IN  EFI_SECTION_TYPE  SectionType,
+  IN  UINTN             SectionInstance,
+  OUT VOID              **Buffer,
+  OUT UINTN             *Size
   );
 
-
 /**
-  Searches the FFS file the the currently executing module was loaded from and returns the first matching FFS section.
+  Searches the FFS file the currently executing module was loaded from and returns the first matching FFS section.
 
   This function searches the FFS file that the currently executing module was loaded from for a FFS sections of type SectionType.
   If the FFS file contains at least SectionInstance instances of the FFS section specified by SectionType,
@@ -221,12 +214,11 @@ GetSectionFromFv (
 EFI_STATUS
 EFIAPI
 GetSectionFromFfs (
-  IN  EFI_SECTION_TYPE              SectionType,
-  IN  UINTN                         SectionInstance,
-  OUT VOID                          **Buffer,
-  OUT UINTN                         *Size
+  IN  EFI_SECTION_TYPE  SectionType,
+  IN  UINTN             SectionInstance,
+  OUT VOID              **Buffer,
+  OUT UINTN             *Size
   );
-
 
 /**
   Get the image file buffer data and buffer size by its device path.
@@ -257,10 +249,10 @@ GetSectionFromFfs (
 VOID *
 EFIAPI
 GetFileBufferByFilePath (
-  IN BOOLEAN                           BootPolicy,
-  IN CONST EFI_DEVICE_PATH_PROTOCOL    *FilePath,
-  OUT      UINTN                       *FileSize,
-  OUT UINT32                           *AuthenticationStatus
+  IN BOOLEAN                         BootPolicy,
+  IN CONST EFI_DEVICE_PATH_PROTOCOL  *FilePath,
+  OUT      UINTN                     *FileSize,
+  OUT UINT32                         *AuthenticationStatus
   );
 
 /**

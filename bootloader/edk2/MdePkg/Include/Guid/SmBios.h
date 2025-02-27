@@ -6,13 +6,7 @@
   tables.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   GUIDs defined in UEFI 2.5 spec.
@@ -32,7 +26,7 @@
     0xf2fd1544, 0x9794, 0x4a2c, {0x99, 0x2e, 0xe5, 0xbb, 0xcf, 0x20, 0xe3, 0x94 } \
   }
 
-extern EFI_GUID       gEfiSmbiosTableGuid;
-extern EFI_GUID       gEfiSmbios3TableGuid;
+extern EFI_GUID  gEfiSmbiosTableGuid;
+extern EFI_GUID  gEfiSmbios3TableGuid;
 
 #endif

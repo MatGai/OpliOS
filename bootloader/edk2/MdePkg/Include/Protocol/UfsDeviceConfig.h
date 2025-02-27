@@ -2,13 +2,7 @@
   This file defines the EFI UFS Device Config Protocol.
 
   Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol is introduced in UEFI Specification 2.7
@@ -27,7 +21,7 @@
 //
 // Forward reference for pure ANSI compatability
 //
-typedef struct _EFI_UFS_DEVICE_CONFIG_PROTOCOL  EFI_UFS_DEVICE_CONFIG_PROTOCOL;
+typedef struct _EFI_UFS_DEVICE_CONFIG_PROTOCOL EFI_UFS_DEVICE_CONFIG_PROTOCOL;
 
 /**
   Read or write specified device descriptor of a UFS device.
@@ -54,7 +48,7 @@ typedef struct _EFI_UFS_DEVICE_CONFIG_PROTOCOL  EFI_UFS_DEVICE_CONFIG_PROTOCOL;
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_UFS_DEVICE_CONFIG_RW_DESCRIPTOR) (
+(EFIAPI *EFI_UFS_DEVICE_CONFIG_RW_DESCRIPTOR)(
   IN EFI_UFS_DEVICE_CONFIG_PROTOCOL    *This,
   IN BOOLEAN                           Read,
   IN UINT8                             DescId,
@@ -84,7 +78,7 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_UFS_DEVICE_CONFIG_RW_FLAG) (
+(EFIAPI *EFI_UFS_DEVICE_CONFIG_RW_FLAG)(
   IN EFI_UFS_DEVICE_CONFIG_PROTOCOL    *This,
   IN BOOLEAN                           Read,
   IN UINT8                             FlagId,
@@ -116,7 +110,7 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_UFS_DEVICE_CONFIG_RW_ATTRIBUTE) (
+(EFIAPI *EFI_UFS_DEVICE_CONFIG_RW_ATTRIBUTE)(
   IN EFI_UFS_DEVICE_CONFIG_PROTOCOL    *This,
   IN BOOLEAN                           Read,
   IN UINT8                             AttrId,
@@ -138,6 +132,6 @@ struct _EFI_UFS_DEVICE_CONFIG_PROTOCOL {
 ///
 /// UFS Device Config Protocol GUID variable.
 ///
-extern EFI_GUID gEfiUfsDeviceConfigProtocolGuid;
+extern EFI_GUID  gEfiUfsDeviceConfigProtocolGuid;
 
 #endif

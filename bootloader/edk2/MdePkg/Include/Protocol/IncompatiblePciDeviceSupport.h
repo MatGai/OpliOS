@@ -59,13 +59,7 @@
   reports the resource length and the alignment that it requires.
 
   Copyright (c) 2007 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol is defined in UEFI Platform Initialization Specification 1.2
@@ -165,9 +159,9 @@ struct _EFI_INCOMPATIBLE_PCI_DEVICE_SUPPORT_PROTOCOL {
   ///  resource configuration requirements if the specified device is a recognized
   ///  incompatible PCI device.
   ///
-  EFI_INCOMPATIBLE_PCI_DEVICE_SUPPORT_CHECK_DEVICE  CheckDevice;
+  EFI_INCOMPATIBLE_PCI_DEVICE_SUPPORT_CHECK_DEVICE    CheckDevice;
 };
 
-extern EFI_GUID gEfiIncompatiblePciDeviceSupportProtocolGuid;
+extern EFI_GUID  gEfiIncompatiblePciDeviceSupportProtocolGuid;
 
 #endif

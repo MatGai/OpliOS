@@ -3,13 +3,7 @@
   consumers while in DXE.
 
   Copyright (c) 2007 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol was introduced in PI Specification 1.2.
@@ -32,7 +26,7 @@ EFI_STATUS
   IN UINT32                 Instance,
   IN EFI_GUID               *CallerId,
   IN EFI_STATUS_CODE_DATA   *Data
-);
+  );
 
 /**
   Register the callback function for ReportStatusCode() notification.
@@ -66,7 +60,7 @@ EFI_STATUS
 (EFIAPI *EFI_RSC_HANDLER_REGISTER)(
   IN EFI_RSC_HANDLER_CALLBACK   Callback,
   IN EFI_TPL                    Tpl
-);
+  );
 
 /**
   Remove a previously registered callback function from the notification list.
@@ -85,13 +79,13 @@ typedef
 EFI_STATUS
 (EFIAPI *EFI_RSC_HANDLER_UNREGISTER)(
   IN EFI_RSC_HANDLER_CALLBACK Callback
-);
+  );
 
 typedef struct {
-  EFI_RSC_HANDLER_REGISTER Register;
-  EFI_RSC_HANDLER_UNREGISTER Unregister;
+  EFI_RSC_HANDLER_REGISTER      Register;
+  EFI_RSC_HANDLER_UNREGISTER    Unregister;
 } EFI_RSC_HANDLER_PROTOCOL;
 
-extern EFI_GUID gEfiRscHandlerProtocolGuid;
+extern EFI_GUID  gEfiRscHandlerProtocolGuid;
 
 #endif // __REPORT_STATUS_CODE_HANDLER_H__

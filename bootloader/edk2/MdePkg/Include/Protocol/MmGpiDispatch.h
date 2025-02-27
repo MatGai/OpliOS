@@ -10,13 +10,7 @@
   MMI in response to any of these inputs having a true value provided.
 
   Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This protocol is from PI Version 1.5.
@@ -42,7 +36,7 @@ typedef struct {
   /// 0 corresponds to logical GPI[0]; 1 corresponds to logical GPI[1]; and
   /// GpiNum of N corresponds to GPI[N], where N can span from 0 to 2^64-1.
   ///
-  UINT64 GpiNum;
+  UINT64    GpiNum;
 } EFI_MM_GPI_REGISTER_CONTEXT;
 
 typedef struct _EFI_MM_GPI_DISPATCH_PROTOCOL EFI_MM_GPI_DISPATCH_PROTOCOL;
@@ -111,15 +105,14 @@ EFI_STATUS
 /// for the General Purpose Input (GPI) MMI source generator.
 ///
 struct _EFI_MM_GPI_DISPATCH_PROTOCOL {
-  EFI_MM_GPI_REGISTER    Register;
-  EFI_MM_GPI_UNREGISTER  UnRegister;
+  EFI_MM_GPI_REGISTER      Register;
+  EFI_MM_GPI_UNREGISTER    UnRegister;
   ///
   /// Denotes the maximum value of inputs that can have handlers attached.
   ///
-  UINTN                   NumSupportedGpis;
+  UINTN                    NumSupportedGpis;
 };
 
-extern EFI_GUID gEfiMmGpiDispatchProtocolGuid;
+extern EFI_GUID  gEfiMmGpiDispatchProtocolGuid;
 
 #endif
-

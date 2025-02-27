@@ -2,13 +2,7 @@
   UEFI Driver Diagnostics2 Protocol
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -22,7 +16,7 @@
     0x4d330321, 0x025f, 0x4aac, {0x90, 0xd8, 0x5e, 0xd9, 0x00, 0x17, 0x3b, 0x63 } \
   }
 
-typedef struct _EFI_DRIVER_DIAGNOSTICS2_PROTOCOL  EFI_DRIVER_DIAGNOSTICS2_PROTOCOL;
+typedef struct _EFI_DRIVER_DIAGNOSTICS2_PROTOCOL EFI_DRIVER_DIAGNOSTICS2_PROTOCOL;
 
 /**
   Runs diagnostics on a controller.
@@ -98,14 +92,14 @@ EFI_STATUS
 /// Used to perform diagnostics on a controller that an EFI Driver is managing.
 ///
 struct _EFI_DRIVER_DIAGNOSTICS2_PROTOCOL {
-  EFI_DRIVER_DIAGNOSTICS2_RUN_DIAGNOSTICS RunDiagnostics;
+  EFI_DRIVER_DIAGNOSTICS2_RUN_DIAGNOSTICS    RunDiagnostics;
   ///
   /// A Null-terminated ASCII string that contains one or more RFC 4646
   /// language codes.  This is the list of language codes that this protocol supports.
   ///
-  CHAR8                                   *SupportedLanguages;
+  CHAR8                                      *SupportedLanguages;
 };
 
-extern EFI_GUID gEfiDriverDiagnostics2ProtocolGuid;
+extern EFI_GUID  gEfiDriverDiagnostics2ProtocolGuid;
 
 #endif

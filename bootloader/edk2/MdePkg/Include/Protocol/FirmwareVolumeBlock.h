@@ -2,13 +2,7 @@
   This file provides control over block-oriented firmware devices.
 
 Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials are licensed and made available under
-the terms and conditions of the BSD License that accompanies this distribution.
-The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php.
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference: PI
   Version 1.0 and 1.2.
@@ -50,11 +44,10 @@ typedef EFI_FIRMWARE_VOLUME_BLOCK_PROTOCOL EFI_FIRMWARE_VOLUME_BLOCK2_PROTOCOL;
 **/
 typedef
 EFI_STATUS
-(EFIAPI * EFI_FVB_GET_ATTRIBUTES)(
+(EFIAPI *EFI_FVB_GET_ATTRIBUTES)(
   IN CONST  EFI_FIRMWARE_VOLUME_BLOCK2_PROTOCOL *This,
   OUT       EFI_FVB_ATTRIBUTES_2                *Attributes
-);
-
+  );
 
 /**
   The SetAttributes() function sets configurable firmware volume
@@ -80,11 +73,10 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI * EFI_FVB_SET_ATTRIBUTES)(
+(EFIAPI *EFI_FVB_SET_ATTRIBUTES)(
   IN CONST  EFI_FIRMWARE_VOLUME_BLOCK2_PROTOCOL *This,
   IN OUT    EFI_FVB_ATTRIBUTES_2                *Attributes
-);
-
+  );
 
 /**
   The GetPhysicalAddress() function retrieves the base address of
@@ -105,10 +97,10 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI * EFI_FVB_GET_PHYSICAL_ADDRESS)(
+(EFIAPI *EFI_FVB_GET_PHYSICAL_ADDRESS)(
   IN CONST  EFI_FIRMWARE_VOLUME_BLOCK2_PROTOCOL *This,
   OUT       EFI_PHYSICAL_ADDRESS                *Address
-);
+  );
 
 /**
   The GetBlockSize() function retrieves the size of the requested
@@ -138,13 +130,12 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI * EFI_FVB_GET_BLOCK_SIZE)(
+(EFIAPI *EFI_FVB_GET_BLOCK_SIZE)(
   IN CONST  EFI_FIRMWARE_VOLUME_BLOCK2_PROTOCOL *This,
   IN        EFI_LBA                             Lba,
   OUT       UINTN                               *BlockSize,
   OUT       UINTN                               *NumberOfBlocks
-);
-
+  );
 
 /**
   Reads the specified number of bytes into a buffer from the specified block.
@@ -201,7 +192,7 @@ EFI_STATUS
   IN        UINTN                               Offset,
   IN OUT    UINTN                               *NumBytes,
   IN OUT    UINT8                               *Buffer
-);
+  );
 
 /**
   Writes the specified number of bytes from the input buffer to the block.
@@ -264,22 +255,18 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI * EFI_FVB_WRITE)(
+(EFIAPI *EFI_FVB_WRITE)(
   IN CONST  EFI_FIRMWARE_VOLUME_BLOCK2_PROTOCOL *This,
   IN        EFI_LBA                             Lba,
   IN        UINTN                               Offset,
   IN OUT    UINTN                               *NumBytes,
   IN        UINT8                               *Buffer
-);
-
-
-
+  );
 
 ///
 /// EFI_LBA_LIST_TERMINATOR
 ///
-#define EFI_LBA_LIST_TERMINATOR   0xFFFFFFFFFFFFFFFFULL
-
+#define EFI_LBA_LIST_TERMINATOR  0xFFFFFFFFFFFFFFFFULL
 
 /**
   Erases and initializes a firmware volume block.
@@ -331,10 +318,10 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI * EFI_FVB_ERASE_BLOCKS)(
+(EFIAPI *EFI_FVB_ERASE_BLOCKS)(
   IN CONST  EFI_FIRMWARE_VOLUME_BLOCK2_PROTOCOL *This,
   ...
-);
+  );
 
 ///
 /// The Firmware Volume Block Protocol is the low-level interface
@@ -345,22 +332,21 @@ EFI_STATUS
 /// produces the Firmware Volume Protocol will bind to the
 /// Firmware Volume Block Protocol.
 ///
-struct _EFI_FIRMWARE_VOLUME_BLOCK_PROTOCOL{
-  EFI_FVB_GET_ATTRIBUTES        GetAttributes;
-  EFI_FVB_SET_ATTRIBUTES        SetAttributes;
-  EFI_FVB_GET_PHYSICAL_ADDRESS  GetPhysicalAddress;
-  EFI_FVB_GET_BLOCK_SIZE        GetBlockSize;
-  EFI_FVB_READ                  Read;
-  EFI_FVB_WRITE                 Write;
-  EFI_FVB_ERASE_BLOCKS          EraseBlocks;
+struct _EFI_FIRMWARE_VOLUME_BLOCK_PROTOCOL {
+  EFI_FVB_GET_ATTRIBUTES          GetAttributes;
+  EFI_FVB_SET_ATTRIBUTES          SetAttributes;
+  EFI_FVB_GET_PHYSICAL_ADDRESS    GetPhysicalAddress;
+  EFI_FVB_GET_BLOCK_SIZE          GetBlockSize;
+  EFI_FVB_READ                    Read;
+  EFI_FVB_WRITE                   Write;
+  EFI_FVB_ERASE_BLOCKS            EraseBlocks;
   ///
   /// The handle of the parent firmware volume.
   ///
-  EFI_HANDLE                    ParentHandle;
+  EFI_HANDLE                      ParentHandle;
 };
 
-
-extern EFI_GUID gEfiFirmwareVolumeBlockProtocolGuid;
-extern EFI_GUID gEfiFirmwareVolumeBlock2ProtocolGuid;
+extern EFI_GUID  gEfiFirmwareVolumeBlockProtocolGuid;
+extern EFI_GUID  gEfiFirmwareVolumeBlock2ProtocolGuid;
 
 #endif

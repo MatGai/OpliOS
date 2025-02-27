@@ -6,13 +6,7 @@
   handles opening and closing the apertures which are positively-decoded.
 
   Copyright (c) 2015 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This protocol is from PI Version 1.2.1.
@@ -32,8 +26,8 @@
     0xfad7933a, 0x6c21, 0x4234, {0xa4, 0x34, 0x0a, 0x8a, 0x0d, 0x2b, 0x07, 0x81} \
   }
 
-typedef struct _EFI_ISA_HC_PROTOCOL EFI_ISA_HC_PROTOCOL;
-typedef struct _EFI_ISA_HC_PROTOCOL *PEFI_ISA_HC_PROTOCOL;
+typedef struct _EFI_ISA_HC_PROTOCOL  EFI_ISA_HC_PROTOCOL;
+typedef struct _EFI_ISA_HC_PROTOCOL  *PEFI_ISA_HC_PROTOCOL;
 
 /**
   Open I/O aperture.
@@ -58,7 +52,7 @@ typedef struct _EFI_ISA_HC_PROTOCOL *PEFI_ISA_HC_PROTOCOL;
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_ISA_HC_OPEN_IO) (
+(EFIAPI *EFI_ISA_HC_OPEN_IO)(
   IN CONST EFI_ISA_HC_PROTOCOL  *This,
   IN UINT16                     IoAddress,
   IN UINT16                     IoLength,
@@ -83,7 +77,7 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_ISA_HC_CLOSE_IO) (
+(EFIAPI *EFI_ISA_HC_CLOSE_IO)(
   IN CONST EFI_ISA_HC_PROTOCOL      *This,
   IN UINT64                         IoApertureHandle
   );
@@ -96,21 +90,21 @@ struct _EFI_ISA_HC_PROTOCOL {
   /// The version of this protocol. Higher version numbers are backward
   /// compatible with lower version numbers.
   ///
-  UINT32               Version;
+  UINT32                 Version;
   ///
   /// Open an I/O aperture.
   ///
-  EFI_ISA_HC_OPEN_IO   OpenIoAperture;
+  EFI_ISA_HC_OPEN_IO     OpenIoAperture;
   ///
   /// Close an I/O aperture.
   ///
-  EFI_ISA_HC_CLOSE_IO  CloseIoAperture;
+  EFI_ISA_HC_CLOSE_IO    CloseIoAperture;
 };
 
 ///
 /// Reference to variable defined in the .DEC file
 ///
-extern EFI_GUID gEfiIsaHcProtocolGuid;
-extern EFI_GUID gEfiIsaHcServiceBindingProtocolGuid;
+extern EFI_GUID  gEfiIsaHcProtocolGuid;
+extern EFI_GUID  gEfiIsaHcServiceBindingProtocolGuid;
 
-#endif  //  __ISA_HC_H__
+#endif //  __ISA_HC_H__

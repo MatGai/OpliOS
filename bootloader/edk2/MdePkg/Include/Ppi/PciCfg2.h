@@ -5,13 +5,7 @@
   the PCI configuration space for a specific PCI segment.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This PPI is introduced in PI Version 1.0.
@@ -26,9 +20,9 @@
 #define EFI_PEI_PCI_CFG2_PPI_GUID \
   { 0x57a449a, 0x1fdc, 0x4c06, { 0xbf, 0xc9, 0xf5, 0x3f, 0x6a, 0x99, 0xbb, 0x92 } }
 
-typedef struct _EFI_PEI_PCI_CFG2_PPI   EFI_PEI_PCI_CFG2_PPI;
+typedef struct _EFI_PEI_PCI_CFG2_PPI EFI_PEI_PCI_CFG2_PPI;
 
-#define EFI_PEI_PCI_CFG_ADDRESS(bus,dev,func,reg) \
+#define EFI_PEI_PCI_CFG_ADDRESS(bus, dev, func, reg) \
   (UINT64) ( \
   (((UINTN) bus) << 24) | \
   (((UINTN) dev) << 16) | \
@@ -42,7 +36,7 @@ typedef enum {
   ///
   ///  8-bit access
   ///
-  EfiPeiPciCfgWidthUint8  = 0,
+  EfiPeiPciCfgWidthUint8 = 0,
   ///
   /// 16-bit access
   ///
@@ -66,26 +60,26 @@ typedef struct {
   /// 8-bit register offset within the PCI configuration space for a given device's function
   /// space.
   ///
-  UINT8   Register;
+  UINT8     Register;
   ///
   /// Only the 3 least-significant bits are used to encode one of 8 possible functions within a
   /// given device.
   ///
-  UINT8   Function;
+  UINT8     Function;
   ///
   /// Only the 5 least-significant bits are used to encode one of 32 possible devices.
   ///
-  UINT8   Device;
+  UINT8     Device;
   ///
   /// 8-bit value to encode between 0 and 255 buses.
   ///
-  UINT8   Bus;
+  UINT8     Bus;
   ///
   /// Register number in PCI configuration space. If this field is zero, then Register is used
   /// for the register number. If this field is non-zero, then Register is ignored and this field
   /// is used for the register number.
   ///
-  UINT32  ExtendedRegister;
+  UINT32    ExtendedRegister;
 } EFI_PEI_PCI_CFG_PPI_PCI_ADDRESS;
 
 /**
@@ -120,8 +114,7 @@ EFI_STATUS
   IN        EFI_PEI_PCI_CFG_PPI_WIDTH Width,
   IN        UINT64                    Address,
   IN OUT    VOID                      *Buffer
-);
-
+  );
 
 /**
   Performs a read-modify-write operation on the contents
@@ -162,23 +155,22 @@ EFI_STATUS
   IN        UINT64                    Address,
   IN        VOID                      *SetBits,
   IN        VOID                      *ClearBits
-);
+  );
 
 ///
 /// The EFI_PEI_PCI_CFG_PPI interfaces are used to abstract accesses to PCI
 /// controllers behind a PCI root bridge controller.
 ///
 struct _EFI_PEI_PCI_CFG2_PPI {
-  EFI_PEI_PCI_CFG2_PPI_IO  Read;
-  EFI_PEI_PCI_CFG2_PPI_IO  Write;
-  EFI_PEI_PCI_CFG2_PPI_RW  Modify;
+  EFI_PEI_PCI_CFG2_PPI_IO    Read;
+  EFI_PEI_PCI_CFG2_PPI_IO    Write;
+  EFI_PEI_PCI_CFG2_PPI_RW    Modify;
   ///
   /// The PCI bus segment which the specified functions will access.
   ///
-  UINT16                  Segment;
+  UINT16                     Segment;
 };
 
-
-extern EFI_GUID gEfiPciCfg2PpiGuid;
+extern EFI_GUID  gEfiPciCfg2PpiGuid;
 
 #endif

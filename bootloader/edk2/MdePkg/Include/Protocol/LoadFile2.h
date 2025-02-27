@@ -8,13 +8,7 @@
   UEFI 2.0 can boot from any device that produces a LoadFile protocol.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -29,10 +23,9 @@
 ///
 /// Protocol Guid defined by UEFI2.1.
 ///
-#define LOAD_FILE2_PROTOCOL EFI_LOAD_FILE2_PROTOCOL_GUID
+#define LOAD_FILE2_PROTOCOL  EFI_LOAD_FILE2_PROTOCOL_GUID
 
 typedef struct _EFI_LOAD_FILE2_PROTOCOL EFI_LOAD_FILE2_PROTOCOL;
-
 
 /**
   Causes the driver to load a specified file.
@@ -77,9 +70,9 @@ EFI_STATUS
 /// The EFI_LOAD_FILE_PROTOCOL is a simple protocol used to obtain files from arbitrary devices.
 ///
 struct _EFI_LOAD_FILE2_PROTOCOL {
-  EFI_LOAD_FILE2 LoadFile;
+  EFI_LOAD_FILE2    LoadFile;
 };
 
-extern EFI_GUID gEfiLoadFile2ProtocolGuid;
+extern EFI_GUID  gEfiLoadFile2ProtocolGuid;
 
 #endif

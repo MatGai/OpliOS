@@ -4,17 +4,13 @@
   Specification is available at http://www.pcisig.com.
 
   Copyright (c) 2007 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 **/
 
 #ifndef _MEMORY_MAPPED_CONFIGURATION_SPACE_ACCESS_TABLE_H_
 #define _MEMORY_MAPPED_CONFIGURATION_SPACE_ACCESS_TABLE_H_
+
+#include <IndustryStandard/Acpi.h>
 
 //
 // Ensure proper structure formats
@@ -27,11 +23,11 @@
 /// a number of base address allocation structures.
 ///
 typedef struct {
-  UINT64  BaseAddress;
-  UINT16  PciSegmentGroupNumber;
-  UINT8   StartBusNumber;
-  UINT8   EndBusNumber;
-  UINT32  Reserved;
+  UINT64    BaseAddress;
+  UINT16    PciSegmentGroupNumber;
+  UINT8     StartBusNumber;
+  UINT8     EndBusNumber;
+  UINT32    Reserved;
 } EFI_ACPI_MEMORY_MAPPED_ENHANCED_CONFIGURATION_SPACE_BASE_ADDRESS_ALLOCATION_STRUCTURE;
 
 ///
@@ -39,8 +35,8 @@ typedef struct {
 /// must be defined in a platform specific manner.
 ///
 typedef struct {
-  EFI_ACPI_DESCRIPTION_HEADER                       Header;
-  UINT64                                            Reserved;
+  EFI_ACPI_DESCRIPTION_HEADER    Header;
+  UINT64                         Reserved;
 } EFI_ACPI_MEMORY_MAPPED_CONFIGURATION_BASE_ADDRESS_TABLE_HEADER;
 
 ///

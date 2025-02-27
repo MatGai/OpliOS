@@ -32,17 +32,11 @@
     -# Returning to the PEI Dispatcher.
 
   Copyright (c) 2007 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This PPI is defined in UEFI Platform Initialization Specification 1.2 Errata B Volume 1:
-  Pre-EFI Initalization Core Interface
+  Pre-EFI Initialization Core Interface
 
 **/
 
@@ -79,9 +73,9 @@ EFI_STATUS
 ///  Finds and loads the recovery files.
 ///
 struct _EFI_PEI_RECOVERY_MODULE_PPI {
-  EFI_PEI_LOAD_RECOVERY_CAPSULE LoadRecoveryCapsule;  ///< Loads a DXE binary capsule into memory.
+  EFI_PEI_LOAD_RECOVERY_CAPSULE    LoadRecoveryCapsule; ///< Loads a DXE binary capsule into memory.
 };
 
-extern EFI_GUID gEfiPeiRecoveryModulePpiGuid;
+extern EFI_GUID  gEfiPeiRecoveryModulePpiGuid;
 
 #endif

@@ -7,13 +7,7 @@
   EFI_RESET_ARCH_PROTOCOL_GUID protocol is registered with a NULL pointer.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -26,6 +20,6 @@
 #define EFI_RESET_ARCH_PROTOCOL_GUID  \
   { 0x27CFAC88, 0x46CC, 0x11d4, {0x9A, 0x38, 0x00, 0x90, 0x27, 0x3F, 0xC1, 0x4D } }
 
-extern EFI_GUID gEfiResetArchProtocolGuid;
+extern EFI_GUID  gEfiResetArchProtocolGuid;
 
 #endif

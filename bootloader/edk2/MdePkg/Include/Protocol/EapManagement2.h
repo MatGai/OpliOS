@@ -2,13 +2,7 @@
   This file defines the EFI EAP Management2 protocol.
 
   Copyright (c) 2015, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution. The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol is introduced in UEFI Specification 2.5
@@ -55,7 +49,7 @@ typedef struct _EFI_EAP_MANAGEMENT2_PROTOCOL EFI_EAP_MANAGEMENT2_PROTOCOL;
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_EAP_GET_KEY) (
+(EFIAPI *EFI_EAP_GET_KEY)(
   IN EFI_EAP_MANAGEMENT2_PROTOCOL         *This,
   IN OUT UINT8                            *Msk,
   IN OUT UINTN                            *MskSize,
@@ -82,6 +76,6 @@ struct _EFI_EAP_MANAGEMENT2_PROTOCOL {
   EFI_EAP_GET_KEY                         GetKey;
 };
 
-extern EFI_GUID gEfiEapManagement2ProtocolGuid;
+extern EFI_GUID  gEfiEapManagement2ProtocolGuid;
 
 #endif

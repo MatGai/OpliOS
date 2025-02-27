@@ -4,13 +4,7 @@
   This code is used to provide the timer tick for the DXE core.
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -26,7 +20,7 @@
 ///
 /// Declare forward reference for the Timer Architectural Protocol
 ///
-typedef struct _EFI_TIMER_ARCH_PROTOCOL   EFI_TIMER_ARCH_PROTOCOL;
+typedef struct _EFI_TIMER_ARCH_PROTOCOL EFI_TIMER_ARCH_PROTOCOL;
 
 /**
   This function of this type is called when a timer interrupt fires.  This
@@ -82,7 +76,7 @@ EFI_STATUS
 (EFIAPI *EFI_TIMER_REGISTER_HANDLER)(
   IN EFI_TIMER_ARCH_PROTOCOL    *This,
   IN EFI_TIMER_NOTIFY           NotifyFunction
-);
+  );
 
 /**
   This function adjusts the period of timer interrupts to the value specified
@@ -159,7 +153,6 @@ EFI_STATUS
   IN EFI_TIMER_ARCH_PROTOCOL    *This
   );
 
-
 ///
 /// This protocol provides the services to initialize a periodic timer
 /// interrupt, and to register a handler that is called each time the timer
@@ -169,12 +162,12 @@ EFI_STATUS
 /// interrupt.
 ///
 struct _EFI_TIMER_ARCH_PROTOCOL {
-  EFI_TIMER_REGISTER_HANDLER          RegisterHandler;
-  EFI_TIMER_SET_TIMER_PERIOD          SetTimerPeriod;
-  EFI_TIMER_GET_TIMER_PERIOD          GetTimerPeriod;
-  EFI_TIMER_GENERATE_SOFT_INTERRUPT   GenerateSoftInterrupt;
+  EFI_TIMER_REGISTER_HANDLER           RegisterHandler;
+  EFI_TIMER_SET_TIMER_PERIOD           SetTimerPeriod;
+  EFI_TIMER_GET_TIMER_PERIOD           GetTimerPeriod;
+  EFI_TIMER_GENERATE_SOFT_INTERRUPT    GenerateSoftInterrupt;
 };
 
-extern EFI_GUID gEfiTimerArchProtocolGuid;
+extern EFI_GUID  gEfiTimerArchProtocolGuid;
 
 #endif

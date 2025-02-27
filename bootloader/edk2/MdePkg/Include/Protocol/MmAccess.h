@@ -12,13 +12,7 @@
     perturbed by either boot service or runtime agents
 
   Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -30,8 +24,7 @@
      0xc2702b74, 0x800c, 0x4131, {0x87, 0x46, 0x8f, 0xb5, 0xb8, 0x9c, 0xe4, 0xac } \
   }
 
-
-typedef struct _EFI_MM_ACCESS_PROTOCOL  EFI_MM_ACCESS_PROTOCOL;
+typedef struct _EFI_MM_ACCESS_PROTOCOL EFI_MM_ACCESS_PROTOCOL;
 
 /**
   Opens the MMRAM area to be accessible by a boot-service driver.
@@ -113,21 +106,20 @@ EFI_STATUS
 ///  controller would publish this protocol.
 ///
 struct _EFI_MM_ACCESS_PROTOCOL {
-  EFI_MM_OPEN          Open;
-  EFI_MM_CLOSE         Close;
-  EFI_MM_LOCK          Lock;
-  EFI_MM_CAPABILITIES  GetCapabilities;
+  EFI_MM_OPEN            Open;
+  EFI_MM_CLOSE           Close;
+  EFI_MM_LOCK            Lock;
+  EFI_MM_CAPABILITIES    GetCapabilities;
   ///
   /// Indicates the current state of the MMRAM. Set to TRUE if MMRAM is locked.
   ///
-  BOOLEAN               LockState;
+  BOOLEAN                LockState;
   ///
   /// Indicates the current state of the MMRAM. Set to TRUE if MMRAM is open.
   ///
-  BOOLEAN               OpenState;
+  BOOLEAN                OpenState;
 };
 
-extern EFI_GUID gEfiMmAccessProtocolGuid;
+extern EFI_GUID  gEfiMmAccessProtocolGuid;
 
 #endif
-

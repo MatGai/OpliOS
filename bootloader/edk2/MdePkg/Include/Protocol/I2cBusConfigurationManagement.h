@@ -7,13 +7,7 @@
   to reset an I2C device which may be locking up the I2C bus by holding the clock or data line low.
 
   Copyright (c) 2013 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This protocol is from PI Version 1.3.
@@ -92,7 +86,6 @@
 ///
 typedef struct _EFI_I2C_BUS_CONFIGURATION_MANAGEMENT_PROTOCOL EFI_I2C_BUS_CONFIGURATION_MANAGEMENT_PROTOCOL;
 
-
 /**
   Enable access to an I2C bus configuration.
 
@@ -146,7 +139,7 @@ typedef struct _EFI_I2C_BUS_CONFIGURATION_MANAGEMENT_PROTOCOL EFI_I2C_BUS_CONFIG
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_I2C_BUS_CONFIGURATION_MANAGEMENT_PROTOCOL_ENABLE_I2C_BUS_CONFIGURATION) (
+(EFIAPI *EFI_I2C_BUS_CONFIGURATION_MANAGEMENT_PROTOCOL_ENABLE_I2C_BUS_CONFIGURATION)(
   IN CONST EFI_I2C_BUS_CONFIGURATION_MANAGEMENT_PROTOCOL *This,
   IN UINTN                                               I2cBusConfiguration,
   IN EFI_EVENT                                           Event      OPTIONAL,
@@ -160,12 +153,12 @@ struct _EFI_I2C_BUS_CONFIGURATION_MANAGEMENT_PROTOCOL {
   ///
   /// Enable an I2C bus configuration for use.
   ///
-  EFI_I2C_BUS_CONFIGURATION_MANAGEMENT_PROTOCOL_ENABLE_I2C_BUS_CONFIGURATION EnableI2cBusConfiguration;
+  EFI_I2C_BUS_CONFIGURATION_MANAGEMENT_PROTOCOL_ENABLE_I2C_BUS_CONFIGURATION    EnableI2cBusConfiguration;
 };
 
 ///
 /// Reference to variable defined in the .DEC file
 ///
-extern EFI_GUID gEfiI2cBusConfigurationManagementProtocolGuid;
+extern EFI_GUID  gEfiI2cBusConfigurationManagementProtocolGuid;
 
-#endif  //  __I2C_BUS_CONFIGURATION_MANAGEMENT_H__
+#endif //  __I2C_BUS_CONFIGURATION_MANAGEMENT_H__

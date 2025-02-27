@@ -2,13 +2,7 @@
   Provides services to send progress/error codes to a POST card.
 
 Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials
-are licensed and made available under the terms and conditions of the BSD License
-which accompanies this distribution.  The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -42,7 +36,6 @@ PostCode (
   IN UINT32  Value
   );
 
-
 /**
   Sends a 32-bit value to a POST and associated ASCII string.
 
@@ -74,7 +67,6 @@ PostCodeWithDescription (
   IN CONST CHAR8  *Description  OPTIONAL
   );
 
-
 /**
   Returns TRUE if POST Codes are enabled.
 
@@ -93,7 +85,6 @@ PostCodeEnabled (
   VOID
   );
 
-
 /**
   Returns TRUE if POST code descriptions are enabled.
 
@@ -111,7 +102,6 @@ EFIAPI
 PostCodeDescriptionEnabled (
   VOID
   );
-
 
 /**
   Sends a 32-bit value to a POST card.
@@ -140,7 +130,7 @@ PostCodeDescriptionEnabled (
 
   @return Value        The 32-bit value to write to the POST card.
 **/
-#define POST_CODE_WITH_DESCRIPTION(Value,Description)  \
+#define POST_CODE_WITH_DESCRIPTION(Value, Description)  \
   PostCodeEnabled()                              ?     \
     (PostCodeDescriptionEnabled()                ?     \
       PostCodeWithDescription(Value,Description) :     \

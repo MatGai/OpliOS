@@ -2,13 +2,7 @@
   Provides a service to retrieve a pointer to the PEI Services Table.
 
 Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials
-are licensed and made available under the terms and conditions of the BSD License
-which accompanies this distribution.  The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -47,7 +41,7 @@ GetPeiServicesTablePointer (
 VOID
 EFIAPI
 SetPeiServicesTablePointer (
-  IN CONST EFI_PEI_SERVICES ** PeiServicesTablePointer
+  IN CONST EFI_PEI_SERVICES  **PeiServicesTablePointer
   );
 
 /**
@@ -58,10 +52,11 @@ SetPeiServicesTablePointer (
   immediately preceding the Interrupt Descriptor Table (IDT) in memory.
   For X64 CPUs, the PEI Services Table pointer is stored in the 8 bytes
   immediately preceding the Interrupt Descriptor Table (IDT) in memory.
-  For Itanium and ARM CPUs, a the PEI Services Table Pointer is stored in
-  a dedicated CPU register.  This means that there is no memory storage
-  associated with storing the PEI Services Table pointer, so no additional
-  migration actions are required for Itanium or ARM CPUs.
+  For Itanium, ARM and LoongArch CPUs, a the PEI Services Table Pointer
+  is stored in a dedicated CPU register.  This means that there is no
+  memory storage associated with storing the PEI Services Table pointer,
+  so no additional migration actions are required for Itanium, ARM and
+  LoongArch CPUs.
 
 **/
 VOID
@@ -71,4 +66,3 @@ MigratePeiServicesTablePointer (
   );
 
 #endif
-

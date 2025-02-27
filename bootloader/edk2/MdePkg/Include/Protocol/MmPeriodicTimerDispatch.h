@@ -5,13 +5,7 @@
   This protocol provides the parent dispatch service for the periodical timer MMI source generator.
 
   Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This protocol is from PI Version 1.5.
@@ -52,13 +46,13 @@ typedef struct {
   /// The minimum period of time in 100 nanosecond units that the child gets called. The
   /// child will be called back after a time greater than the time Period.
   ///
-  UINT64  Period;
+  UINT64    Period;
   ///
   /// The period of time interval between MMIs. Children of this interface should use this
   /// field when registering for periodic timer intervals when a finer granularity periodic
   /// MMI is desired.
   ///
-  UINT64  MmiTickInterval;
+  UINT64    MmiTickInterval;
 } EFI_MM_PERIODIC_TIMER_REGISTER_CONTEXT;
 
 ///
@@ -71,10 +65,10 @@ typedef struct {
   /// ElapsedTime is the actual time in 100 nanosecond units elapsed since last called, a
   /// value of 0 indicates an unknown amount of time.
   ///
-  UINT64  ElapsedTime;
+  UINT64    ElapsedTime;
 } EFI_MM_PERIODIC_TIMER_CONTEXT;
 
-typedef struct _EFI_MM_PERIODIC_TIMER_DISPATCH_PROTOCOL  EFI_MM_PERIODIC_TIMER_DISPATCH_PROTOCOL;
+typedef struct _EFI_MM_PERIODIC_TIMER_DISPATCH_PROTOCOL EFI_MM_PERIODIC_TIMER_DISPATCH_PROTOCOL;
 
 /**
   Register a child MMI source dispatch function for MM periodic timer.
@@ -159,12 +153,11 @@ EFI_STATUS
 /// This protocol provides the parent dispatch service for the periodical timer MMI source generator.
 ///
 struct _EFI_MM_PERIODIC_TIMER_DISPATCH_PROTOCOL {
-  EFI_MM_PERIODIC_TIMER_REGISTER    Register;
-  EFI_MM_PERIODIC_TIMER_UNREGISTER  UnRegister;
-  EFI_MM_PERIODIC_TIMER_INTERVAL    GetNextShorterInterval;
+  EFI_MM_PERIODIC_TIMER_REGISTER      Register;
+  EFI_MM_PERIODIC_TIMER_UNREGISTER    UnRegister;
+  EFI_MM_PERIODIC_TIMER_INTERVAL      GetNextShorterInterval;
 };
 
-extern EFI_GUID gEfiMmPeriodicTimerDispatchProtocolGuid;
+extern EFI_GUID  gEfiMmPeriodicTimerDispatchProtocolGuid;
 
 #endif
-

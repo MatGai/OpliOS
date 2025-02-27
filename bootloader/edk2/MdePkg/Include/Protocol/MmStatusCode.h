@@ -4,26 +4,19 @@
   This protocol provides the basic status code services while in MM.
 
   Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
 #ifndef _MM_STATUS_CODE_H__
 #define _MM_STATUS_CODE_H__
 
-
 #define EFI_MM_STATUS_CODE_PROTOCOL_GUID \
   { \
     0x6afd2b77, 0x98c1, 0x4acd, {0xa6, 0xf9, 0x8a, 0x94, 0x39, 0xde, 0xf, 0xb1} \
   }
 
-typedef struct _EFI_MM_STATUS_CODE_PROTOCOL  EFI_MM_STATUS_CODE_PROTOCOL;
+typedef struct _EFI_MM_STATUS_CODE_PROTOCOL EFI_MM_STATUS_CODE_PROTOCOL;
 
 /**
   Service to emit the status code in MM.
@@ -56,10 +49,9 @@ EFI_STATUS
   );
 
 struct _EFI_MM_STATUS_CODE_PROTOCOL {
-  EFI_MM_REPORT_STATUS_CODE  ReportStatusCode;
+  EFI_MM_REPORT_STATUS_CODE    ReportStatusCode;
 };
 
-extern EFI_GUID gEfiMmStatusCodeProtocolGuid;
+extern EFI_GUID  gEfiMmStatusCodeProtocolGuid;
 
 #endif
-

@@ -5,14 +5,7 @@
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
 
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions
-  of the BSD License which accompanies this distribution.  The
-  full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -1947,9 +1940,9 @@ S3MmioAnd32 (
 UINT32
 EFIAPI
 S3MmioAndThenOr32 (
-  IN UINTN    Address,
-  IN UINT32   AndData,
-  IN UINT32   OrData
+  IN UINTN   Address,
+  IN UINT32  AndData,
+  IN UINT32  OrData
   );
 
 /**
@@ -2221,8 +2214,8 @@ S3MmioOr64 (
 UINT64
 EFIAPI
 S3MmioAnd64 (
-  IN UINTN              Address,
-  IN UINT64             AndData
+  IN UINTN   Address,
+  IN UINT64  AndData
   );
 
 /**
@@ -2384,10 +2377,10 @@ S3MmioBitFieldOr64 (
 UINT64
 EFIAPI
 S3MmioBitFieldAnd64 (
-  IN UINTN    Address,
-  IN UINTN    StartBit,
-  IN UINTN    EndBit,
-  IN UINT64   AndData
+  IN UINTN   Address,
+  IN UINTN   StartBit,
+  IN UINTN   EndBit,
+  IN UINT64  AndData
   );
 
 /**
@@ -2546,9 +2539,9 @@ S3MmioReadBuffer32 (
 UINT64 *
 EFIAPI
 S3MmioReadBuffer64 (
-  IN  UINTN       StartAddress,
-  IN  UINTN       Length,
-  OUT UINT64      *Buffer
+  IN  UINTN   StartAddress,
+  IN  UINTN   Length,
+  OUT UINT64  *Buffer
   );
 
 /**
@@ -2573,9 +2566,9 @@ S3MmioReadBuffer64 (
 UINT8 *
 EFIAPI
 S3MmioWriteBuffer8 (
-  IN  UINTN         StartAddress,
-  IN  UINTN         Length,
-  IN  CONST UINT8   *Buffer
+  IN  UINTN        StartAddress,
+  IN  UINTN        Length,
+  IN  CONST UINT8  *Buffer
   );
 
 /**

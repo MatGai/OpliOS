@@ -12,13 +12,7 @@
   Future revisions of this protocol may support these or additional features.
 
   Copyright (c) 2015 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol was introduced in UEFI Specification 2.5.
@@ -35,9 +29,9 @@
       0x32d2963a, 0xfe5d, 0x4f30, {0xb6, 0x33, 0x6e, 0x5d, 0xc5, 0x58, 0x3, 0xcc} \
     }
 
-typedef struct _EFI_USBFN_IO_PROTOCOL  EFI_USBFN_IO_PROTOCOL;
+typedef struct _EFI_USBFN_IO_PROTOCOL EFI_USBFN_IO_PROTOCOL;
 
-#define EFI_USBFN_IO_PROTOCOL_REVISION 0x00010001
+#define EFI_USBFN_IO_PROTOCOL_REVISION  0x00010001
 
 typedef enum _EFI_USBFN_PORT_TYPE {
   EfiUsbUnknownPort = 0,
@@ -48,25 +42,25 @@ typedef enum _EFI_USBFN_PORT_TYPE {
 } EFI_USBFN_PORT_TYPE;
 
 typedef struct {
-  EFI_USB_INTERFACE_DESCRIPTOR         *InterfaceDescriptor;
-  EFI_USB_ENDPOINT_DESCRIPTOR          **EndpointDescriptorTable;
+  EFI_USB_INTERFACE_DESCRIPTOR    *InterfaceDescriptor;
+  EFI_USB_ENDPOINT_DESCRIPTOR     **EndpointDescriptorTable;
 } EFI_USB_INTERFACE_INFO;
 
 typedef struct {
-  EFI_USB_CONFIG_DESCRIPTOR            *ConfigDescriptor;
-  EFI_USB_INTERFACE_INFO               **InterfaceInfoTable;
+  EFI_USB_CONFIG_DESCRIPTOR    *ConfigDescriptor;
+  EFI_USB_INTERFACE_INFO       **InterfaceInfoTable;
 } EFI_USB_CONFIG_INFO;
 
 typedef struct {
-  EFI_USB_DEVICE_DESCRIPTOR            *DeviceDescriptor;
-  EFI_USB_CONFIG_INFO                  **ConfigInfoTable;
+  EFI_USB_DEVICE_DESCRIPTOR    *DeviceDescriptor;
+  EFI_USB_CONFIG_INFO          **ConfigInfoTable;
 } EFI_USB_DEVICE_INFO;
 
 typedef enum _EFI_USB_ENDPOINT_TYPE {
   UsbEndpointControl = 0x00,
-  //UsbEndpointIsochronous = 0x01,
+  // UsbEndpointIsochronous = 0x01,
   UsbEndpointBulk = 0x02,
-  //UsbEndpointInterrupt = 0x03
+  // UsbEndpointInterrupt = 0x03
 } EFI_USB_ENDPOINT_TYPE;
 
 typedef enum _EFI_USBFN_DEVICE_INFO_ID {
@@ -145,11 +139,11 @@ typedef enum _EFI_USBFN_TRANSFER_STATUS {
 } EFI_USBFN_TRANSFER_STATUS;
 
 typedef struct _EFI_USBFN_TRANSFER_RESULT {
-  UINTN                         BytesTransferred;
-  EFI_USBFN_TRANSFER_STATUS     TransferStatus;
-  UINT8                         EndpointIndex;
-  EFI_USBFN_ENDPOINT_DIRECTION  Direction;
-  VOID                          *Buffer;
+  UINTN                           BytesTransferred;
+  EFI_USBFN_TRANSFER_STATUS       TransferStatus;
+  UINT8                           EndpointIndex;
+  EFI_USBFN_ENDPOINT_DIRECTION    Direction;
+  VOID                            *Buffer;
 } EFI_USBFN_TRANSFER_RESULT;
 
 typedef enum _EFI_USB_BUS_SPEED {
@@ -190,9 +184,9 @@ typedef enum _EFI_USBFN_POLICY_TYPE {
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_USBFN_IO_DETECT_PORT) (
+(EFIAPI *EFI_USBFN_IO_DETECT_PORT)(
   IN     EFI_USBFN_IO_PROTOCOL         *This,
-     OUT EFI_USBFN_PORT_TYPE           *PortType
+  OUT EFI_USBFN_PORT_TYPE           *PortType
   );
 
 /**
@@ -220,9 +214,9 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_USBFN_IO_CONFIGURE_ENABLE_ENDPOINTS) (
+(EFIAPI *EFI_USBFN_IO_CONFIGURE_ENABLE_ENDPOINTS)(
   IN     EFI_USBFN_IO_PROTOCOL         *This,
-     OUT EFI_USB_DEVICE_INFO           *DeviceInfo
+  OUT EFI_USB_DEVICE_INFO           *DeviceInfo
   );
 
 /**
@@ -250,11 +244,11 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_USBFN_IO_GET_ENDPOINT_MAXPACKET_SIZE) (
+(EFIAPI *EFI_USBFN_IO_GET_ENDPOINT_MAXPACKET_SIZE)(
   IN     EFI_USBFN_IO_PROTOCOL         *This,
   IN     EFI_USB_ENDPOINT_TYPE         EndpointType,
   IN     EFI_USB_BUS_SPEED             BusSpeed,
-     OUT UINT16                        *MaxPacketSize
+  OUT UINT16                        *MaxPacketSize
   );
 
 /**
@@ -287,12 +281,12 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_USBFN_IO_GET_DEVICE_INFO) (
+(EFIAPI *EFI_USBFN_IO_GET_DEVICE_INFO)(
   IN     EFI_USBFN_IO_PROTOCOL         *This,
   IN     EFI_USBFN_DEVICE_INFO_ID      Id,
   IN OUT UINTN                         *BufferSize,
-     OUT VOID                          *Buffer OPTIONAL
-);
+  OUT VOID                          *Buffer OPTIONAL
+  );
 
 /**
   Returns the vendor-id and product-id of the device.
@@ -308,11 +302,11 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_USBFN_IO_GET_VENDOR_ID_PRODUCT_ID) (
+(EFIAPI *EFI_USBFN_IO_GET_VENDOR_ID_PRODUCT_ID)(
   IN     EFI_USBFN_IO_PROTOCOL         *This,
-     OUT UINT16                        *Vid,
-     OUT UINT16                        *Pid
-);
+  OUT UINT16                        *Vid,
+  OUT UINT16                        *Pid
+  );
 
 /**
   Aborts the transfer on the specified endpoint.
@@ -334,11 +328,11 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_USBFN_IO_ABORT_TRANSFER) (
+(EFIAPI *EFI_USBFN_IO_ABORT_TRANSFER)(
   IN  EFI_USBFN_IO_PROTOCOL            *This,
   IN  UINT8                            EndpointIndex,
   IN  EFI_USBFN_ENDPOINT_DIRECTION     Direction
-);
+  );
 
 /**
   Returns the stall state on the specified endpoint.
@@ -361,12 +355,12 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_USBFN_IO_GET_ENDPOINT_STALL_STATE) (
+(EFIAPI *EFI_USBFN_IO_GET_ENDPOINT_STALL_STATE)(
   IN     EFI_USBFN_IO_PROTOCOL         *This,
   IN     UINT8                         EndpointIndex,
   IN     EFI_USBFN_ENDPOINT_DIRECTION  Direction,
   IN OUT BOOLEAN                       *State
-);
+  );
 
 /**
   Sets or clears the stall state on the specified endpoint.
@@ -390,12 +384,12 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_USBFN_IO_SET_ENDPOINT_STALL_STATE) (
+(EFIAPI *EFI_USBFN_IO_SET_ENDPOINT_STALL_STATE)(
   IN     EFI_USBFN_IO_PROTOCOL         *This,
   IN     UINT8                         EndpointIndex,
   IN     EFI_USBFN_ENDPOINT_DIRECTION  Direction,
   IN OUT BOOLEAN                       *State
-);
+  );
 
 /**
   This function is called repeatedly to get information on USB bus states,
@@ -425,12 +419,12 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_USBFN_IO_EVENTHANDLER) (
+(EFIAPI *EFI_USBFN_IO_EVENTHANDLER)(
   IN     EFI_USBFN_IO_PROTOCOL         *This,
-     OUT EFI_USBFN_MESSAGE             *Message,
+  OUT EFI_USBFN_MESSAGE             *Message,
   IN OUT UINTN                         *PayloadSize,
-     OUT EFI_USBFN_MESSAGE_PAYLOAD     *Payload
-);
+  OUT EFI_USBFN_MESSAGE_PAYLOAD     *Payload
+  );
 
 /**
   This function handles transferring data to or from the host on the specified
@@ -473,13 +467,13 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_USBFN_IO_TRANSFER) (
+(EFIAPI *EFI_USBFN_IO_TRANSFER)(
   IN     EFI_USBFN_IO_PROTOCOL         *This,
   IN     UINT8                         EndpointIndex,
   IN     EFI_USBFN_ENDPOINT_DIRECTION  Direction,
   IN OUT UINTN                         *BufferSize,
   IN OUT VOID                          *Buffer
-);
+  );
 
 /**
   Returns the maximum supported transfer size.
@@ -499,9 +493,9 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_USBFN_IO_GET_MAXTRANSFER_SIZE) (
+(EFIAPI *EFI_USBFN_IO_GET_MAXTRANSFER_SIZE)(
   IN     EFI_USBFN_IO_PROTOCOL         *This,
-     OUT UINTN                         *MaxTransferSize
+  OUT UINTN                         *MaxTransferSize
   );
 
 /**
@@ -527,10 +521,10 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_USBFN_IO_ALLOCATE_TRANSFER_BUFFER) (
+(EFIAPI *EFI_USBFN_IO_ALLOCATE_TRANSFER_BUFFER)(
   IN     EFI_USBFN_IO_PROTOCOL         *This,
   IN     UINTN                         Size,
-     OUT VOID                          **Buffer
+  OUT VOID                          **Buffer
   );
 
 /**
@@ -550,7 +544,7 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_USBFN_IO_FREE_TRANSFER_BUFFER) (
+(EFIAPI *EFI_USBFN_IO_FREE_TRANSFER_BUFFER)(
   IN  EFI_USBFN_IO_PROTOCOL         *This,
   IN  VOID                          *Buffer
   );
@@ -569,7 +563,7 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_USBFN_IO_START_CONTROLLER) (
+(EFIAPI *EFI_USBFN_IO_START_CONTROLLER)(
   IN  EFI_USBFN_IO_PROTOCOL         *This
   );
 
@@ -585,7 +579,7 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_USBFN_IO_STOP_CONTROLLER) (
+(EFIAPI *EFI_USBFN_IO_STOP_CONTROLLER)(
   IN  EFI_USBFN_IO_PROTOCOL         *This
   );
 
@@ -614,7 +608,7 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_USBFN_IO_SET_ENDPOINT_POLICY) (
+(EFIAPI *EFI_USBFN_IO_SET_ENDPOINT_POLICY)(
   IN  EFI_USBFN_IO_PROTOCOL         *This,
   IN  UINT8                         EndpointIndex,
   IN  EFI_USBFN_ENDPOINT_DIRECTION  Direction,
@@ -650,7 +644,7 @@ EFI_STATUS
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_USBFN_IO_GET_ENDPOINT_POLICY) (
+(EFIAPI *EFI_USBFN_IO_GET_ENDPOINT_POLICY)(
   IN     EFI_USBFN_IO_PROTOCOL         *This,
   IN     UINT8                         EndpointIndex,
   IN     EFI_USBFN_ENDPOINT_DIRECTION  Direction,
@@ -664,27 +658,26 @@ EFI_STATUS
 /// controller management for a USB Function port.
 ///
 struct _EFI_USBFN_IO_PROTOCOL {
-  UINT32                                    Revision;
-  EFI_USBFN_IO_DETECT_PORT                  DetectPort;
-  EFI_USBFN_IO_CONFIGURE_ENABLE_ENDPOINTS   ConfigureEnableEndpoints;
-  EFI_USBFN_IO_GET_ENDPOINT_MAXPACKET_SIZE  GetEndpointMaxPacketSize;
-  EFI_USBFN_IO_GET_DEVICE_INFO              GetDeviceInfo;
-  EFI_USBFN_IO_GET_VENDOR_ID_PRODUCT_ID     GetVendorIdProductId;
-  EFI_USBFN_IO_ABORT_TRANSFER               AbortTransfer;
-  EFI_USBFN_IO_GET_ENDPOINT_STALL_STATE     GetEndpointStallState;
-  EFI_USBFN_IO_SET_ENDPOINT_STALL_STATE     SetEndpointStallState;
-  EFI_USBFN_IO_EVENTHANDLER                 EventHandler;
-  EFI_USBFN_IO_TRANSFER                     Transfer;
-  EFI_USBFN_IO_GET_MAXTRANSFER_SIZE         GetMaxTransferSize;
-  EFI_USBFN_IO_ALLOCATE_TRANSFER_BUFFER     AllocateTransferBuffer;
-  EFI_USBFN_IO_FREE_TRANSFER_BUFFER         FreeTransferBuffer;
-  EFI_USBFN_IO_START_CONTROLLER             StartController;
-  EFI_USBFN_IO_STOP_CONTROLLER              StopController;
-  EFI_USBFN_IO_SET_ENDPOINT_POLICY          SetEndpointPolicy;
-  EFI_USBFN_IO_GET_ENDPOINT_POLICY          GetEndpointPolicy;
+  UINT32                                      Revision;
+  EFI_USBFN_IO_DETECT_PORT                    DetectPort;
+  EFI_USBFN_IO_CONFIGURE_ENABLE_ENDPOINTS     ConfigureEnableEndpoints;
+  EFI_USBFN_IO_GET_ENDPOINT_MAXPACKET_SIZE    GetEndpointMaxPacketSize;
+  EFI_USBFN_IO_GET_DEVICE_INFO                GetDeviceInfo;
+  EFI_USBFN_IO_GET_VENDOR_ID_PRODUCT_ID       GetVendorIdProductId;
+  EFI_USBFN_IO_ABORT_TRANSFER                 AbortTransfer;
+  EFI_USBFN_IO_GET_ENDPOINT_STALL_STATE       GetEndpointStallState;
+  EFI_USBFN_IO_SET_ENDPOINT_STALL_STATE       SetEndpointStallState;
+  EFI_USBFN_IO_EVENTHANDLER                   EventHandler;
+  EFI_USBFN_IO_TRANSFER                       Transfer;
+  EFI_USBFN_IO_GET_MAXTRANSFER_SIZE           GetMaxTransferSize;
+  EFI_USBFN_IO_ALLOCATE_TRANSFER_BUFFER       AllocateTransferBuffer;
+  EFI_USBFN_IO_FREE_TRANSFER_BUFFER           FreeTransferBuffer;
+  EFI_USBFN_IO_START_CONTROLLER               StartController;
+  EFI_USBFN_IO_STOP_CONTROLLER                StopController;
+  EFI_USBFN_IO_SET_ENDPOINT_POLICY            SetEndpointPolicy;
+  EFI_USBFN_IO_GET_ENDPOINT_POLICY            GetEndpointPolicy;
 };
 
-extern EFI_GUID gEfiUsbFunctionIoProtocolGuid;
+extern EFI_GUID  gEfiUsbFunctionIoProtocolGuid;
 
 #endif
-

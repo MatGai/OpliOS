@@ -5,13 +5,7 @@
   Provides the parent dispatch service for a given Sx-state source generator.
 
   Copyright (c) 2017, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -51,11 +45,11 @@ typedef enum {
 /// The dispatch function's context
 ///
 typedef struct {
-  EFI_SLEEP_TYPE  Type;
-  EFI_SLEEP_PHASE Phase;
+  EFI_SLEEP_TYPE     Type;
+  EFI_SLEEP_PHASE    Phase;
 } EFI_MM_SX_REGISTER_CONTEXT;
 
-typedef struct _EFI_MM_SX_DISPATCH_PROTOCOL  EFI_MM_SX_DISPATCH_PROTOCOL;
+typedef struct _EFI_MM_SX_DISPATCH_PROTOCOL EFI_MM_SX_DISPATCH_PROTOCOL;
 
 /**
   Provides the parent dispatch service for a given Sx source generator.
@@ -73,11 +67,7 @@ typedef struct _EFI_MM_SX_DISPATCH_PROTOCOL  EFI_MM_SX_DISPATCH_PROTOCOL;
                                  The caller fills this context in before calling
                                  the register function to indicate to the register
                                  function which Sx state type and phase the caller
-                                 wishes to be called back on. For this intertace,
-                                 the Sx driver will call the registered handlers for
-                                 all Sx type and phases, so the Sx state handler(s)
-                                 must check the Type and Phase field of the Dispatch
-                                 context and act accordingly.
+                                 wishes to be called back on.
   @param[out]  DispatchHandle    Handle of dispatch function, for when interfacing
                                  with the parent Sx state MM driver.
 
@@ -126,10 +116,10 @@ EFI_STATUS
 /// respond to sleep state related events.
 ///
 struct _EFI_MM_SX_DISPATCH_PROTOCOL {
-  EFI_MM_SX_REGISTER    Register;
-  EFI_MM_SX_UNREGISTER  UnRegister;
+  EFI_MM_SX_REGISTER      Register;
+  EFI_MM_SX_UNREGISTER    UnRegister;
 };
 
-extern EFI_GUID gEfiMmSxDispatchProtocolGuid;
+extern EFI_GUID  gEfiMmSxDispatchProtocolGuid;
 
 #endif

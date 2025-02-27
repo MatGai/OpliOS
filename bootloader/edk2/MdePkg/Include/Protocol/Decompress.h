@@ -2,13 +2,7 @@
   The Decompress Protocol Interface as defined in UEFI spec
 
   Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
 **/
 
@@ -20,7 +14,7 @@
     0xd8117cfe, 0x94a6, 0x11d4, {0x9a, 0x3a, 0x0, 0x90, 0x27, 0x3f, 0xc1, 0x4d } \
   }
 
-typedef struct _EFI_DECOMPRESS_PROTOCOL  EFI_DECOMPRESS_PROTOCOL;
+typedef struct _EFI_DECOMPRESS_PROTOCOL EFI_DECOMPRESS_PROTOCOL;
 
 /**
   The GetInfo() function retrieves the size of the uncompressed buffer
@@ -113,10 +107,10 @@ EFI_STATUS
 /// Provides a decompression service.
 ///
 struct _EFI_DECOMPRESS_PROTOCOL {
-  EFI_DECOMPRESS_GET_INFO   GetInfo;
-  EFI_DECOMPRESS_DECOMPRESS Decompress;
+  EFI_DECOMPRESS_GET_INFO      GetInfo;
+  EFI_DECOMPRESS_DECOMPRESS    Decompress;
 };
 
-extern EFI_GUID gEfiDecompressProtocolGuid;
+extern EFI_GUID  gEfiDecompressProtocolGuid;
 
 #endif

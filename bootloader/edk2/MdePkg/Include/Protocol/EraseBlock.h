@@ -2,13 +2,7 @@
   This file defines the EFI Erase Block Protocol.
 
   Copyright (c) 2016, Intel Corporation. All rights reserved.<BR>
-  This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution. The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
-
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+  SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol is introduced in UEFI Specification 2.6
@@ -25,7 +19,7 @@
 
 typedef struct _EFI_ERASE_BLOCK_PROTOCOL EFI_ERASE_BLOCK_PROTOCOL;
 
-#define EFI_ERASE_BLOCK_PROTOCOL_REVISION ((2<<16) | (60))
+#define EFI_ERASE_BLOCK_PROTOCOL_REVISION  ((2<<16) | (60))
 
 ///
 /// EFI_ERASE_BLOCK_TOKEN
@@ -36,11 +30,11 @@ typedef struct {
   // non-blocking I/O is supported, then non-blocking I/O is performed, and
   // Event will be signaled when the erase request is completed.
   //
-  EFI_EVENT             Event;
+  EFI_EVENT     Event;
   //
   // Defines whether the signaled event encountered an error.
   //
-  EFI_STATUS            TransactionStatus;
+  EFI_STATUS    TransactionStatus;
 } EFI_ERASE_BLOCK_TOKEN;
 
 /**
@@ -72,7 +66,7 @@ typedef struct {
 **/
 typedef
 EFI_STATUS
-(EFIAPI *EFI_BLOCK_ERASE) (
+(EFIAPI *EFI_BLOCK_ERASE)(
   IN     EFI_ERASE_BLOCK_PROTOCOL      *This,
   IN     UINT32                        MediaId,
   IN     EFI_LBA                       LBA,
@@ -91,15 +85,15 @@ struct _EFI_ERASE_BLOCK_PROTOCOL {
   // revisions must be backwards compatible. If a future version is not
   // backwards compatible, it is not the same GUID.
   //
-  UINT64                     Revision;
+  UINT64             Revision;
   //
   // Returns the erase length granularity as a number of logical blocks. A
   // value of 1 means the erase granularity is one logical block.
   //
-  UINT32                     EraseLengthGranularity;
-  EFI_BLOCK_ERASE            EraseBlocks;
+  UINT32             EraseLengthGranularity;
+  EFI_BLOCK_ERASE    EraseBlocks;
 };
 
-extern EFI_GUID gEfiEraseBlockProtocolGuid;
+extern EFI_GUID  gEfiEraseBlockProtocolGuid;
 
 #endif

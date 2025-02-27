@@ -5,13 +5,7 @@
   to transmit and receive UDP packets.
 
 Copyright (c) 2006 - 2018, Intel Corporation. All rights reserved.<BR>
-This program and the accompanying materials are licensed and made available under
-the terms and conditions of the BSD License that accompanies this distribution.
-The full text of the license may be found at
-http://opensource.org/licenses/bsd-license.php.
-
-THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+SPDX-License-Identifier: BSD-2-Clause-Patent
 
   @par Revision Reference:
   This Protocol is introduced in UEFI Specification 2.0.
@@ -23,7 +17,7 @@ WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
 
 #include <Protocol/Ip4.h>
 //
-//GUID definitions
+// GUID definitions
 //
 #define EFI_UDP4_SERVICE_BINDING_PROTOCOL_GUID \
   { \
@@ -42,11 +36,11 @@ typedef struct _EFI_UDP4_PROTOCOL EFI_UDP4_PROTOCOL;
 /// The definition in here is only present to provide backwards compatability.
 ///
 typedef struct {
-  EFI_HANDLE              InstanceHandle;
-  EFI_IPv4_ADDRESS        LocalAddress;
-  UINT16                  LocalPort;
-  EFI_IPv4_ADDRESS        RemoteAddress;
-  UINT16                  RemotePort;
+  EFI_HANDLE          InstanceHandle;
+  EFI_IPv4_ADDRESS    LocalAddress;
+  UINT16              LocalPort;
+  EFI_IPv4_ADDRESS    RemoteAddress;
+  UINT16              RemotePort;
 } EFI_UDP4_SERVICE_POINT;
 
 ///
@@ -54,52 +48,52 @@ typedef struct {
 /// The definition in here is only present to provide backwards compatability.
 ///
 typedef struct {
-  EFI_HANDLE              DriverHandle;
-  UINT32                  ServiceCount;
-  EFI_UDP4_SERVICE_POINT  Services[1];
+  EFI_HANDLE                DriverHandle;
+  UINT32                    ServiceCount;
+  EFI_UDP4_SERVICE_POINT    Services[1];
 } EFI_UDP4_VARIABLE_DATA;
 
 typedef struct {
-  UINT32             FragmentLength;
-  VOID               *FragmentBuffer;
+  UINT32    FragmentLength;
+  VOID      *FragmentBuffer;
 } EFI_UDP4_FRAGMENT_DATA;
 
 typedef struct {
-  EFI_IPv4_ADDRESS   SourceAddress;
-  UINT16             SourcePort;
-  EFI_IPv4_ADDRESS   DestinationAddress;
-  UINT16             DestinationPort;
+  EFI_IPv4_ADDRESS    SourceAddress;
+  UINT16              SourcePort;
+  EFI_IPv4_ADDRESS    DestinationAddress;
+  UINT16              DestinationPort;
 } EFI_UDP4_SESSION_DATA;
 typedef struct {
   //
   // Receiving Filters
   //
-  BOOLEAN            AcceptBroadcast;
-  BOOLEAN            AcceptPromiscuous;
-  BOOLEAN            AcceptAnyPort;
-  BOOLEAN            AllowDuplicatePort;
+  BOOLEAN             AcceptBroadcast;
+  BOOLEAN             AcceptPromiscuous;
+  BOOLEAN             AcceptAnyPort;
+  BOOLEAN             AllowDuplicatePort;
   //
   // I/O parameters
   //
-  UINT8              TypeOfService;
-  UINT8              TimeToLive;
-  BOOLEAN            DoNotFragment;
-  UINT32             ReceiveTimeout;
-  UINT32             TransmitTimeout;
+  UINT8               TypeOfService;
+  UINT8               TimeToLive;
+  BOOLEAN             DoNotFragment;
+  UINT32              ReceiveTimeout;
+  UINT32              TransmitTimeout;
   //
   // Access Point
   //
-  BOOLEAN            UseDefaultAddress;
-  EFI_IPv4_ADDRESS   StationAddress;
-  EFI_IPv4_ADDRESS   SubnetMask;
-  UINT16             StationPort;
-  EFI_IPv4_ADDRESS   RemoteAddress;
-  UINT16             RemotePort;
+  BOOLEAN             UseDefaultAddress;
+  EFI_IPv4_ADDRESS    StationAddress;
+  EFI_IPv4_ADDRESS    SubnetMask;
+  UINT16              StationPort;
+  EFI_IPv4_ADDRESS    RemoteAddress;
+  UINT16              RemotePort;
 } EFI_UDP4_CONFIG_DATA;
 
 typedef struct {
-  EFI_UDP4_SESSION_DATA     *UdpSessionData;       //OPTIONAL
-  EFI_IPv4_ADDRESS          *GatewayAddress;       //OPTIONAL
+  EFI_UDP4_SESSION_DATA     *UdpSessionData;       // OPTIONAL
+  EFI_IPv4_ADDRESS          *GatewayAddress;       // OPTIONAL
   UINT32                    DataLength;
   UINT32                    FragmentCount;
   EFI_UDP4_FRAGMENT_DATA    FragmentTable[1];
@@ -114,13 +108,12 @@ typedef struct {
   EFI_UDP4_FRAGMENT_DATA    FragmentTable[1];
 } EFI_UDP4_RECEIVE_DATA;
 
-
 typedef struct {
-  EFI_EVENT                 Event;
-  EFI_STATUS                Status;
+  EFI_EVENT     Event;
+  EFI_STATUS    Status;
   union {
-    EFI_UDP4_RECEIVE_DATA   *RxData;
-    EFI_UDP4_TRANSMIT_DATA  *TxData;
+    EFI_UDP4_RECEIVE_DATA     *RxData;
+    EFI_UDP4_TRANSMIT_DATA    *TxData;
   } Packet;
 } EFI_UDP4_COMPLETION_TOKEN;
 
@@ -153,7 +146,6 @@ EFI_STATUS
   OUT EFI_MANAGED_NETWORK_CONFIG_DATA  *MnpConfigData  OPTIONAL,
   OUT EFI_SIMPLE_NETWORK_MODE          *SnpModeData    OPTIONAL
   );
-
 
 /**
   Initializes, changes, or resets the operational parameters for this instance of the EFI UDPv4
@@ -429,17 +421,17 @@ EFI_STATUS
 /// such as the routing table and group table, which are independent from each other.
 ///
 struct _EFI_UDP4_PROTOCOL {
-  EFI_UDP4_GET_MODE_DATA        GetModeData;
-  EFI_UDP4_CONFIGURE            Configure;
-  EFI_UDP4_GROUPS               Groups;
-  EFI_UDP4_ROUTES               Routes;
-  EFI_UDP4_TRANSMIT             Transmit;
-  EFI_UDP4_RECEIVE              Receive;
-  EFI_UDP4_CANCEL               Cancel;
-  EFI_UDP4_POLL                 Poll;
+  EFI_UDP4_GET_MODE_DATA    GetModeData;
+  EFI_UDP4_CONFIGURE        Configure;
+  EFI_UDP4_GROUPS           Groups;
+  EFI_UDP4_ROUTES           Routes;
+  EFI_UDP4_TRANSMIT         Transmit;
+  EFI_UDP4_RECEIVE          Receive;
+  EFI_UDP4_CANCEL           Cancel;
+  EFI_UDP4_POLL             Poll;
 };
 
-extern EFI_GUID gEfiUdp4ServiceBindingProtocolGuid;
-extern EFI_GUID gEfiUdp4ProtocolGuid;
+extern EFI_GUID  gEfiUdp4ServiceBindingProtocolGuid;
+extern EFI_GUID  gEfiUdp4ProtocolGuid;
 
 #endif
