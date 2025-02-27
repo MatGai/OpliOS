@@ -13,10 +13,34 @@
     <ClCompile Include="UefiMain.c">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="image.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="boot.c">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util.h">
       <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="image.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="efi.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="stdint.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="status.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="bdefs.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="boot.h">
+      <Filter>source</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

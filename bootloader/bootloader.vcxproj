@@ -159,9 +159,17 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="boot.c" />
+    <ClCompile Include="image.c" />
     <ClCompile Include="UefiMain.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bdefs.h" />
+    <ClInclude Include="boot.h" />
+    <ClInclude Include="status.h" />
+    <ClInclude Include="stdint.h" />
+    <ClInclude Include="efi.h" />
+    <ClInclude Include="image.h" />
     <ClInclude Include="util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
