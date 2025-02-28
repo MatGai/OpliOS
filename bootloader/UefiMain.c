@@ -111,11 +111,6 @@ UefiMain(
 
     COUT->SetAttribute(COUT, EFI_TEXT_ATTR(EFI_LIGHTGRAY, EFI_BLACK) );
 
-    CHAR16 Buffer[48 + 1];
-    UnicodeSPrint(Buffer, 48, L"Hello, %s\n", L"world");
-
-    Print( Buffer );
-
     EFI_TIME time;
     if( !TRY( RT->GetTime( &time, NULL ), L"Failed to get time" ) )
     {
@@ -140,6 +135,64 @@ UefiMain(
     {
         getc();
         return LAST_ERROR;
+    }
+
+    if (!BlInitFileSystem())
+    {
+        return 1;
+    }
+
+    if (BlGetRootDirectory(NULL))
+    {
+        BlListAllFiles();
+    }
+    else
+    {
+        if (EFI_ERROR(FILE_SYSTEM_STATUS))
+        {
+            Print(L"[ %r ] Failed to get root directory of current FS\n", BlGetLastFileError());
+        }
+    }
+
+    getc();
+
+    Print(L"Looking for 'kernel.exe' file pointer\n");
+    EFI_FILE_PROTOCOL* File = NULL;
+    if (BlFindFile(L"kernel.exe", &File))
+    {
+        CHAR16* Buffer;
+        if (BlGetFileName(File, &Buffer))
+        {
+            Print(L"Got the file -> %s\n",Buffer);
+        }
+        FreePool(Buffer);
+    }
+
+    getc();
+
+    if (BlGetRootDirectoryByIndex(FS1, NULL))
+    {
+        BlListAllFiles();
+    }
+    else
+    {
+        if (EFI_ERROR(FILE_SYSTEM_STATUS))
+        {
+            Print(L"[ %r ] Failed to get root directory of current FS\n", BlGetLastFileError());
+        }
+    }
+
+    getc();
+
+    Print(L"Looking for 'kernel.exe' file pointer\n");
+    if (BlFindFile(L"kernel.exe", &File))
+    {
+        CHAR16* Buffer;
+        if (BlGetFileName(File, &Buffer))
+        {
+            Print(L"Got the file -> %s\n", Buffer);
+        }
+        FreePool(Buffer);
     }
 
     while (timeout_seconds > 0) 
@@ -218,34 +271,8 @@ UefiMain(
     }
 #endif
 
-    Print(L"   Firmware Vendor: %s\r\n   Firmware Revision: 0x%08x\r\n\n", ST->FirmwareVendor, ST->FirmwareRevision);
+    Print(L"   Firmware Vendor: %s\r\n   Firmware Revision: 0x%08x\r\n", ST->FirmwareVendor, ST->FirmwareRevision);
 
-    getc();
-
-    if ( !BlInitFileSystem( ) )
-    {
-        return 1;
-    }
-
-    if( BlGetRootDirectory( NULL ) )
-    { 
-        BlListAllFiles();
-    }
-    else
-    {
-        if( EFI_ERROR( FILE_SYSTEM_STATUS ) )
-        {
-            Print( L"[ %r ] Failed to get root directory of current FS\n", BlGetLastFileError() );
-        }
-    }
-
-    EFI_FILE_PROTOCOL* File = NULL;
-    if( BlFindFile( L"kernal.exe", &File ) )
-    {
-        Print(L"Found kernal.exe file!\n");
-        PrintFileName(File);
-    }
-    
     getc();
 
     return EFI_SUCCESS;

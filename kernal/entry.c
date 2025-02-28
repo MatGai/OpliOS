@@ -1,6 +1,6 @@
 
 
-int KernalMain(
+int KernelMain(
     VOID
 )
 {

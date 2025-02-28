@@ -13,6 +13,8 @@ getc(
     VOID
 );
 
+//realised most of these are useless, EDK2 already defines these functions...
+
 /**
 *  Gets the length of the string
 * 
@@ -20,9 +22,11 @@ getc(
 */
 INTN
 BLAPI
-strlen(
+strlength(
     _In_ CONST CHAR16* str
 );
+
+#pragma function(strlen)
 
 /**
 * Copies the string from one buffer to the other
@@ -32,10 +36,12 @@ strlen(
 */
 INTN
 BLAPI
-strcpy(
+strcopy(
     _In_ CHAR16* dst,
     _In_ CONST CHAR16* src
 );
+
+#pragma function(strcpy)
 
 /**
 * Case sensitive string comparison
@@ -47,7 +53,7 @@ strcpy(
 */
 INTN
 BLAPI
-strcmp(
+strcompare(
     _In_ CONST CHAR16* s0,
     _In_ CONST CHAR16* s1
 );
@@ -64,7 +70,7 @@ strcmp(
 BOOLEAN
 BLAPI
 strfmt(
-    _Out_ CHAR16* Out,
+    _Out_ CHAR16** Out,
     _In_ CONST CHAR16* Format,
     ...
 );

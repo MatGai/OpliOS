@@ -23,71 +23,71 @@ getc(
     return k;
 }
 
-//INTN
-//BLAPI
-//strlen(
-//    _In_ CONST CHAR16* str
-//)
-//{
-//    if (str == NULL)
-//        return 0;
-//
-//    CHAR16* p = str;
-//    while (*p != '\0')
-//        p++;
-//
-//    return (INTN)(p - str);
-//}
-//
-//INTN
-//BLAPI
-//strcpy(
-//    _In_ CHAR16* dst,
-//    _In_ CONST CHAR16* src
-//)
-//{
-//    while (*src)
-//        *(dst)++ = *(src)++;
-//
-//    *dst = 0;
-//
-//    return 0;
-//}
-//
-//INTN 
-//BLAPI
-//strcmp(
-//    _In_ CONST CHAR16* s0,
-//    _In_ CONST CHAR16* s1
-//)
-//{
-//    while (*s0)
-//    {
-//        if (*s0 != *s1)
-//            break;
-//
-//        s0 += 1;
-//        s1 += 1;
-//    }
-//
-//    return *s0 - *s1;
-//}
+INTN
+BLAPI
+strlength(
+    _In_ CONST CHAR16* str
+)
+{
+    if (str == NULL)
+        return 0;
+
+    CHAR16* p = str;
+    while (*p != '\0')
+        p++;
+
+    return (INTN)(p - str);
+}
+
+INTN
+BLAPI
+strcopy(
+    _In_ CHAR16* dst,
+    _In_ CONST CHAR16* src
+)
+{
+    while (*src)
+        *(dst)++ = *(src)++;
+
+    *dst = 0;
+
+    return 0;
+}
+
+INTN 
+BLAPI
+strcompare(
+    _In_ CONST CHAR16* s0,
+    _In_ CONST CHAR16* s1
+)
+{
+    while (*s0)
+    {
+        if (*s0 != *s1)
+        {
+            break;
+        }
+
+        s0 += 1;
+        s1 += 1;
+    }
+
+    return *s0 - *s1;
+}
 
 BOOLEAN
 BLAPI
 strfmt(
-    _Out_ CHAR16*      Out,
+    _Out_ CHAR16**     Out,
     _In_ CONST CHAR16* Format,
     ...
 )
 {
+
     if (!Format) 
     {
         return FALSE;
     }
-
-    // make sure it is null
-    Out = NULL;
 
     VA_LIST Args;
     VA_LIST ArgsCopy;
@@ -110,6 +110,8 @@ strfmt(
 
     // try make the string
     StringLength = UnicodeVSPrint(Buffer, BufferSize * sizeof(CHAR16), Format, ArgsCopy);
+
+
 
     // If the printed length fits (CharCount < BufSize - 1), we're good
     if (StringLength >= (BufferSize - 1))
@@ -138,7 +140,7 @@ strfmt(
     VA_END(Args);
 
     // hopefully buffer is properly formated
-    Out = Buffer;
+    *Out = Buffer;
 
     return TRUE;
 }

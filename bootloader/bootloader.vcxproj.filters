@@ -8,48 +8,51 @@
     <Filter Include="util">
       <UniqueIdentifier>{8cdf429b-a947-4e2f-8b45-ae69f0f59805}</UniqueIdentifier>
     </Filter>
+    <Filter Include="boot">
+      <UniqueIdentifier>{6f306161-bf39-47d7-96ba-73d664c0f167}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="UefiMain.c">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="image.c">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="boot.c">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="filesystem.c">
-      <Filter>source</Filter>
-    </ClCompile>
     <ClCompile Include="util.c">
       <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="boot.c">
+      <Filter>boot</Filter>
+    </ClCompile>
+    <ClCompile Include="filesystem.c">
+      <Filter>boot</Filter>
+    </ClCompile>
+    <ClCompile Include="image.c">
+      <Filter>boot</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util.h">
       <Filter>util</Filter>
     </ClInclude>
-    <ClInclude Include="image.h">
-      <Filter>source</Filter>
+    <ClInclude Include="boot.h">
+      <Filter>boot</Filter>
     </ClInclude>
     <ClInclude Include="efi.h">
-      <Filter>source</Filter>
-    </ClInclude>
-    <ClInclude Include="stdint.h">
-      <Filter>source</Filter>
-    </ClInclude>
-    <ClInclude Include="status.h">
-      <Filter>source</Filter>
-    </ClInclude>
-    <ClInclude Include="bdefs.h">
-      <Filter>source</Filter>
-    </ClInclude>
-    <ClInclude Include="boot.h">
-      <Filter>source</Filter>
+      <Filter>boot</Filter>
     </ClInclude>
     <ClInclude Include="filesystem.h">
-      <Filter>source</Filter>
+      <Filter>boot</Filter>
+    </ClInclude>
+    <ClInclude Include="bdefs.h">
+      <Filter>boot</Filter>
+    </ClInclude>
+    <ClInclude Include="image.h">
+      <Filter>boot</Filter>
+    </ClInclude>
+    <ClInclude Include="status.h">
+      <Filter>boot</Filter>
+    </ClInclude>
+    <ClInclude Include="stdint.h">
+      <Filter>boot</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

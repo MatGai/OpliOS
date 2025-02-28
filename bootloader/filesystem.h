@@ -29,9 +29,9 @@ typedef enum _FILE_SYSTEM
 } FILE_SYSTEM;
 
 /**
-* Initialises some variables used by filesystem.h
+* Initialises some global variables used by filesystem.
 * 
-* @return If this failed. Get error through BlGetLastFileError() if needed.
+* @return TRUE on success, FALSE on error. Get error through BlGetLastFileError() if needed.
 */
 BOOLEAN
 BLAPI
@@ -44,7 +44,7 @@ BlInitFileSystem(
 * 
 * @param Directory, A pointer to the directory. Optional, set to NULL if you don't need it.
 * 
-* @return If this failed. Get error through BlGetLastFileError() if needed.
+* @return TRUE on success, FALSE on error. Get error through BlGetLastFileError() if needed.
 */
 BOOLEAN
 BLAPI
@@ -54,11 +54,11 @@ BlGetRootDirectory(
 
 /**
 * Gets root directory of chosen file system... "fs0", "fs1" etc...
+*
+* @param Index     A file system index, fs0, fs1.
+* @param Directory A pointer to the EFI_FILE_PROTOCOL* directory. Optional, set to NULL if you don't need it.
 * 
-* @param Index, A file system index, fs0, fs1 ...
-* @param Directory, A pointer to the directory. Optional, set to NULL if you don't need it.
-* 
-* @return If this failed. Get error through BlGetLastFileError() if needed.
+* @return TRUE on success, FALSE on error. Get error through BlGetLastFileError() if needed.
 */
 BOOLEAN
 BLAPI
@@ -70,7 +70,7 @@ BlGetRootDirectoryByIndex(
 /**
 * Sets a new working directory.
 * 
-* @param Directory, A string of the directory etc... "\\efi\\boot".
+* @param Directory A string of the directory etc... "\\efi\\boot".
 */
 BOOLEAN
 BLAPI
@@ -79,9 +79,24 @@ BlSetWorkingDirectory(
 );
 
 /**
+* Recursively list files from a given directory.
+*
+* @param Directory An open EFI_FILE_PROTOCOL* for the directory to list.
+* @param Depth     Recursion depth for indentation or other tracking.
+*
+* @return TRUE on success, FALSE on error. Get error through BlGetLastFileError() if needed.
+*/
+BOOLEAN
+BLAPI
+BlListDirectoryRecursive(
+    _In_ EFI_FILE_PROTOCOL* Directory,
+    _In_ ULONG64 Depth
+);
+
+/**
 * List all files and directories in this file system.
 * 
-* @return If list all files fails. Get error through BlGetLastFileError() if needed.
+* @return TRUE on success, FALSE on error. Get error through BlGetLastFileError() if needed.
 */
 BOOLEAN
 BLAPI
@@ -93,10 +108,12 @@ BlListAllFiles(
 * Goes into a directory and sets out directory to opened directory.
 * 
 * @param BaseDirectory
-* @param Path
-* @param OutDirectory, A pointer to the directory. Optional, set to NULL if you don't need it.
+* @param Path          
+* @param OutDirectory  A pointer to the EFI_FILE_PROTOCOL directory. Optional, set to NULL if you don't need it.
+* 
+* @return TRUE on success, FALSE on error. Get error through BlGetLastFileError() if needed.
 */
-EFI_STATUS
+BOOLEAN
 BLAPI
 BlOpenSubDirectory(
     _In_  EFI_FILE_PROTOCOL* BaseDirectory,
@@ -111,7 +128,7 @@ BlOpenSubDirectory(
 * @param Path, A string for the file name to look for.
 * @param Out, A pointer to the file found.
 * 
-* @return If failed finding the file or not. Get error through BlGetLastFileError() if needed.
+* @return TRUE on success, FALSE on error. Get error through BlGetLastFileError() if needed.
 */
 BOOLEAN
 BLAPI
@@ -123,7 +140,7 @@ BlFindFile(
 /**
 * Gets the last set error for filesystem.
 * 
-* @return The error/sucess status.
+* @return The error/sucess of the file system status.
 */
 EFI_STATUS
 BLAPI
@@ -131,10 +148,18 @@ BlGetLastFileError(
     VOID
 );
 
-
-EFI_STATUS
-PrintFileName(
-    EFI_FILE_PROTOCOL* FileProtocol
+/**
+* Gets the name of the specified file. !!!MAKE SURE TO FREE STRING BUFFER AFTER USE!!!
+* 
+* @param FileProtocol A  EFI_FILE_PROTOCOL pointer to the file.
+* @param Out          A string buffer for the file name.
+* 
+* @return TRUE on success, FALSE on error. Get error through BlGetLastFileError() if needed.
+*/
+BOOLEAN
+BlGetFileName(
+    _In_ EFI_FILE_PROTOCOL* FileProtocol,
+    _Out_ CHAR16** Out
 );
 
 //  ------------------------------ //
