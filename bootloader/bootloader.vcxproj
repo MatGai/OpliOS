@@ -160,12 +160,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="boot.c" />
+    <ClCompile Include="filesystem.c" />
     <ClCompile Include="image.c" />
     <ClCompile Include="UefiMain.c" />
+    <ClCompile Include="util.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bdefs.h" />
     <ClInclude Include="boot.h" />
+    <ClInclude Include="filesystem.h" />
     <ClInclude Include="status.h" />
     <ClInclude Include="stdint.h" />
     <ClInclude Include="efi.h" />

@@ -19,6 +19,12 @@
     <ClCompile Include="boot.c">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="filesystem.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="util.c">
+      <Filter>util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="util.h">
@@ -40,6 +46,9 @@
       <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="boot.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="filesystem.h">
       <Filter>source</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,17 +1,5 @@
 #pragma once
-#include <Uefi.h>
-#include <Library/UefiLib.h>
-#include <Library/DebugLib.h>
-#include <Library/MemoryAllocationLib.h>
-#include <Library/UefiBootServicesTableLib.h>
-#include <Library/UefiRuntimeServicesTableLib.h>
-#include <Library/DevicePathLib.h>
-#include <Library/PrintLib.h>
-#include <Protocol/SimpleFileSystem.h>
-#include <Protocol/LoadedImage.h>
-#include <IndustryStandard/PeImage.h>
-#include <Guid/GlobalVariable.h>
-#include <Guid/Acpi.h>
+#include "filesystem.h"
 
 CHAR8* gEfiCallerBaseName = "OpliOS";
 const UINT32 _gUefiDriverRevision = 0x1;
@@ -81,27 +69,6 @@ static EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL* COUT = NULL;
 
 
 
-EFI_INPUT_KEY
-getc(
-    VOID
-)
-{
-    EFI_EVENT e[1];
-
-    EFI_INPUT_KEY k;
-    memset(&k, 0, sizeof(EFI_INPUT_KEY));
-
-    e[0] = CIN->WaitForKey;
-    UINTN index = 0;
-    BS->WaitForEvent(1, e, &index);
-
-    if (!index)
-        CIN->ReadKeyStroke(CIN, &k);
-
-    return k;
-}
-
-
 UINT8 compare(const void* firstitem, const void* seconditem, UINT64 comparelength)
 {
     // Using const since this is a read-only operation: absolutely nothing should be changed here.
@@ -115,79 +82,6 @@ UINT8 compare(const void* firstitem, const void* seconditem, UINT64 comparelengt
     }
     return 1;
 }
-
-STATIC CONST CHAR16 mem_types[16][27] = {
-      L"EfiReservedMemoryType     ",
-      L"EfiLoaderCode             ",
-      L"EfiLoaderData             ",
-      L"EfiBootServicesCode       ",
-      L"EfiBootServicesData       ",
-      L"EfiRuntimeServicesCode    ",
-      L"EfiRuntimeServicesData    ",
-      L"EfiConventionalMemory     ",
-      L"EfiUnusableMemory         ",
-      L"EfiACPIReclaimMemory      ",
-      L"EfiACPIMemoryNVS          ",
-      L"EfiMemoryMappedIO         ",
-      L"EfiMemoryMappedIOPortSpace",
-      L"EfiPalCode                ",
-      L"EfiPersistentMemory       ",
-      L"EfiMaxMemoryType          "
-};
-
-VOID print_memmap()
-{
-    EFI_STATUS memmap_status;
-    UINTN MemMapSize = 0, MemMapKey, MemMapDescriptorSize;
-    UINT32 MemMapDescriptorVersion;
-    EFI_MEMORY_DESCRIPTOR* MemMap = NULL;
-    EFI_MEMORY_DESCRIPTOR* Piece;
-    UINT16 line = 0;
-
-    memmap_status = BS->GetMemoryMap(&MemMapSize, MemMap, &MemMapKey, &MemMapDescriptorSize, &MemMapDescriptorVersion);
-    if (memmap_status == EFI_BUFFER_TOO_SMALL)
-    {
-        MemMapSize += MemMapDescriptorSize;
-        memmap_status = BS->AllocatePool(EfiBootServicesData, MemMapSize, (void**)&MemMap); // Allocate pool for MemMap
-        if (EFI_ERROR(memmap_status)) // Error! Wouldn't be safe to continue.
-        {
-            Print(L"MemMap AllocatePool error. 0x%llx\r\n", memmap_status);
-            return;
-        }
-        memmap_status = BS->GetMemoryMap(&MemMapSize, MemMap, &MemMapKey, &MemMapDescriptorSize, &MemMapDescriptorVersion);
-    }
-    if (EFI_ERROR(memmap_status))
-    {
-        Print(L"Error getting memory map for printing. 0x%llx\r\n", memmap_status);
-    }
-
-    Print(L"MemMapSize: %llu, MemMapDescriptorSize: %llu, MemMapDescriptorVersion: 0x%x\r\n", MemMapSize, MemMapDescriptorSize, MemMapDescriptorVersion);
-
-    // There's no virtual addressing yet, so there's no need to see Piece->VirtualStart
-    // Multiply NumOfPages by EFI_PAGE_SIZE or do (NumOfPages << EFI_PAGE_SHIFT) to get the end address... which should just be the start of the next section.
-    for (Piece = MemMap; Piece < (EFI_MEMORY_DESCRIPTOR*)((UINT8*)MemMap + MemMapSize); Piece = (EFI_MEMORY_DESCRIPTOR*)((UINT8*)Piece + MemMapDescriptorSize))
-    {
-        if (line % 20 == 0)
-        {
-            getc();
-            Print(L"#   Memory Type                Phys Addr Start   Num Of Pages   Attr\r\n");
-        }
-
-        Print(L"%2d: %s 0x%016llx 0x%llx 0x%llx\r\n", line, mem_types[Piece->Type], Piece->PhysicalStart, Piece->NumberOfPages, Piece->Attribute);
-        line++;
-    }
-
-    memmap_status = BS->FreePool(MemMap);
-    if (EFI_ERROR(memmap_status))
-    {
-        Print(L"Error freeing print_memmap pool. 0x%llx\r\n", memmap_status);
-    }
-}
-
-typedef struct {
-    EFI_GRAPHICS_OUTPUT_PROTOCOL_MODE*  GPUArray;             // This array contains the EFI_GRAPHICS_OUTPUT_PROTOCOL_MODE structures for each available framebuffer
-    UINT64                              NumberOfFrameBuffers; // The number of pointers in the array (== the number of available framebuffers)
-} GPU_CONFIG;
 
 /**
 * @brief The entry point for the UEFI application.
@@ -326,74 +220,32 @@ UefiMain(
 
     Print(L"   Firmware Vendor: %s\r\n   Firmware Revision: 0x%08x\r\n\n", ST->FirmwareVendor, ST->FirmwareRevision);
 
-    // Configuration table info
-    Print(L"%llu system configuration tables are available.\r\n", ST->NumberOfTableEntries);
-   
     getc();
 
-    // Search for ACPI tables
-    UINT8 RSDPfound = 0;
-    UINTN RSDP_index = 0;
-
-    // This print is for debugging
-    for (UINTN i = 0; i < ST->NumberOfTableEntries; i++)
+    if ( !BlInitFileSystem( ) )
     {
-        Print(L"Table %llu GUID: %08x-%04x-%04x-%02x%02x-%02x%02x%02x%02x%02x%02x\r\n", i,
-            ST->ConfigurationTable[i].VendorGuid.Data1,
-            ST->ConfigurationTable[i].VendorGuid.Data2,
-            ST->ConfigurationTable[i].VendorGuid.Data3,
-            ST->ConfigurationTable[i].VendorGuid.Data4[0],
-            ST->ConfigurationTable[i].VendorGuid.Data4[1],
-            ST->ConfigurationTable[i].VendorGuid.Data4[2],
-            ST->ConfigurationTable[i].VendorGuid.Data4[3],
-            ST->ConfigurationTable[i].VendorGuid.Data4[4],
-            ST->ConfigurationTable[i].VendorGuid.Data4[5],
-            ST->ConfigurationTable[i].VendorGuid.Data4[6],
-            ST->ConfigurationTable[i].VendorGuid.Data4[7]);
-
-        if (compare(&ST->ConfigurationTable[i].VendorGuid, &(EFI_GUID)EFI_ACPI_20_TABLE_GUID, 16))
-        {
-            Print(L"RSDP 2.0 found!\r\n");
-            RSDP_index = i;
-            RSDPfound = 2;
-        }
+        return 1;
     }
-    // If no RSDP 2.0, check for 1.0
-    if (!RSDPfound)
+
+    if( BlGetRootDirectory( NULL ) )
+    { 
+        BlListAllFiles();
+    }
+    else
     {
-        for (UINTN i = 0; i < ST->NumberOfTableEntries; i++)
+        if( EFI_ERROR( FILE_SYSTEM_STATUS ) )
         {
-            if (compare(&ST->ConfigurationTable[i].VendorGuid, &(EFI_GUID)ACPI_TABLE_GUID, 16))
-            {
-                Print(L"RSDP 1.0 found!\r\n");
-                RSDP_index = i;
-                RSDPfound = 1;
-            }
+            Print( L"[ %r ] Failed to get root directory of current FS\n", BlGetLastFileError() );
         }
     }
 
-    if (!RSDPfound)
+    EFI_FILE_PROTOCOL* File = NULL;
+    if( BlFindFile( L"kernal.exe", &File ) )
     {
-        Print(L"System has no RSDP.\r\n");
+        Print(L"Found kernal.exe file!\n");
+        PrintFileName(File);
     }
-
-    getc(); 
-
-    // View memmap before too much happens to it
-    print_memmap();
     
-    Print(L"\nDone printing memmap\n");
-    getc();
-
-    // Create graphics structure
-    //GPU_CONFIG* Graphics;
-    //Status = ST->BootServices->AllocatePool(EfiLoaderData, sizeof(GPU_CONFIG), (void**)&Graphics);
-    //if (EFI_ERROR(Status))
-    //{
-    //    Print(L"Graphics AllocatePool error. 0x%llx\r\n", Status);
-    //    return Status;
-    //}
-
     getc();
 
     return EFI_SUCCESS;

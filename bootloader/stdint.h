@@ -38,7 +38,7 @@ typedef unsigned short WORD;
 typedef WORD* PWORD;
 
 #define PVOID void*
-#define NULL 0
+//#define NULL 0
 
 #define _In_
 #define _In_opt_
